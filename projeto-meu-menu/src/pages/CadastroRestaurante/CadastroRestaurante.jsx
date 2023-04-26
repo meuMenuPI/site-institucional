@@ -1,8 +1,6 @@
 import React from "react";
-import './style.css'
 import { Button, Col, Container, Form, Row } from "react-bootstrap"
 import { BiArrowBack } from 'react-icons/bi';
-
 
 export default function CadastroRestaurante() {
   return (

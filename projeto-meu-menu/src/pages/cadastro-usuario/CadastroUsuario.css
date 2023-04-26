@@ -1,0 +1,10 @@
+.cadastroUsuario{
+    height: 100vh;
+    background-color: rgb(111, 185, 101);
+    width: 100%;
+}
+.forms{
+    height: 100%;
+    width: 33%;
+    background-color: #8D0000;
+}
