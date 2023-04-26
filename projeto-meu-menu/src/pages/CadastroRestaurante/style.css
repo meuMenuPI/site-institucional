@@ -1,6 +1,7 @@
 .container-image {
     background-color: #8D0000;
-    min-height: 100vh;
+    height: 100vh;
+    box-sizing: border-box;
     align-items: center;
 }
 
@@ -11,8 +12,25 @@
     justify-content: center;
 }
 
+.container-header {
+    gap: 2.5rem;
+}
+
+.form-content {
+    gap: 3rem;
+}
+
+.form-text-info {
+    border-bottom: 2px solid #8080806b;
+}
+
+.input-form {
+    border-radius: 0px;
+    border: 1px solid #00000091;
+}
+
 .imgLogo {
-    width: 30%;
+    width: calc(200px + 20%);
     height: 30%;
 }
 
@@ -25,11 +43,12 @@
     background-color: #8D0000;
     border: none;
     border-radius: 40px;
-    color: white;
+    color: #ffffff;
 }
 
-.passos {
-    height: 20%;
+.steps h1 {
+
+    font-size: 56px;
 }
 
 .passoAtual {
@@ -39,3 +58,4 @@
 .passosFaltantes {
     color: gray;
 }
+
