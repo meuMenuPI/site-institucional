@@ -1,6 +1,6 @@
 import React from "react";
 // import '../assets/css/arquivo.css'
-import { Button, Carousel, Col, Container, Form, Row } from "react-bootstrap"
+import {Carousel} from "react-bootstrap"
 export default function Home(){
     
 

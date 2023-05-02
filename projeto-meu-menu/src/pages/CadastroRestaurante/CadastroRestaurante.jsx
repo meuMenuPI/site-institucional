@@ -1,10 +1,48 @@
 import React from "react";
 import './style.css'
-import { Button, Col, Container, Form, Row } from "react-bootstrap"
-import { BiArrowBack } from 'react-icons/bi';
 
+// Components
+import { Button, Col, Container, Row } from "react-bootstrap"
+import { BiArrowBack } from 'react-icons/bi';
+import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
+import { FiSend } from 'react-icons/fi'
+import Passo1 from "../../components/cadastroRestauranteComponents/Passo1"
+import Passo2 from "../../components/cadastroRestauranteComponents/Passo2"
+import Passo3 from "../../components/cadastroRestauranteComponents/Passo3"
+
+
+// Hooks
+import { EtapasControl } from "../../hooks/EtapasControl";
+import { useState } from "react";
+
+const formTemplate = {
+  nomeFantasia: "",
+  cpfOuCnpj: "",
+  nome: "",
+  celular: "",
+  cep: "",
+  especialidade: "",
+
+}
 
 export default function CadastroRestaurante() {
+
+  const [data, setData] = useState(formTemplate)
+
+  const updateFielHandler = (key, value) => {
+    setData((prev) => {
+      return {...prev, [key]: value };
+    });
+  };
+
+  const formComponents = [
+  <Passo1 data={data} updateFielHandler={updateFielHandler} />,
+  <Passo2 data={data} updateFielHandler={updateFielHandler} />,
+  <Passo3 data={data} updateFielHandler={updateFielHandler} />
+]
+  const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } = EtapasControl(formComponents)
+
+
   return (
     <Container fluid>
       <Row className="d-flex flex-wrap ">
@@ -17,21 +55,22 @@ export default function CadastroRestaurante() {
         <Col lg={5} md={6} sm={12} className="container-form d-flex flex-column">
           <BiArrowBack className="align-self-start mb-5 d-flex d-md-none" size="80px" />
           <Col lg={10} md={12}>
-            <div className="container-header w-100 mb-5 d-flex flex-column ">
-              <div className="steps d-flex flex-wrap justify-content-center gap-3">
-                <h1 className=""> PASSO </h1>
-                <h1 className=""> <b className="passoAtual"> 01</b></h1>
-                <h1 className=""> <span className="passosFaltantes"> 02 </span></h1>
-                <h1 className=""> <span className="passosFaltantes"> 03 </span></h1>
-              </div>
-              <p className="form-text-info">Todos os campos são obrigatórios</p>
+            <div className="container-header w-100 mb-5 d-flex flex-column " >
+              {currentComponent}
             </div>
 
-            <Form className="form-content w-100 d-flex flex-column justify-content-end align-items-end">
-              <Form.Control size="lg" className="input-form w-100" type="email" placeholder="Nome Fantasia" />
-              <Form.Control size="lg" className="input-form w-100" type="number" placeholder="CNPJ ou CPF" />
-              <Button className="buttonAvancar">Avançar</Button>
-            </Form>
+            <form className="form-content d-flex flex-wrap justify-content-center" onSubmit={(e) => changeStep(currentStep + 1, e)}>
+
+              {!isFirstStep ? (<Button onClick={() => changeStep(currentStep - 1)} type="button" className="buttonAvancar"><GrFormPrevious fill="#ffffff " />Voltar</Button>) : 
+              (<Button disabled type="button" className="buttonAvancar"><GrFormPrevious />Voltar</Button>)}
+
+
+              {!isLastStep ? (<Button type="submit" className="buttonAvancar">Avançar <GrFormNext /></Button>) :
+                (<Button type="submit" className="buttonAvancar">Cadastrar <FiSend /></Button>)}
+
+
+            </form>
+
           </Col>
         </Col>
       </Row>

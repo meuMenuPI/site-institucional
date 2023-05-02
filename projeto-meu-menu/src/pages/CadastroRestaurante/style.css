@@ -46,6 +46,14 @@
     color: #ffffff;
 }
 
+.buttonAvancar:hover {
+    background-color: #a73434;
+}
+
+.buttonAvancar:disabled {
+    background-color: #8D0000;
+}
+
 .steps h1 {
 
     font-size: 56px;
@@ -58,4 +66,3 @@
 .passosFaltantes {
     color: gray;
 }
-
