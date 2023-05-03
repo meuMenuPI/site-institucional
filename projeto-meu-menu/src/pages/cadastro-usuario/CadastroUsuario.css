@@ -1,10 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@100;300;500;700&display=swap');
+
 .cadastroUsuario{
     height: 100vh;
     background-color: rgb(111, 185, 101);
     width: 100%;
+    display: flex;
+    align-items: center ;
+
 }
+
 .forms{
     height: 100%;
-    width: 33%;
+    width: 40%;
     background-color: #8D0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    column-gap: 30px;
+}
+
+.container{
+    height: 40%;
+    width: 90%;
+}
+
+.voltar{
+    height: 15%;
+    width: 100%;
+    margin-top: 7%;
+    margin-bottom: 15%;
+}
+
+.imagem{
+    height: 100%;
+    width: 100%;
+}
+
+.header{
+    height: 20%;
+    width: 100%;
+    display: flex;
+}
+
+.passos{
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    word-spacing: 10px;
+    margin-left: 5%;
+    color: white;
+    font-size: 24px;
+}
+
+.campos_obrigatorios{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: 100;
+    margin-top: 10%;
+    margin-bottom: -2%;
+}
+
+.linha{
+    width: 90%;
+}
+
+.campos{
+    height: 50%;
+    width: 90%;
+    background-color: blue;
+}
+
+.inputs{
+    background-color: #8D0000;
+    border: 1px, white;
+}
+
+.fundo{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo_preto{
+    height: 7%;
+    margin-top: 10%;
+}
+
+.design{
+    height: 10%;
+    margin-top: 2%;
+    margin-left: -40%;
+}
+
+.div_fundo{
+    background-color: blue;
+    width: 100%;
+    height: 70%;
+
+    background-image: url("/assets/images/imagem_cadastro_usuario.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+}
+
+.img_fundo{
+    width: 1%;
 }

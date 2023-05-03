@@ -1,10 +1,17 @@
 import React from "react";
-
+import Forms from "./components/forms";
+import Campos from "./components/campos";
+import Fundo from "./components/fundo";
 function cadastroUsuario() {
     return (
       <section className="cadastroUsuario">
-        <div className="forms"></div>
+        <div className="forms">
+          <Forms></Forms>
+          <Campos></Campos>
+          </div>
+          <Fundo></Fundo>
       </section>
+
     );
   }
   
