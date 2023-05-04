@@ -12,7 +12,7 @@
 
 .forms{
     height: 100%;
-    width: 40%;
+    width: 50%;
     background-color: #8D0000;
     display: flex;
     flex-direction: column;
@@ -69,21 +69,57 @@
     height: 50%;
     width: 90%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     column-gap: 10%;
 }
 
 .input_cad_usuario{
     background-color: #8D0000;
     margin-bottom: 10%;
+    color: white;
+    border: 2px, white, solid;
+}
+
+.input_cad_usuario:hover{
+    background-color: #8D0000;
+    color: white;
+}
+
+.input_cad_usuario:active{
+    background-color: #8D0000;
+    color: white;
+}
+
+.input_cad_usuario-ddl.input_cad_usuario-input-group.input_cad_usuario-control-wrapper .input_cad_usuario-input {
+    font-size: 20px;
+    font-family: emoji;
+    color: #ab3243;
+    background: #32a5ab;
+}
+
+.dropdown:active{
+    border: 2px, white, solid;
+    background-color: #8D0000;
 }
 
 .btn_cad_usuario{
     margin-left: 70%;
     color: #8D0000;
     background-color: white;
-    
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 14px;
 }
+
+.btn_cad_usuario:hover {
+    background-color: white;
+    color: #8D0000;
+
+}
+
 
 .fundo{
     height: 100%;
@@ -106,16 +142,15 @@
     margin-left: -40%;
 }
 
-.div_fundo{
-    background-color: blue;
+ .div_fundo{
     width: 100%;
     height: 70%;
-
-    background-image: url("");
+    background-image: url("/public/assets/images/imagem_cadastro_usuario.png");
     background-repeat: no-repeat, no-repeat;
     background-position: center;
-}
+    background-size: cover;
+} 
 
-.img_fundo{
-    width: 1%;
-}
+/* .img_fundo{
+    width: 70%;
+} */
