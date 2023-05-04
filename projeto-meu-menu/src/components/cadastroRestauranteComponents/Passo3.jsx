@@ -31,6 +31,7 @@ const Passo3 = ({ data, updateFielHandler }) => {
         </Card>
 
       </div>
+      
     </>
   )
 }
