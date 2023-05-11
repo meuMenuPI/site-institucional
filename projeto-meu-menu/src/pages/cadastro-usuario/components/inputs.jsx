@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap"
-import { BiArrowBack } from 'react-icons/bi';
 
 function Inputs(props){
     return (

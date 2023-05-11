@@ -1,16 +1,15 @@
-import Dropdown from 'react-bootstrap/Dropdown';
+import Select from 'react-bootstrap/Dropdown';
 
 function Especialidade() {
   return (
-    <Dropdown className='dropdown'>
-      <Dropdown.Toggle variant="success" id="dropdown-basic" className="input_cad_usuario">
-        Especialide
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu className='dropdown_menu'>
-        <Dropdown.Item size="lg" href="#/action-1" >Action</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+  <select class="input_cad_usuario">
+  <option selected>Especialidade</option>
+  <option value="1">Brasileira</option>
+  <option value="2">Mexicana</option>
+  <option value="3">Japonesa</option>
+  <option value="3">Italiana</option>
+  <option value="3">Arabe</option>
+</select>
   );
 }
 

@@ -55,14 +55,14 @@
 .campos_obrigatorios{
     font-family: 'Roboto', sans-serif;
     color: white;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 100;
-    margin-top: 10%;
-    margin-bottom: -2%;
+    margin-top: 5%;
+    margin-bottom: -1%;
 }
 
 .linha{
-    width: 90%;
+    width: 100%;
 }
 
 .campos{
@@ -74,32 +74,22 @@
 }
 
 .input_cad_usuario{
+    width: 100%;
     background-color: #8D0000;
     margin-bottom: 10%;
     color: white;
-    border: 2px, white, solid;
+    border: 1px solid white;
+    text-align: left;
+    height: 45px;
+    border-radius: 8px;
 }
 
-.input_cad_usuario:hover{
-    background-color: #8D0000;
+select {
+    text-align: end;
+}
+
+.input_cad_usuario::placeholder {
     color: white;
-}
-
-.input_cad_usuario:active{
-    background-color: #8D0000;
-    color: white;
-}
-
-.input_cad_usuario-ddl.input_cad_usuario-input-group.input_cad_usuario-control-wrapper .input_cad_usuario-input {
-    font-size: 20px;
-    font-family: emoji;
-    color: #ab3243;
-    background: #32a5ab;
-}
-
-.dropdown:active{
-    border: 2px, white, solid;
-    background-color: #8D0000;
 }
 
 .btn_cad_usuario{
@@ -112,6 +102,7 @@
     align-items: center;
     border: none;
     border-radius: 14px;
+    margin-top: -2%;
 }
 
 .btn_cad_usuario:hover {
@@ -149,6 +140,7 @@
     background-repeat: no-repeat, no-repeat;
     background-position: center;
     background-size: cover;
+    margin-top: -3%;
 } 
 
 /* .img_fundo{
