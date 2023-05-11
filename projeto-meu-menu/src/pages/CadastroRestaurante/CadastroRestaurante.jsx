@@ -1,5 +1,7 @@
 import React from "react";
+import { Button, Col, Container, Form, Row } from "react-bootstrap"
 import './style.css'
+import { useNavigate } from 'react-router-dom'
 
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap"
@@ -43,12 +45,14 @@ export default function CadastroRestaurante() {
   <Passo3 data={data} updateFielHandler={updateFielHandler} />
 ]
   const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } = EtapasControl(formComponents)
+  const navigate = useNavigate();
 
 
   return (
     <Container fluid>
       <Row className="d-flex flex-wrap ">
         <Col lg={7} md={6} className="container-image d-none d-md-flex flex-column">
+
           <BiArrowBack className="align-self-start mt-5 " size="80px" fill="#ffffff" />
           <img className="imgLogo" src={Logo} alt="logo meu menu" />
           <img className="imgChefe" src="/assets/images/chefeCadastro.svg" alt="Aspas de operator" />

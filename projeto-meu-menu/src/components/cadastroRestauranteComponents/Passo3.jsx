@@ -2,7 +2,7 @@ import React from 'react'
 import { Form } from "react-bootstrap"
 import Card from 'react-bootstrap/Card';
 
-const Passo3 = ({data, updateFielHandler}) => {
+const Passo3 = ({ data, updateFielHandler }) => {
   return (
     <>
       <div className="steps d-flex flex-wrap justify-content-center gap-3">
@@ -15,17 +15,23 @@ const Passo3 = ({data, updateFielHandler}) => {
       <Form.Control value={data.especialidade || ""} onChange={(e) => updateFielHandler("especialidade", e.target.value)} name='especialidade' id='especialidade' size="lg" className="input-form w-100" type="text" placeholder="Especialidade" />
       <p> Selecione um plano</p>
       <div className="form-content d-flex flex-wrap justify-content-center">
-      <Card style={{ width: '18rem' }}>
-      <Card.Header>Plano padrão
-      </Card.Header>
-      Indicado para pequenos comercios
-    </Card>
-    <Card style={{ width: '18rem' }}>
-      <Card.Header>Plano padrão
-      </Card.Header>
-      Indicado para pequenos comercios
-    </Card>
-    </div>
+
+        <Card className='active' style={{ width: '18rem' }}>
+          <Card.Header>Plano padrão
+          </Card.Header> <br />
+          Indicado para pequenos comercios <br /> <br />
+          R$ 74,90/mês
+        </Card>
+
+        <Card className='active' style={{ width: '18rem' }}>
+          <Card.Header className='card-header' >Plano Vantagem
+          </Card.Header>  <br />
+          Indicado para médios/grandes comércios <br /> <br />
+          R$ 74,90/mês
+        </Card>
+
+      </div>
+      
     </>
   )
 }
