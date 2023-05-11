@@ -11,6 +11,8 @@ import { FiSend } from 'react-icons/fi'
 import Passo1 from "../../components/cadastroRestauranteComponents/Passo1"
 import Passo2 from "../../components/cadastroRestauranteComponents/Passo2"
 import Passo3 from "../../components/cadastroRestauranteComponents/Passo3"
+import Logo from '../../assets/images/logoBranco.svg'
+
 
 
 // Hooks
@@ -50,8 +52,9 @@ export default function CadastroRestaurante() {
     <Container fluid>
       <Row className="d-flex flex-wrap ">
         <Col lg={7} md={6} className="container-image d-none d-md-flex flex-column">
-          <BiArrowBack onClick={() => navigate("/")} className="align-self-start mt-5 " size="80px" fill="#ffffff" />
-          <img className="imgLogo" src="/assets/images/logoBranco.svg" alt="logo meu menu" />
+
+          <BiArrowBack className="align-self-start mt-5 " size="80px" fill="#ffffff" />
+          <img className="imgLogo" src={Logo} alt="logo meu menu" />
           <img className="imgChefe" src="/assets/images/chefeCadastro.svg" alt="Aspas de operator" />
         </Col>
 
