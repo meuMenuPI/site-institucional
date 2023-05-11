@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap"
 import './style.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -12,7 +11,7 @@ import Passo1 from "../../components/cadastroRestauranteComponents/Passo1"
 import Passo2 from "../../components/cadastroRestauranteComponents/Passo2"
 import Passo3 from "../../components/cadastroRestauranteComponents/Passo3"
 import Logo from '../../assets/images/logoBranco.svg'
-
+import ChefeCadastro from '../../assets/images/chefeCadastro.svg'
 
 
 // Hooks
@@ -55,7 +54,7 @@ export default function CadastroRestaurante() {
 
           <BiArrowBack className="align-self-start mt-5 " size="80px" fill="#ffffff" />
           <img className="imgLogo" src={Logo} alt="logo meu menu" />
-          <img className="imgChefe" src="/assets/images/chefeCadastro.svg" alt="Aspas de operator" />
+          <img className="imgChefe" src={ChefeCadastro} alt="Aspas de operator" />
         </Col>
 
         <Col lg={5} md={6} sm={12} className="container-form d-flex flex-column">
