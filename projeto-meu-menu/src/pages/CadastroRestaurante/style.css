@@ -66,3 +66,34 @@
 .passosFaltantes {
     color: gray;
 }
+
+.card:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.card {
+    width: min(230px, 90vw);
+    height: 210px;
+    background: #ffffff94;
+    box-shadow: -4px 4px 20px rgba(24, 23, 23, 0.25);
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+    text-align: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+    outline: 0ch;
+    border: 0ch;
+    padding: 1rem;
+    border-bottom: 1vh solid transparent ;
+    border-radius: 20px;
+}
+
+.card-header{
+    background: #ffffff94;
+}
+
+.active:active{
+    background-color: #8D0000;
+    
+}
