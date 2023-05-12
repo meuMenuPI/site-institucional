@@ -23,6 +23,15 @@ const formLogin = {
 
 function Login() {
 
+  
+  function logar(e){
+    const userLogin = {
+      email: e.mail
+
+    }
+  
+  }
+
   const [data, setData] = useState(formLogin)
 
 

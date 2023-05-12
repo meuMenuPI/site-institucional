@@ -5,4 +5,4 @@ const api = axios.create({
     baseURL: "http://localhost:8080/meumenu" // URL base para realizar as requisições
 })
 
-export default api; // exportando a instância pré-configurada do Axios para ser utilizada em outros módulos
+export default api; // exportando a instância pré-configurada do Axios para ser utilizada em outros módulosgit
