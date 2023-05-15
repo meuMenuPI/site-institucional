@@ -14,9 +14,7 @@ export default function Routers() {
             <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="/restaurante-cadastrar" element={<CadastroRestaurante />}/>
- 
                 <Route path="/inicio" element={<Inicio />}/>
-
                 <Route path="/login" element={<Login />}/>
                 <Route path="/usuario-cadastrar" element={<CadastroUsuario />}/>
                 <Route path="/usuario-cadastrarp2" element={<CadastroUsuarioP2 />}/>

@@ -8,36 +8,34 @@ import api from "../../api"; // importando a instância do Axios de "api.js"
 import { useNavigate } from 'react-router-dom';
 
 
-  function passarTela(){
-    window.location="usuario-cadastrarp2"
-  }
-
-function cadastroUsuario() {
+function CadastroUsuario() {
 
   const navigate = useNavigate();
-
   
   function cadastrar(e){
     
     e.preventDefault();
 
     const infoUser = {
-      nome : e.target.nome.value,
-      sobrenome : e.target.Sobrenome.value,
-      cpf : e.target.CPF.value
+/*    nome : e.target.nome.value,
+      sobrenome : e.target.sobrenome.value,
+      cpf : e.target.cpf.value
+ */
     }
-
+/* 
     api.post("/", infoUser)
     .then(() => {
       navigate("/usuarios/cadastrar");
     })
     .catch((erro) => {
     alert("deu erro, muita gente testando")
-    })
+    }) */
     
-    sessionStorage.JSON_INFO1 = infoUser;
+    sessionStorage.nome = e.target.nome.value
+    sessionStorage.sobrenome = e.target.sobrenome.value
+    sessionStorage.cpf = e.target.cpf.value
 
-    passarTela(); 
+    navigate("/usuario-cadastrarp2"); 
   }
 
     return (
@@ -46,9 +44,9 @@ function cadastroUsuario() {
           <Forms></Forms>
           <div className="campos">
           <Form className="form-content w-100" onSubmit={cadastrar}>
-            <Inputs nome="nome"/>
-            <Inputs nome="Sobrenome"/>
-            <Inputs nome="CPF"/>
+            <Inputs placeholder="Nome" name="nome"/>
+            <Inputs placeholder="Sobrenome" name="sobrenome"/>
+            <Inputs placeholder="CPF" name="cpf"/>
           <Button className="btn_cad_usuario" type="submit" id="btn_cad_usuario_p1" >Avançar</Button>
           </Form>  
         </div>
@@ -60,4 +58,4 @@ function cadastroUsuario() {
 
   }
   
-  export default cadastroUsuario;
+  export default CadastroUsuario;
