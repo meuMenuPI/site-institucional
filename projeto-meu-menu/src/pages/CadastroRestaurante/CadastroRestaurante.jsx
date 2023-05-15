@@ -1,6 +1,7 @@
 import React from "react";
 import './style.css'
 import { useNavigate } from 'react-router-dom'
+import api from "../../api";
 
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap"
@@ -34,15 +35,34 @@ export default function CadastroRestaurante() {
 
   const updateFielHandler = (key, value) => {
     setData((prev) => {
-      return {...prev, [key]: value };
+      return { ...prev, [key]: value };
     });
+    console.log(data)
   };
 
+  function logar(e) {
+    e.preventDefault();
+
+    const restauranteInfo = {
+      usuario : 1,
+      nome: data.nomeFantasia,
+      cnpj: data.cpfOuCnpj,
+      especialidade: data.especialidade,
+      telefone: data.celular,
+      site: data.site,
+      estrela: data.estrela,
+    }
+
+    console.log(restauranteInfo);
+
+    /* api.post("restaurantes/cadastrar", data) */
+  }
+
   const formComponents = [
-  <Passo1 data={data} updateFielHandler={updateFielHandler} />,
-  <Passo2 data={data} updateFielHandler={updateFielHandler} />,
-  <Passo3 data={data} updateFielHandler={updateFielHandler} />
-]
+    <Passo1 data={data} updateFielHandler={updateFielHandler} />,
+    <Passo2 data={data} updateFielHandler={updateFielHandler} />,
+    <Passo3 data={data} updateFielHandler={updateFielHandler} />
+  ]
   const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } = EtapasControl(formComponents)
   const navigate = useNavigate();
 
@@ -64,15 +84,15 @@ export default function CadastroRestaurante() {
               {currentComponent}
             </div>
 
-            <form className="form-content d-flex flex-wrap justify-content-center" onSubmit={(e) => changeStep(currentStep + 1, e)}>
+            <form id="teste" className="form-content d-flex flex-wrap justify-content-center" onSubmit={!isLastStep ? (e) => changeStep(currentStep + 1, e) : logar}>
 
-              {!isFirstStep ? (<Button onClick={() => changeStep(currentStep - 1)} type="button" className="buttonAvancar"><GrFormPrevious fill="#ffffff " />Voltar</Button>) : 
-              (<Button disabled type="button" className="buttonAvancar"><GrFormPrevious />Voltar</Button>)}
+              {!isFirstStep ? (<Button onClick={() => changeStep(currentStep - 1)} type="button" className="buttonAvancar"><GrFormPrevious fill="#ffffff " />Voltar</Button>) :
+                (<Button disabled type="button" className="buttonAvancar"><GrFormPrevious />Voltar</Button>)}
 
 
               {!isLastStep ? (<Button type="submit" className="buttonAvancar">Avançar <GrFormNext /></Button>) :
-                (<Button type="submit" className="buttonAvancar">Cadastrar <FiSend /></Button>)}
-
+                ((<Button type="submit" className="buttonAvancar" onSubmit={logar}>Cadastrar <FiSend /></Button>))
+              }
 
             </form>
 
