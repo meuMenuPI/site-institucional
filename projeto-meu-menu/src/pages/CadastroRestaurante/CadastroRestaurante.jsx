@@ -1,7 +1,7 @@
 import React from "react";
 import './style.css'
 import { useNavigate } from 'react-router-dom'
-import api from "../../api";
+// import api from "../../api";
 
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap"
@@ -11,6 +11,7 @@ import { FiSend } from 'react-icons/fi'
 import Passo1 from "../../components/cadastroRestauranteComponents/Passo1"
 import Passo2 from "../../components/cadastroRestauranteComponents/Passo2"
 import Passo3 from "../../components/cadastroRestauranteComponents/Passo3"
+import Passo4 from "../../components/cadastroRestauranteComponents/Passo4"
 import Logo from '../../assets/images/logoBranco.svg'
 import ChefeCadastro from '../../assets/images/chefeCadastro.svg'
 
@@ -61,7 +62,8 @@ export default function CadastroRestaurante() {
   const formComponents = [
     <Passo1 data={data} updateFielHandler={updateFielHandler} />,
     <Passo2 data={data} updateFielHandler={updateFielHandler} />,
-    <Passo3 data={data} updateFielHandler={updateFielHandler} />
+    <Passo3 data={data} updateFielHandler={updateFielHandler} />,
+    <Passo4 data={data} updateFielHandler={updateFielHandler} />
   ]
   const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } = EtapasControl(formComponents)
   const navigate = useNavigate();
@@ -71,14 +73,14 @@ export default function CadastroRestaurante() {
     <Container fluid>
       <Row className="d-flex flex-wrap ">
         <Col lg={7} md={6} className="container-image d-none d-md-flex flex-column">
+          <BiArrowBack onClick={() => navigate("/")} className="align-self-start mt-5 " size="250px" fill="#ffffff" />
 
-          <BiArrowBack className="align-self-start mt-5 " size="80px" fill="#ffffff" />
           <img className="imgLogo" src={Logo} alt="logo meu menu" />
           <img className="imgChefe" src={ChefeCadastro} alt="Aspas de operator" />
         </Col>
 
         <Col lg={5} md={6} sm={12} className="container-form d-flex flex-column">
-          <BiArrowBack className="align-self-start mb-5 d-flex d-md-none" size="80px" />
+          <BiArrowBack onClick={() => navigate("/")} className="align-self-start mb-5 d-flex d-md-none" size="80px" />
           <Col lg={10} md={12}>
             <div className="container-header w-100 mb-5 d-flex flex-column " >
               {currentComponent}

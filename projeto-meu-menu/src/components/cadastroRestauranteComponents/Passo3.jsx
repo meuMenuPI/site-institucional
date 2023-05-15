@@ -1,6 +1,6 @@
 import React from 'react'
 import Especialidade from "../../components/cadastroUsuario/especialidade";
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
 
 const Passo3 = ({ data, updateFielHandler }) => {
   return (
@@ -12,10 +12,11 @@ const Passo3 = ({ data, updateFielHandler }) => {
         <h1 className=""> <span className="passosFaltantes"> 01 </span></h1>
         <h1 className=""> <span className="passosFaltantes"> 02 </span></h1>
         <h1 className=""> <b className="passoAtual"> 03</b></h1>
+        <h1 className=""> <span className="passosFaltantes"> 04 </span></h1>
       </div>
       <p className="form-text-info">Todos os campos são obrigatórios</p>
       <Especialidade valorInicial="Especialidade" name="especialidade" value={data.especialidade || ""} onChange={(e) => updateFielHandler("especialidade", e.target.value)} id='especialidade' size="lg" className="input-form w-100" type="text" placeholder="Especialidade" color="#8D0000"/>
-      <p> Selecione um plano</p>
+      {/* <p> Selecione um plano</p>
       <div className="form-content d-flex flex-wrap justify-content-center">
 
         <Card className='active' style={{ width: '18rem' }}>
@@ -32,7 +33,7 @@ const Passo3 = ({ data, updateFielHandler }) => {
           R$ 74,90/mês
         </Card>
 
-      </div>
+      </div> */}
       
     </>
   )
