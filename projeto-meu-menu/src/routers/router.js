@@ -7,6 +7,9 @@ import Inicio  from "../pages/Inicio/Inicio";
 
 import CadastroUsuario from "../pages/cadastro-usuario/CadastroUsuario"
 import CadastroUsuarioP2 from "../pages/cadastro-usuario/CadastroUsuarioP2";
+import RestaurantePerfil from "../pages/RestauranteLogado/RestaurantePerfil"
+import RestauranteCardapioEdition from "../pages/RestauranteCardapio/RestauranteCardapioEdition";
+
 export default function Routers() {
 
     return (
@@ -20,6 +23,8 @@ export default function Routers() {
                 <Route path="/login" element={<Login />}/>
                 <Route path="/usuario-cadastrar" element={<CadastroUsuario />}/>
                 <Route path="/usuario-cadastrarp2" element={<CadastroUsuarioP2 />}/>
+                <Route path="/restaurante-perfil" element={<RestaurantePerfil />}/>
+                <Route path="/restaurante-cardapio" element={<RestauranteCardapioEdition />}/>
             </Routes>
         </Router>
     )
