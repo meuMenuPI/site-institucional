@@ -38,7 +38,10 @@ function Login() {
     api.post("usuarios/logar",userLogin)
     .then((dadosUuarios) => {
       sessionStorage.nome = dadosUuarios.data.nome;
+      sessionStorage.email = dadosUuarios.data.email;
+      sessionStorage.tipoComidaPreferida = dadosUuarios.data.tipoComidaPreferida;
       alert("Usuário encontrado, logando...")
+      console.log(dadosUuarios.data)
     })
     .catch((erro) => {
       throw "Email ou senha incorretos"
