@@ -1,0 +1,18 @@
+/*-------------------      STYLE DA PAGINA EDITAR CARDAPIO     ------------------- */
+
+body{
+    margin: 0;
+}
+
+.all{
+    height: 100vh;
+    width: 100vw;
+}
+
+.div_header_profile{
+    background-color: red;
+    height: 28%;
+    width: 84%;
+    margin-left: 9.8%;
+    display: flex;
+}
