@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+
 import Forms from "../../components/cadastroUsuario/forms";
 import Fundo from "../../components/cadastroUsuario/fundo";
 import Inputs from "../../components/cadastroUsuario/inputs";
-import { Button, Col, Container, Form, Row } from "react-bootstrap"
-import { BiArrowBack } from 'react-icons/bi';
+import { Button, Form } from "react-bootstrap"
 import Especialidade from "../../components/cadastroUsuario/especialidade";
 import { useNavigate } from "react-router-dom";
 import api from "../../api";
@@ -49,10 +48,10 @@ function CadastroUsuarioP2() {
         <Forms></Forms>
         <div className="campos">
           <Form className="form-content w-100" onSubmit={cadastrar}>
-            <Inputs placeholder="Email" name="email" />
-            <Especialidade valorInicial="Tipo de comida favorito" name="especialidade"/>
-            <Inputs placeholder="Senha" name="senha"/>
-            <Inputs placeholder="Confirmar Senha" name="conf_senha" />
+            <Inputs placeholder="Email" name="email" color="#8D0000"/>
+            <Especialidade valorInicial="Tipo de comida favorito" name="especialidade" color="#8D0000"/>
+            <Inputs placeholder="Senha" name="senha" color="#8D0000"/>
+            <Inputs placeholder="Confirmar Senha" name="conf_senha" color="#8D0000" />
             <Button className="btn_cad_usuario" type="submit">Avançar</Button>
           </Form>
         </div>

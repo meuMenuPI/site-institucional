@@ -6,3 +6,6 @@ const api = axios.create({
 })
 
 export default api; // exportando a instância pré-configurada do Axios para ser utilizada em outros módulosgit
+
+
+// ATENÇÃO: CASO NÃO FUNCIONA O 'AXIOS' EXECUTE O COMANDO : npm install axios --save
