@@ -4,7 +4,7 @@ function Cardapio(props) {
     return (
         <div className='rp_cardapio'>
             <div className='rp_alinharCardapio'>
-                <span>{props.nomeRestaurante}aaaaaaaa</span>
+                <span className='rp_nomeCardapio'>{props.nomeRestaurante}Luquinhas te Amo</span>
             </div>
         </div>
     )

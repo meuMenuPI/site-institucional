@@ -12,18 +12,19 @@
     height: 25vh;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .rp_containerInfoRestaurante{
     width: 55%;
-    height: 100%;
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .rp_imgHeader{
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     background-color: white;
     background-repeat: no-repeat;
     background-position: center;
@@ -46,6 +47,12 @@
     color: white;
     font-size: 1.1rem;
 }
+.rp_endereco{
+    font-weight: 300;
+}
+.rp_verNoMapa{
+    font-weight: 300;
+}
 .rp_divEstrelaSeguir{
     width: 70%;
     display: flex;
@@ -62,8 +69,8 @@
     border-radius: 10px;
     padding: 0.5%;
     min-width: 30%;
-    border-color: black;
     font-weight: 400;
+    border: none;
 }
 
 .rp_verNoMapa{
@@ -106,8 +113,7 @@
 
 .rp_cardapio{
     width: 100vw;
-    height: 65vh;
-    background-color: rgb(171, 123, 123);
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,6 +122,54 @@
 .rp_alinharCardapio{
     height: 100%;
     width: 80%;
-    background-color: blue;
-    justify-content: space-around;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.rp_nomeCardapio{
+    color: #8D0000;
+    font-size: 1.6rem;
+}
+
+.rp_itemCardapio{
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5%;
+}
+
+
+.rp_descricaoPrato{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.rp_nomePrato{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.rp_precoPrato{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.rp_fotoPrato{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
