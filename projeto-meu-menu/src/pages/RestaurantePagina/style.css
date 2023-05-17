@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+
+.rp_header{
+    background-color: #8D0000;
+    width: 100vw;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+}
+.rp_containerInfoRestaurante{
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.rp_imgHeader{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.rp_divImagem{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rp_dadosRestaurante{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: white;
+    font-size: 1.1rem;
+}
+.rp_divEstrelaSeguir{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.rp_nomeH2{
+    font-weight: bold;
+}
+
+.rp_botaoSeguir{
+    background-color: #F0DCF5;
+    border-radius: 10px;
+    padding: 0.5%;
+    min-width: 30%;
+    border-color: black;
+    font-weight: 400;
+}
+
+.rp_verNoMapa{
+    cursor: pointer;
+}
+
+.rp_menuPagina{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.rp_alinharMenu{
+    height: 100%;
+    width: 30%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rp_divisorMenu{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 33%;
+    border-left: 1px solid rgb(0, 0, 0);
+    border-right: 1px solid rgb(0, 0, 0);
+}
+
+.rp_divisoria{
+    text-align: center;
+    width: 33%;
+}
+
+.rp_cardapio{
+    width: 100vw;
+    height: 65vh;
+    background-color: rgb(171, 123, 123);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rp_alinharCardapio{
+    height: 100%;
+    width: 80%;
+    background-color: blue;
+    justify-content: space-around;
+}

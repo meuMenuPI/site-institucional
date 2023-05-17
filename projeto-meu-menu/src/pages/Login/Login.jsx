@@ -62,9 +62,10 @@ function Login() {
         <Col lg={5} md={6} sm={12} className="container-form d-flex flex-column">
           <BiArrowBack className="align-self-start mb-5 d-flex d-md-none" size="80px" />
           <Col lg={10} md={12}>
-            {/* <div className="container-header w-100 mb-5 d-flex flex-column " >
-              {currentComponent}
-            </div> */}
+            {<h2 className="container-header_login w-100 mb-5 d-flex flex-column " >
+              LOGIN
+            </h2>
+            }
 
             <form className="form-content d-flex flex-wrap justify-content-center" onSubmit={logar}>
               <Forms tipo="text" placeholder="email" name="email"/>
