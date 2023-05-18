@@ -71,8 +71,8 @@ export default function CadastroRestaurante() {
     }
 
     const enderecoResInfo = {
-      fkRestaurante: "",
-      fkUsuario: null,
+      fk_restaurante: 0,
+      fk_usuario: null,
       cep: data2.cep,
       numero: data2.numero,
       complemento: data2.complemento
@@ -80,16 +80,17 @@ export default function CadastroRestaurante() {
 
     api.post("restaurantes/cadastrar", restauranteInfo)
       .then((res) => {
-        enderecoResInfo.fkRestaurante = res.data.id;
-        console.log(res)
+        enderecoResInfo.fk_restaurante = res.data.id;
+        console.log(enderecoResInfo)
 
-        api.post("/cadastrar/endereco", enderecoResInfo)
-          .then(() => {
+        api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
+          .then((res2) => {
             alert("Cadastrado!")
           }).catch((err) => {
             alert("Não foi possível realizar o cadastro de seu endereço, tente novamente..");
             navigate("/restaurante-cadastrar");
           })
+
       })
       .catch((erro) => {
         alert("Não foi possível realizar o cadastro de seu restaurante, tente novamente..");
