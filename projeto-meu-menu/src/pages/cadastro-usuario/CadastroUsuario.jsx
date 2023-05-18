@@ -2,13 +2,17 @@ import React from "react";
 import Forms from "../../components/cadastroUsuario/forms";
 import Fundo from "../../components/cadastroUsuario/fundo";
 import Inputs from "../../components/cadastroUsuario/inputs";
-import { Button, Col, Container, Form, Row } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import api from "../../api"; // importando a instância do Axios de "api.js"
 
 import { useNavigate } from 'react-router-dom';
 
+import Swal from 'sweetalert2'
+
+
 
 function CadastroUsuario() {
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   const navigate = useNavigate();
   
@@ -35,7 +39,27 @@ function CadastroUsuario() {
     sessionStorage.sobrenome = e.target.sobrenome.value
     sessionStorage.cpf = e.target.cpf.value
 
-    navigate("/usuario-cadastrarp2"); 
+    if (e.target.nome.value == '' || e.target.sobrenome.value == '' || e.target.cpf.value == '') {
+      Swal.fire(
+        'Verificou todos os campos?',
+        'Preencha todos os campos para prosseguir!',
+        'error'
+      )
+    } else if (e.target.nome.value.length <= 2 || e.target.sobrenome.value.length <= 2 ) {
+      Swal.fire(
+        'Ops',
+        'Nome ou sobrenome curtos demais! Verifique e tente novamente.',
+        'error'
+      )}else if (e.target.cpf.value.length <= 8) {
+        Swal.fire(
+          'Ops',
+          'CPF inválido! Verifique e tente novamente.',
+          'error'
+        )} else {
+        navigate("/usuario-cadastrarp2");
+      }
+    
+    
   }
 
     return (
