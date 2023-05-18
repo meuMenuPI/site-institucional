@@ -14,6 +14,7 @@ import Passo3 from "../../components/cadastroRestauranteComponents/Passo3"
 import Passo4 from "../../components/cadastroRestauranteComponents/Passo4"
 import Logo from '../../assets/images/logoBranco.svg'
 import ChefeCadastro from '../../assets/images/chefeCadastro.svg'
+import api from "../../api";
 
 
 // Hooks
@@ -21,18 +22,25 @@ import { EtapasControl } from "../../hooks/EtapasControl";
 import { useState } from "react";
 
 const formTemplate = {
-  nomeFantasia: "",
-  cpfOuCnpj: "",
-  nome: "",
-  celular: "",
+  nomeRestaurante: "",
+  cnpj: "",
+  telefone: "",
   cep: "",
   especialidade: "",
+  estrela: 0,
+  site: ""
+}
 
+const formTemplate2 = {
+  cep: "",
+  numero: "",
+  complemento: ""
 }
 
 export default function CadastroRestaurante() {
 
   const [data, setData] = useState(formTemplate)
+  const [data2, setData2] = useState(formTemplate2)
 
   const updateFielHandler = (key, value) => {
     setData((prev) => {
@@ -41,29 +49,64 @@ export default function CadastroRestaurante() {
     console.log(data)
   };
 
-  function logar(e) {
+
+  const updateFielHandler2 = (key, value) => {
+    setData2((prev) => {
+      return { ...prev, [key]: value };
+    });
+    console.log(data2)
+  };
+
+  function cadastrar(e) {
     e.preventDefault();
 
     const restauranteInfo = {
-      usuario : 1,
-      nome: data.nomeFantasia,
-      cnpj: data.cpfOuCnpj,
+      usuario: 1,
+      nome: data.nomeRestaurante,
+      cnpj: data.cnpj,
       especialidade: data.especialidade,
-      telefone: data.celular,
+      telefone: data.telefone,
       site: data.site,
       estrela: data.estrela,
     }
 
-    console.log(restauranteInfo);
+    const enderecoResInfo = {
+      fkRestaurante: "",
+      fkUsuario: null,
+      cep: data2.cep,
+      numero: data2.numero,
+      complemento: data2.complemento
+    }
 
-    /* api.post("restaurantes/cadastrar", data) */
+    api.post("restaurantes/cadastrar", restauranteInfo)
+      .then((res) => {
+        enderecoResInfo.fkRestaurante = res.data.id;
+        console.log(res)
+
+        api.post("/cadastrar/endereco", enderecoResInfo)
+          .then(() => {
+            alert("Cadastrado!")
+          }).catch((err) => {
+            alert("Não foi possível realizar o cadastro de seu endereço, tente novamente..");
+            navigate("/restaurante-cadastrar");
+          })
+      })
+      .catch((erro) => {
+        alert("Não foi possível realizar o cadastro de seu restaurante, tente novamente..");
+        navigate("/restaurante-cadastrar");
+      })
+
+
+
+    console.log(enderecoResInfo);
+
   }
 
   const formComponents = [
     <Passo1 data={data} updateFielHandler={updateFielHandler} />,
     <Passo2 data={data} updateFielHandler={updateFielHandler} />,
     <Passo3 data={data} updateFielHandler={updateFielHandler} />,
-    <Passo4 data={data} updateFielHandler={updateFielHandler} />
+    <Passo4 data2={data2} updateFielHandler2={updateFielHandler2} />
   ]
   const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } = EtapasControl(formComponents)
   const navigate = useNavigate();
@@ -86,14 +129,14 @@ export default function CadastroRestaurante() {
               {currentComponent}
             </div>
 
-            <form id="teste" className="form-content d-flex flex-wrap justify-content-center" onSubmit={!isLastStep ? (e) => changeStep(currentStep + 1, e) : logar}>
+            <form id="teste" className="form-content d-flex flex-wrap justify-content-center" onSubmit={!isLastStep ? (e) => changeStep(currentStep + 1, e) : cadastrar}>
 
               {!isFirstStep ? (<Button onClick={() => changeStep(currentStep - 1)} type="button" className="buttonAvancar"><GrFormPrevious fill="#ffffff " />Voltar</Button>) :
                 (<Button disabled type="button" className="buttonAvancar"><GrFormPrevious />Voltar</Button>)}
 
 
               {!isLastStep ? (<Button type="submit" className="buttonAvancar">Avançar <GrFormNext /></Button>) :
-                ((<Button type="submit" className="buttonAvancar" onSubmit={logar}>Cadastrar <FiSend /></Button>))
+                ((<Button type="submit" className="buttonAvancar">Cadastrar <FiSend /></Button>))
               }
 
             </form>
