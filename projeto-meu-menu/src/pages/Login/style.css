@@ -12,8 +12,11 @@
     justify-content: center;
 }
 
-.container-header {
+.container-header_login {
     gap: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
 }
 
 .form-content {

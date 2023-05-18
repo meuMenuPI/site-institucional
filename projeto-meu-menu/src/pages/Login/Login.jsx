@@ -7,51 +7,69 @@ import { BiArrowBack } from 'react-icons/bi';
 import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
 import { FiSend } from 'react-icons/fi'
 import Forms from "../../components/loginComponents/Forms"
+import Logo from '../../assets/images/logoBranco.svg'
+import LoginFundo from '../../assets/images/login_fundo.svg'
+import api from '../../api';
+
 
 
 // Hooks
 import { EtapasControl } from "../../hooks/EtapasControl";
 import { useState } from "react";
-const formLogin = {
-  email: "",
-  senha: ""
-}
+
 
 
 function Login() {
 
-  const [data, setData] = useState(formLogin)
+  const formLogin = {
+    email: "",
+    senha: ""
+  }
 
 
-  const updateFielHandler = (key, value) => {
-    setData((prev) => {
-      return { ...prev, [key]: value };
-    });
-  };
+  function logar(e) {
+    e.preventDefault()
+    
+    const userLogin = {
+      email: e.target.email.value,
+      senha : e.target.senha.value,
+    }
 
-  const formComponents = [
-    <Forms data={data} updateFielHandler={updateFielHandler} />,
-  ]
-  const { currentStep, currentComponent, changeStep} = EtapasControl(formComponents)
+    api.post("usuarios/logar",userLogin)
+    .then((dadosUuarios) => {
+      sessionStorage.nome = dadosUuarios.data.nome;
+      sessionStorage.email = dadosUuarios.data.email;
+      sessionStorage.tipoComidaPreferida = dadosUuarios.data.tipoComidaPreferida;
+      alert("Usuário encontrado, logando...")
+      console.log(dadosUuarios.data)
+    })
+    .catch((erro) => {
+      throw "Email ou senha incorretos"
+    })
+  }
+
+
 
   return (
     <Container fluid>
       <Row className="d-flex flex-wrap ">
         <Col lg={7} md={6} className="container-image d-none d-md-flex flex-column">
           <BiArrowBack className="align-self-start mt-5 " size="80px" fill="#ffffff" />
-          <img className="imgLogo" src="/assets/images/logoBranco.svg" alt="logo meu menu" />
-          <img className="imgLogin" src="/assets/images/login_fundo.svg" alt="Mulher com cardapio pronta para pegar pedido" />
+          <img className="imgLogo" src={Logo} alt="logo meu menu" />
+          <img className="imgLogin" src={LoginFundo} alt="Mulher com cardapio pronta para pegar pedido" />
         </Col>
 
         <Col lg={5} md={6} sm={12} className="container-form d-flex flex-column">
           <BiArrowBack className="align-self-start mb-5 d-flex d-md-none" size="80px" />
           <Col lg={10} md={12}>
-            <div className="container-header w-100 mb-5 d-flex flex-column " >
-              {currentComponent}
-            </div>
+            {<h2 className="container-header_login w-100 mb-5 d-flex flex-column " >
+              LOGIN
+            </h2>
+            }
 
-            <form className="form-content d-flex flex-wrap justify-content-center" onSubmit={(e) => changeStep(currentStep + 1, e)}>
-
+            <form className="form-content d-flex flex-wrap justify-content-center" onSubmit={logar}>
+              <Forms tipo="text" placeholder="email" name="email"/>
+              <Forms tipo="password" placeholder="senha" name="senha"/>
               <Button type="submit" className="buttonAvancar">Logar </Button>
 
             </form>

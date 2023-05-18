@@ -7,6 +7,10 @@ import Index  from "../pages/Inicio/Index";
 
 import CadastroUsuario from "../pages/cadastro-usuario/CadastroUsuario"
 import CadastroUsuarioP2 from "../pages/cadastro-usuario/CadastroUsuarioP2";
+import RestaurantePerfil from "../pages/RestauranteLogado/RestaurantePerfil"
+import RestauranteCardapioEdition from "../pages/RestauranteCardapio/RestauranteCardapioEdition";
+import RestaurantePagina from "../pages/RestaurantePagina/RestaurantePagina";
+
 export default function Routers() {
 
     return (
@@ -15,11 +19,15 @@ export default function Routers() {
                 <Route path="/" element={<Home />}/>
                 <Route path="/restaurante-cadastrar" element={<CadastroRestaurante />}/>
  
-                <Route path="/inicio" element={<Index />}/>
+                <Route path="/index" element={<Index />}/>
 
+                
                 <Route path="/login" element={<Login />}/>
                 <Route path="/usuario-cadastrar" element={<CadastroUsuario />}/>
                 <Route path="/usuario-cadastrarp2" element={<CadastroUsuarioP2 />}/>
+                <Route path="/restaurante-perfil" element={<RestaurantePerfil />}/>
+                <Route path="/restaurante-cardapio" element={<RestauranteCardapioEdition />}/>
+                <Route path="/restaurante-pagina" element={<RestaurantePagina />}/>
             </Routes>
         </Router>
     )

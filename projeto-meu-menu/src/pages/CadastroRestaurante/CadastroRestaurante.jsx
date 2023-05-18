@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap"
 import './style.css'
 import { useNavigate } from 'react-router-dom'
+// import api from "../../api";
 
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap"
@@ -11,8 +11,10 @@ import { FiSend } from 'react-icons/fi'
 import Passo1 from "../../components/cadastroRestauranteComponents/Passo1"
 import Passo2 from "../../components/cadastroRestauranteComponents/Passo2"
 import Passo3 from "../../components/cadastroRestauranteComponents/Passo3"
+import Passo4 from "../../components/cadastroRestauranteComponents/Passo4"
 import Logo from '../../assets/images/logoBranco.svg'
-
+import ChefeCadastro from '../../assets/images/chefeCadastro.svg'
+import api from "../../api";
 
 
 // Hooks
@@ -20,30 +22,93 @@ import { EtapasControl } from "../../hooks/EtapasControl";
 import { useState } from "react";
 
 const formTemplate = {
-  nomeFantasia: "",
-  cpfOuCnpj: "",
-  nome: "",
-  celular: "",
+  nomeRestaurante: "",
+  cnpj: "",
+  telefone: "",
   cep: "",
   especialidade: "",
+  estrela: 0,
+  site: ""
+}
 
+const formTemplate2 = {
+  cep: "",
+  numero: "",
+  complemento: ""
 }
 
 export default function CadastroRestaurante() {
 
   const [data, setData] = useState(formTemplate)
+  const [data2, setData2] = useState(formTemplate2)
 
   const updateFielHandler = (key, value) => {
     setData((prev) => {
-      return {...prev, [key]: value };
+      return { ...prev, [key]: value };
     });
+    console.log(data)
   };
 
+
+  const updateFielHandler2 = (key, value) => {
+    setData2((prev) => {
+      return { ...prev, [key]: value };
+    });
+    console.log(data2)
+  };
+
+  function cadastrar(e) {
+    e.preventDefault();
+
+    const restauranteInfo = {
+      usuario: 1,
+      nome: data.nomeRestaurante,
+      cnpj: data.cnpj,
+      especialidade: data.especialidade,
+      telefone: data.telefone,
+      site: data.site,
+      estrela: data.estrela,
+    }
+
+    const enderecoResInfo = {
+      fk_restaurante: 0,
+      fk_usuario: null,
+      cep: data2.cep,
+      numero: data2.numero,
+      complemento: data2.complemento
+    }
+
+    api.post("restaurantes/cadastrar", restauranteInfo)
+      .then((res) => {
+        enderecoResInfo.fk_restaurante = res.data.id;
+        console.log(enderecoResInfo)
+
+        api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
+          .then((res2) => {
+            alert("Cadastrado!")
+          }).catch((err) => {
+            alert("Não foi possível realizar o cadastro de seu endereço, tente novamente..");
+            navigate("/restaurante-cadastrar");
+          })
+
+      })
+      .catch((erro) => {
+        alert("Não foi possível realizar o cadastro de seu restaurante, tente novamente..");
+        navigate("/restaurante-cadastrar");
+      })
+
+
+
+    console.log(enderecoResInfo);
+
+  }
+
   const formComponents = [
-  <Passo1 data={data} updateFielHandler={updateFielHandler} />,
-  <Passo2 data={data} updateFielHandler={updateFielHandler} />,
-  <Passo3 data={data} updateFielHandler={updateFielHandler} />
-]
+    <Passo1 data={data} updateFielHandler={updateFielHandler} />,
+    <Passo2 data={data} updateFielHandler={updateFielHandler} />,
+    <Passo3 data={data} updateFielHandler={updateFielHandler} />,
+    <Passo4 data2={data2} updateFielHandler2={updateFielHandler2} />
+  ]
   const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } = EtapasControl(formComponents)
   const navigate = useNavigate();
 
@@ -52,28 +117,28 @@ export default function CadastroRestaurante() {
     <Container fluid>
       <Row className="d-flex flex-wrap ">
         <Col lg={7} md={6} className="container-image d-none d-md-flex flex-column">
+          <BiArrowBack onClick={() => navigate("/")} className="align-self-start mt-5 " size="250px" fill="#ffffff" />
 
-          <BiArrowBack className="align-self-start mt-5 " size="80px" fill="#ffffff" />
           <img className="imgLogo" src={Logo} alt="logo meu menu" />
-          <img className="imgChefe" src="/assets/images/chefeCadastro.svg" alt="Aspas de operator" />
+          <img className="imgChefe" src={ChefeCadastro} alt="Aspas de operator" />
         </Col>
 
         <Col lg={5} md={6} sm={12} className="container-form d-flex flex-column">
-          <BiArrowBack className="align-self-start mb-5 d-flex d-md-none" size="80px" />
+          <BiArrowBack onClick={() => navigate("/")} className="align-self-start mb-5 d-flex d-md-none" size="80px" />
           <Col lg={10} md={12}>
             <div className="container-header w-100 mb-5 d-flex flex-column " >
               {currentComponent}
             </div>
 
-            <form className="form-content d-flex flex-wrap justify-content-center" onSubmit={(e) => changeStep(currentStep + 1, e)}>
+            <form id="teste" className="form-content d-flex flex-wrap justify-content-center" onSubmit={!isLastStep ? (e) => changeStep(currentStep + 1, e) : cadastrar}>
 
-              {!isFirstStep ? (<Button onClick={() => changeStep(currentStep - 1)} type="button" className="buttonAvancar"><GrFormPrevious fill="#ffffff " />Voltar</Button>) : 
-              (<Button disabled type="button" className="buttonAvancar"><GrFormPrevious />Voltar</Button>)}
+              {!isFirstStep ? (<Button onClick={() => changeStep(currentStep - 1)} type="button" className="buttonAvancar"><GrFormPrevious fill="#ffffff " />Voltar</Button>) :
+                (<Button disabled type="button" className="buttonAvancar"><GrFormPrevious />Voltar</Button>)}
 
 
               {!isLastStep ? (<Button type="submit" className="buttonAvancar">Avançar <GrFormNext /></Button>) :
-                (<Button type="submit" className="buttonAvancar">Cadastrar <FiSend /></Button>)}
-
+                ((<Button type="submit" className="buttonAvancar">Cadastrar <FiSend /></Button>))
+              }
 
             </form>
 

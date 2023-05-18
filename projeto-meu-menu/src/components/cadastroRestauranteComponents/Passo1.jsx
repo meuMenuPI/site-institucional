@@ -10,10 +10,11 @@ const Passo1 = ({data, updateFielHandler}) => {
                 <h1 className=""> <b className="passoAtual"> 01</b></h1>
                 <h1 className=""> <span className="passosFaltantes"> 02 </span></h1>
                 <h1 className=""> <span className="passosFaltantes"> 03 </span></h1>
+                <h1 className=""> <span className="passosFaltantes"> 04 </span></h1>
             </div>
             <p className="form-text-info">Todos os campos são obrigatórios</p>
-            <Form.Control value={data.nomeFantasia || ""} onChange={(e) => updateFielHandler("nomeFantasia", e.target.value)} name='nomeFantasia' id='nomeFantasia' size="lg" className="input-form w-100" type="text" placeholder="Nome Fantasia" />
-            <Form.Control value={data.cpfOuCnpj || ""} onChange={(e) => updateFielHandler("cpfOuCnpj", e.target.value)} name='cpfOuCnpj' id='cpfOuCnpj' size="lg" className="input-form w-100" type="number" placeholder="CNPJ ou CPF" />
+            <Form.Control value={data.nomeRestaurante || ""} onChange={(e) => updateFielHandler("nomeRestaurante", e.target.value)} name='nomeRestaurante' id='nomeRestaurante' size="lg" className="input-form w-100" type="text" placeholder="Nome Restaurante " />
+            <Form.Control value={data.cnpj || ""} onChange={(e) => updateFielHandler("cnpj", e.target.value)} name='cnpj' id='cnpj' size="lg" className="input-form w-100" type="number" placeholder="CNPJ" />
         </>
     )
 }
