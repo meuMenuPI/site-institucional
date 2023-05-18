@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-*{
+* {
     font-family: 'Roboto';
     font-weight: 400;
 }
 
-.rp_header{
+.rp_header {
     background-color: #8D0000;
     width: 100vw;
     height: 25vh;
@@ -14,14 +14,16 @@
     justify-content: center;
     align-items: center;
 }
-.rp_containerInfoRestaurante{
+
+.rp_containerInfoRestaurante {
     width: 55%;
     height: 80%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.rp_imgHeader{
+
+.rp_imgHeader {
     border-radius: 50%;
     width: 130px;
     height: 130px;
@@ -31,14 +33,15 @@
     background-size: cover;
 }
 
-.rp_divImagem{
+.rp_divImagem {
     width: 30%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.rp_dadosRestaurante{
+
+.rp_dadosRestaurante {
     width: 70%;
     height: 100%;
     display: flex;
@@ -47,24 +50,27 @@
     color: white;
     font-size: 1.1rem;
 }
-.rp_endereco{
+
+.rp_endereco {
     font-weight: 300;
 }
-.rp_verNoMapa{
-    font-weight: 300;
+
+.rp_verNoMapa {
+    font-weight: 500;
 }
-.rp_divEstrelaSeguir{
+
+.rp_divEstrelaSeguir {
     width: 70%;
     display: flex;
     justify-content: space-between;
 
 }
 
-.rp_nomeH2{
+.rp_nomeH2 {
     font-weight: bold;
 }
 
-.rp_botaoSeguir{
+.rp_botaoSeguir {
     background-color: #F0DCF5;
     border-radius: 10px;
     padding: 0.5%;
@@ -73,11 +79,11 @@
     border: none;
 }
 
-.rp_verNoMapa{
+.rp_verNoMapa {
     cursor: pointer;
 }
 
-.rp_menuPagina{
+.rp_menuPagina {
     height: 10vh;
     width: 100vw;
     display: flex;
@@ -86,7 +92,7 @@
     font-size: 1.1rem;
 }
 
-.rp_alinharMenu{
+.rp_alinharMenu {
     height: 100%;
     width: 30%;
     background-color: white;
@@ -95,8 +101,9 @@
     justify-content: center;
 }
 
-.rp_divisorMenu{
+.rp_divisorMenu {
     text-align: center;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,12 +113,13 @@
     border-right: 1px solid rgb(0, 0, 0);
 }
 
-.rp_divisoria{
+.rp_divisoria {
     text-align: center;
+    cursor: pointer;
     width: 33%;
 }
 
-.rp_cardapio{
+.rp_cardapio {
     width: 100vw;
     height: 10vh;
     display: flex;
@@ -119,19 +127,19 @@
     align-items: center;
 }
 
-.rp_alinharCardapio{
+.rp_alinharCardapio {
     height: 100%;
     width: 80%;
     display: flex;
     justify-content: flex-start;
 }
 
-.rp_nomeCardapio{
+.rp_nomeCardapio {
     color: #8D0000;
     font-size: 1.6rem;
 }
 
-.rp_itemCardapio{
+.rp_itemCardapio {
     width: 100vw;
     height: 15vh;
     display: flex;
@@ -141,7 +149,7 @@
 }
 
 
-.rp_descricaoPrato{
+.rp_descricaoPrato {
     height: 100%;
     width: 40%;
     display: flex;
@@ -150,13 +158,13 @@
     flex-direction: column;
 }
 
-.rp_nomePrato{
+.rp_nomePrato {
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 0.2rem;
 }
 
-.rp_precoPrato{
+.rp_precoPrato {
     height: 100%;
     width: 30%;
     display: flex;
@@ -166,7 +174,7 @@
     font-size: 1.2rem;
 }
 
-.rp_fotoPrato{
+.rp_fotoPrato {
     height: 100%;
     width: 30%;
     display: flex;
@@ -174,4 +182,22 @@
     justify-content: center;
 }
 
+.rp_divFoto {
+    width: 100%;
+    min-height: 65vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+}
 
+.rp_conteudoFoto {
+    width: 70%;
+    height: 40vh;
+    background-color: black;
+    margin-top: 5%;
+    margin-bottom: 5%;  
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
