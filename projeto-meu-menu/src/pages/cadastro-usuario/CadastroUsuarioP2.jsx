@@ -45,7 +45,7 @@ function CadastroUsuarioP2() {
   return (
     <section className="cadastroUsuario">
       <div className="forms">
-        <Forms></Forms>
+        <Forms colorp1="rgba(255, 255, 255, 0.29)" colorp2="white"></Forms>
         <div className="campos">
           <Form className="form-content w-100" onSubmit={cadastrar}>
             <Inputs placeholder="Email" name="email" color="#8D0000"/>
