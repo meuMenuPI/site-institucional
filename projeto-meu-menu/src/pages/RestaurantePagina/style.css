@@ -23,8 +23,8 @@
 }
 .rp_imgHeader{
     border-radius: 50%;
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
     background-color: white;
     background-repeat: no-repeat;
     background-position: center;
@@ -173,3 +173,5 @@
     align-items: center;
     justify-content: center;
 }
+
+
