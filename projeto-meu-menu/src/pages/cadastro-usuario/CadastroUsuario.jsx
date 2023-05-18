@@ -41,12 +41,12 @@ function CadastroUsuario() {
     return (
       <section className="cadastroUsuario">
         <div className="forms">
-          <Forms></Forms>
+          <Forms colorp1="white" colorp2="rgba(255, 255, 255, 0.29)"></Forms>
           <div className="campos">
           <Form className="form-content w-100" onSubmit={cadastrar}>
-            <Inputs placeholder="Nome" name="nome"/>
-            <Inputs placeholder="Sobrenome" name="sobrenome"/>
-            <Inputs placeholder="CPF" name="cpf"/>
+            <Inputs placeholder="Nome" name="nome" color="#8D0000"/>
+            <Inputs placeholder="Sobrenome" name="sobrenome" color="#8D0000"/>
+            <Inputs placeholder="CPF" name="cpf" color="#8D0000"/>
           <Button className="btn_cad_usuario" type="submit" id="btn_cad_usuario_p1" >Avançar</Button>
           </Form>  
         </div>
