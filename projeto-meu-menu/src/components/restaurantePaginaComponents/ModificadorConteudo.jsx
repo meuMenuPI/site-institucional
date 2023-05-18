@@ -2,8 +2,9 @@ import React from 'react';
 import Cardapio from './CardapioPagina';
 import ItemCardapio from './ItemCardapio';
 import ReviewRestaurante from './ReviewRestaurante'
-import FotoPagina from './FotoCardapio';
+import FotoCardapio from './FotoCardapio';
 import Design from '../../assets/images/design_cadastro_usuario.png'
+import SelectReview from '../../components/restaurantePaginaComponents/SelectReview';
 
 // import { Container } from './styles';
 
@@ -20,13 +21,14 @@ function ModificadorConteudo(props) {
     else if (props.valor === 2) {
         return (
             <>
-                <FotoPagina />
+                <FotoCardapio />
             </>
         )
     }
     else {
         return (
             <>
+                <SelectReview/>
                 <ReviewRestaurante />
             </>
         )
