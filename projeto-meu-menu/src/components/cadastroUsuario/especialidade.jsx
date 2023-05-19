@@ -2,7 +2,7 @@ import { useState } from 'react';
 function Especialidade(props) {
   const [nome, setNome] = useState(props.nome);
   return (
-    <select className="input_cad_usuario" onChange={props.onChange} name={props.name} style={{backgroundColor: props.color}}>
+    <select className="i_c_d" onChange={props.onChange} name={props.name} style={{backgroundColor: props.color}}>
       <option defaultValue>{props.valorInicial}</option>
       <option value="BRASILEIRA">Brasileira</option>
       <option value="MEXICANA">Mexicana</option>
