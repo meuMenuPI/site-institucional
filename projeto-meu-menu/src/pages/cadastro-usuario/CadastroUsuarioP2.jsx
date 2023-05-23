@@ -14,7 +14,7 @@ function CadastroUsuarioP2() {
 
 
   function cadastrar(e) {
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     e.preventDefault();
 
@@ -48,10 +48,16 @@ function CadastroUsuarioP2() {
         'Nome ou sobrenome curtos demais! Verifique e tente novamente.',
         'error'
       )
-    }else if (e.target.senha.value != e.target.conf_senha.value) {
+    } else if (e.target.senha.value != e.target.conf_senha.value) {
       Swal.fire(
         'Ops',
         'A senha deve ser igual a confirmação de senha! Verifique e tente novamente.',
+        'error'
+      )
+    } else if (e.target.email.value.indexOf('@') <= 0 || e.target.email.value.indexOf('.com') <= 0) {
+      Swal.fire(
+        'Ops',
+        'e-mail inválido! Verifique e tente novamente.',
         'error'
       )
     } else {
