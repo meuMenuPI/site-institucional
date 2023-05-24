@@ -1,29 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SelectReview from './SelectReview';
+import api from '../../api'
 function ReviewRestaurante(props) {
-    const dados = [{
-        nome: 'bruno',
-        foto: 'https://tse4.mm.bing.net/th/id/OIP.WdCnDnwGRrv1AQWR_VKF4wHaII?pid=ImgDet&rs=1',
-        data: '18/05/2022 - 18:11',
-        estrelas: 5,
-        descricao: 'Review Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos facere fugit dolor, officiis suscipit quaerat porro temporibus aspernatur molestiae ratione nihil alias sit, eaque culpa laboriosam! Saepe quos illo deserunt!'
-    },{
-        nome: 'bruno',
-        foto: 'https://tse4.mm.bing.net/th/id/OIP.WdCnDnwGRrv1AQWR_VKF4wHaII?pid=ImgDet&rs=1',
-        data: '18/05/2022 - 18:11',
-        estrelas: 5,
-        descricao: 'Review Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos facere fugit dolor, officiis suscipit quaerat porro temporibus aspernatur molestiae ratione nihil alias sit, eaque culpa laboriosam! Saepe quos illo deserunt!'
-    },
-    {
-        nome: 'Bruno Cara',
-        foto: 'https://tse4.mm.bing.net/th/id/OIP.WdCnDnwGRrv1AQWR_VKF4wHaII?pid=ImgDet&rs=1',
-        data: '18/05/2022 - 18:11',
-        estrelas: 5,
-        descricao: 'Review Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos facere fugit dolor, officiis suscipit quaerat porro temporibus aspernatur molestiae ratione nihil alias sit, eaque culpa laboriosam! Saepe quos illo deserunt!'
-    }]
+
+    const [review, setReview] = useState([]);
+
+    /* sessionStorage.ID_RESTAURANTE_REVIEW */
+    var fkRestaurante = 1;
+
+        /* sessionStorage.ID_USUARIO_REVIEW */
+        var fkUsuario= 1;
+
+    useEffect(() => {
+        api.get(`/reviews?fkRestaurante=${fkRestaurante}`)
+            .then((respostaObtida) => {
+                setReview(respostaObtida.data);
+                console.log(respostaObtida.data)
+            })
+            .catch((erroObtido) => {
+                console.log(erroObtido);
+            });
+    }, []);
+
     return (
         <>  
-            {dados.map((dadostemp) => 
+            {review.map((dadostemp) => 
                             <div className='rp_containerReview'>
                             <div className='rp_alinharReview'>
                                 <div className='rp_divFotoReview'>
@@ -32,9 +33,9 @@ function ReviewRestaurante(props) {
                                 <div className='rp_infoReview'>
                                     <div className='rp_divNomeReview'>
                                         <span className='rp_nomeReview'>{dadostemp.nome}</span>
-                                        <span className='rp_dataReview'>{dadostemp.data}</span>
+                                        <span className='rp_dataReview'>{dadostemp.data_hora}</span>
                                     </div>
-                                    <div>{dadostemp.estrelas}</div>
+                                    <div>{dadostemp.nota_comida}</div>
                                     <div className='rp_textoReview'>{dadostemp.descricao}</div>
                                 </div>
                             </div>
