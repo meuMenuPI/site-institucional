@@ -1,5 +1,6 @@
 import React from 'react'
 import Especialidade from "../../components/cadastroUsuario/especialidade";
+import Beneficio from './beneficio';
 // import Card from 'react-bootstrap/Card';
 
 const Passo3 = ({ data, updateFielHandler }) => {
@@ -16,6 +17,7 @@ const Passo3 = ({ data, updateFielHandler }) => {
       </div>
       <p className="form-text-info">Todos os campos são obrigatórios</p>
       <Especialidade valorInicial="Especialidade" name="especialidade" value={data.especialidade || ""} onChange={(e) => updateFielHandler("especialidade", e.target.value)} id='especialidade' size="lg" className="input-form w-100" type="text" placeholder="Especialidade" color="#8D0000"/>
+      <Beneficio valorInicial="Aceita Vale Beneficio?" name="beneficio" value={data.beneficio || ""} onChange={(e) => updateFielHandler("beneficio", e.target.value)} id='beneficio' size="lg" className="input-form w-100" type="text" placeholder="Especialidade" color="#8D0000"/>
       {/* <p> Selecione um plano</p>
       <div className="form-content d-flex flex-wrap justify-content-center">
 
