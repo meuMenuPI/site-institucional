@@ -26,7 +26,7 @@ export default function Routers() {
 
                 
                 <Route path="/login" element={<Login />}/>
-                <Route path="/usuario-cadastrar" element={<CadastroUsuario />}/>
+                <Route path="/4s" element={<CadastroUsuario />}/>
                 <Route path="/usuario-cadastrarp2" element={<CadastroUsuarioP2 />}/>
                 <Route path="/restaurante-perfil" element={<RestaurantePerfil />}/>
                 <Route path="/restaurante-cardapio" element={<RestauranteCardapioEdition />}/>
