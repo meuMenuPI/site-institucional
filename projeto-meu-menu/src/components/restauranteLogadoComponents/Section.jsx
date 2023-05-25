@@ -10,7 +10,7 @@ function Section(props) {
     return (
         <>
             <div className='box'>
-                <div className='first_section' onClick={() => navigate("/restaurante-cardapio")}>
+                <div className='first_section' onClick={() => navigate("/restaurante-perfil")}>
                     <div className='icon_side'>
                         <img className='img_section' src={props.img} height={props.height}></img>
                     </div>

@@ -24,7 +24,7 @@ function SideEditionProfile() {
                 </div>
                 <TextEditionProfile />
                 <BoxInputs />
-                <ButtonSave />
+                <ButtonSave text='Salvar' />
             </div>
 
         </>
