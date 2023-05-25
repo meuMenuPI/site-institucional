@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 function SelectReview() {
     return (
         <div className='rp_divSelect'>
-            <select class="rp_selectFiltro">
-                <option selected>Mais relevantes</option>
-                <option value="menor_preco">Menor preço</option>
-                <option value="maior_preco">Maior preço</option>
+            <select className="rp_selectFiltro">
+                <option defaultValue>Ordenar</option>
+                <option value="recente">Mais recente</option>
+                <option value="antigo">Mais antigo</option>
             </select>
         </div>
 

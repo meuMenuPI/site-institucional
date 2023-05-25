@@ -7,6 +7,7 @@ import SelectReview from '../../components/restaurantePaginaComponents/SelectRev
 
 // import { Container } from './styles';
 
+
 function ModificadorConteudo(props) {
 
     if (props.valor === 1) {
@@ -27,7 +28,6 @@ function ModificadorConteudo(props) {
     else {
         return (
             <>
-                <SelectReview/>
                 <ReviewRestaurante />
             </>
         )
