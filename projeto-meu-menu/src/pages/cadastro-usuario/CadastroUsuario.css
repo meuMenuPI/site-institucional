@@ -84,7 +84,7 @@
 }
 
 select {
-    text-align: end;
+    text-align: flex-end;
 }
 
 .i_c_d::placeholder {
