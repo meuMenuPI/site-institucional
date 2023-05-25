@@ -63,7 +63,11 @@ canvas{
     color: #000000;
 }
 
+
 .mediaStar {
+
+
+
     position: absolute;
     width: 168.05px;
     height: 23.87px;
@@ -78,7 +82,7 @@ canvas{
     align-items: center;
     letter-spacing: 0.1px;
     color: #000000;
-}
+} */
 
 .star-avaliacao {
     position: absolute;

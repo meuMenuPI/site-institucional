@@ -1,17 +1,17 @@
 import React from 'react'
 
-function ButtonSave() {
+function ButtonSave(props) {
   return (
 
     <>
-    
-    <div className="div_button_save">
-    <button id='id_button_save'>Salvar</button>
-    </div>
+
+      <div className="div_button_save">
+        <button id='id_button_save'>{props.text}</button>
+      </div>
 
     </>
 
-    )
+  )
 }
 
 export default ButtonSave
