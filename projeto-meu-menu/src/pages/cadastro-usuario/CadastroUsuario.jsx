@@ -4,6 +4,7 @@ import Fundo from "../../components/cadastroUsuario/fundo";
 import Inputs from "../../components/cadastroUsuario/inputs";
 import { Button, Form } from "react-bootstrap"
 import api from "../../api"; // importando a instância do Axios de "api.js"
+import { IMaskInput } from "react-imask"
 
 import { useNavigate } from 'react-router-dom';
 
@@ -50,7 +51,7 @@ function CadastroUsuario() {
         'Ops',
         'Nome ou sobrenome curtos demais! Verifique e tente novamente.',
         'error'
-      )}else if (e.target.cpf.value.length <= 8) {
+      )}else if (e.target.cpf.value.length <= 13) {
         Swal.fire(
           'Ops',
           'CPF inválido! Verifique e tente novamente.',
@@ -68,9 +69,9 @@ function CadastroUsuario() {
           <Forms colorp1="white" colorp2="rgba(255, 255, 255, 0.29)"></Forms>
           <div className="campos">
           <Form className="form-content w-100" onSubmit={cadastrar}>
-            <Inputs placeholder="Nome" name="nome" color="#8D0000"/>
-            <Inputs placeholder="Sobrenome" name="sobrenome" color="#8D0000"/>
-            <Inputs placeholder="CPF" name="cpf" color="#8D0000"/>
+            <IMaskInput className="i_c_d" name="nome" placeholder="Nome" />
+            <IMaskInput className="i_c_d" name="sobrenome" placeholder="Sobrenome" />
+            <IMaskInput className="i_c_d" name="cpf" placeholder="CPF" mask="000.000.000-00" />
           <Button className="btn_cad_usuario" type="submit" id="btn_cad_usuario_p1" >Avançar</Button>
           </Form>  
         </div>

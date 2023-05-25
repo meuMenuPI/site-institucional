@@ -27,6 +27,7 @@ const formTemplate = {
   telefone: "",
   cep: "",
   especialidade: "",
+  beneficio: "",
   estrela: 0,
   site: ""
 }
@@ -65,6 +66,7 @@ export default function CadastroRestaurante() {
       nome: data.nomeRestaurante,
       cnpj: data.cnpj,
       especialidade: data.especialidade,
+      beneficio: data.beneficio,
       telefone: data.telefone,
       site: data.site,
       estrela: data.estrela,

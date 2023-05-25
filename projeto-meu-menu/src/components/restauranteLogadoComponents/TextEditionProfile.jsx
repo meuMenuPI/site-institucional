@@ -5,7 +5,7 @@ function TextEditionProfile() {
 
     <>
     
-    <div className="div_text_edition_profile">Editar perfil</div>
+    <div className="div_text_edition_profile">Editar Perfil</div>
 
     </>
 
