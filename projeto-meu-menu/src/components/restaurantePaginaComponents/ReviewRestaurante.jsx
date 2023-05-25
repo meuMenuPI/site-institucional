@@ -41,6 +41,7 @@ function ReviewRestaurante(props) {
     return (
         <>
             <div className='rp_divSelect'>
+            <button className='rp_botaoAddReview'>Adicionar review</button>
                 <select className="rp_selectFiltro" name="filtro" onChange={(e) => updateFielHandler("filtro", e.target.value)}>
                     <option defaultValue>Ordenar</option>
                     <option value="recente">Mais recente</option>
