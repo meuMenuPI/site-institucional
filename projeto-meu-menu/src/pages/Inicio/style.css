@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .nav {
     background-color: #8D0000;
     height: 10vh;
@@ -80,12 +85,11 @@
 
 .busca {
     width: 100%; 
-    height: 100vh;
+    height: 150vh;
 }
 
 .imgTextura {
     background-image: url('../../assets/images/fundoBusca.svg');
-    background-color: red;
     width: 100%;
     height: 100%;
 
@@ -100,4 +104,89 @@
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 0%;
+}
+
+.areaTextura{
+    width: 100%;
+    height: 100%;
+}
+
+.areaMiniaturas{
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.barraBusca {
+    width: 75%;
+    height: 40px;
+    background-color: #0000003f;
+    border-radius: 40px;
+    border: 0px;
+}
+
+.miniatura {
+    width: 280px;
+    height: 150px;
+    border-radius: 25px;
+    border: #000000 2px solid;
+}
+
+.font {
+    margin-left: 3.5%;
+}
+
+.fundoPreto {
+    width: 280px;
+    height: 10px;
+    background-color: #0000003f;
+    border-radius: 25px;
+}
+
+.recomendados {
+    width: 100%;
+    height: 65%;
+}
+
+.divMiniaturas{
+    width: 80%;
+    height: 100%; 
+    overflow-x: scroll;
+    
+}
+
+.abc {
+    width: 100%;
+    height: 67%;
+
+}
+
+//67
+
+.restaurantes {
+    width: 100%;
+    height: 100%;
+}
+
+.sobre {
+    width: 100%; 
+    height: 150vh;
+    background-image: url('../../assets/images/fundoFood.svg');
+    background-size: cover;
+}
+
+.fundoFood {
+    width: 100%;
+    height: 100%;
+
+}
+
+.rodape {
+    background-color: #000000;
+    height: 25vh;
+}
+
+.direitoAutoral{
+    color: white;
 }
