@@ -9,11 +9,14 @@ const Restaurante = (props) => {
             <div className='recomendados d-flex flex-column'>
                 
                 <h2 className='font'>{props.titulo}</h2>
+
+
+                <div className='abc d-flex justify-content-center'>
                 
                 <div className='divMiniaturas d-flex justify-content-around'>
                     <RestauranteMiniatura nomeRestaurante={props.nomeRestaurante} capa={props.capa} />
-                    <RestauranteMiniatura nomeRestaurante={props.nomeRestaurante2} capa={props.capa2} />
-                    <RestauranteMiniatura nomeRestaurante={props.nomeRestaurante3} capa={props.capa3} />
+                </div>
+
                 </div>
             </div>
         </>

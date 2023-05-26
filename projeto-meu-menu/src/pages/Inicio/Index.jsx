@@ -76,9 +76,8 @@ export default function Index() {
                   capa3={LaGuapa} nomeRestaurante3="La Guapa" />
               ))
               } */}
-              <Restaurante titulo="Restaurante bem avaliados" capa={Kfc} nomeRestaurante="KFC"
-                capa2={DivinoFogao} nomeRestaurante2="Divino Fogão"
-                capa3={LaGuapa} nomeRestaurante3="La Guapa" />
+
+              <Restaurante titulo="Restaurante bem avaliados" capa={Kfc} nomeRestaurante="KFC" />
               <Restaurante titulo="Restaurantes perto de você" capa={Kfc} nomeRestaurante="KFC"
                 capa2={DivinoFogao} nomeRestaurante2="Divino Fogão"
                 capa3={LaGuapa} nomeRestaurante3="La Guapa" />
