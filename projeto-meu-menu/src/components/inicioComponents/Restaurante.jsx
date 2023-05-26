@@ -4,11 +4,16 @@ import RestauranteMiniatura from './RestauranteMiniatura'
 
 
 const Restaurante = (props) => {
+
+    const estiloTitulo = {
+        fontSize: "1.5rem"
+    }
+
     return (
         <>
             <div className='recomendados d-flex flex-column'>
                 
-                <h2 className='font'>{props.titulo}</h2>
+                <h2 className='font' style={estiloTitulo}>{props.titulo}</h2>
 
 
                 <div className='abc d-flex justify-content-center'>

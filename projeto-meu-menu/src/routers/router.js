@@ -13,6 +13,7 @@ import RestauranteCardapioEdition from "../pages/RestauranteCardapio/Restaurante
 import Dashboard  from "../pages/DashBoard/DashBoard";
 import RestaurantePagina from "../pages/RestaurantePagina/RestaurantePagina";
 import UsuarioPerfil from "../pages/UsuarioLogado/UsuarioPerfil";
+import UsuarioPerfilBusca from "../pages/UsuarioPerfilBusca/UsuarioPerfilBusca";
 
 export default function Routers() {
 
@@ -33,6 +34,7 @@ export default function Routers() {
                 <Route path="/dashboard" element={<Dashboard />}/>
                 <Route path="/restaurante-pagina" element={<RestaurantePagina />}/>
                 <Route path="/usuario-perfil" element={<UsuarioPerfil />}/>
+                <Route path="/usuario-perfil-busca" element={<UsuarioPerfilBusca />}/>
 
             </Routes>
         </Router>
