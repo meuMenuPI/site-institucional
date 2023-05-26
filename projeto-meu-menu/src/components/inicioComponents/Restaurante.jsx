@@ -10,11 +10,13 @@ const Restaurante = (props) => {
                 
                 <h2 className='font'>{props.titulo}</h2>
 
+
                 <div className='abc d-flex justify-content-center'>
                 
                 <div className='divMiniaturas d-flex justify-content-around'>
                     <RestauranteMiniatura nomeRestaurante={props.nomeRestaurante} capa={props.capa} />
                 </div>
+
                 </div>
             </div>
         </>

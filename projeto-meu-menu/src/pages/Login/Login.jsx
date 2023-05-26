@@ -10,6 +10,7 @@ import Forms from "../../components/loginComponents/Forms"
 import Logo from '../../assets/images/logoBranco.svg'
 import LoginFundo from '../../assets/images/login_fundo.svg'
 import api from '../../api';
+import Swal from 'sweetalert2'
 
 
 
@@ -28,6 +29,7 @@ function Login() {
 
 
   function logar(e) {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     e.preventDefault()
     
     const userLogin = {
@@ -36,16 +38,33 @@ function Login() {
     }
 
     api.post("usuarios/logar",userLogin)
-    .then((dadosUuarios) => {
-      sessionStorage.nome = dadosUuarios.data.nome;
-      sessionStorage.email = dadosUuarios.data.email;
-      sessionStorage.tipoComidaPreferida = dadosUuarios.data.tipoComidaPreferida;
+    .then((dadosUsuario) => {
+      sessionStorage.nome = dadosUsuario.data.nome;
+      sessionStorage.email = dadosUsuario.data.email;
+      sessionStorage.tipoComidaPreferida = dadosUsuario.data.tipoComidaPreferida;
       alert("Usuário encontrado, logando...")
-      console.log(dadosUuarios.data)
+      console.log(dadosUsuario.data)
     })
     .catch((erro) => {
-      throw "Email ou senha incorretos"
+      Swal.fire(
+        'Email ou senha incorretos',
+        'Verifique os campos novamente',
+        'error'
+      )
+
     })
+    
+    if (e.target.email.value == '' || e.target.senha.value == '') {
+      Swal.fire(
+        'Verificou todos os campos?',
+        'Preencha todos os campos para prosseguir!',
+        'error'
+      )
+    }else {
+     // navigate("/usuario-logado");
+    }
+
+
   }
 
 
@@ -62,9 +81,10 @@ function Login() {
         <Col lg={5} md={6} sm={12} className="container-form d-flex flex-column">
           <BiArrowBack className="align-self-start mb-5 d-flex d-md-none" size="80px" />
           <Col lg={10} md={12}>
-            {/* <div className="container-header w-100 mb-5 d-flex flex-column " >
-              {currentComponent}
-            </div> */}
+            {<h2 className="container-header_login w-100 mb-5 d-flex flex-column " >
+              LOGIN
+            </h2>
+            }
 
             <form className="form-content d-flex flex-wrap justify-content-center" onSubmit={logar}>
               <Forms tipo="text" placeholder="email" name="email"/>
