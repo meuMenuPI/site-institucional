@@ -16,7 +16,7 @@ function UsuarioPerfilBusca() {
             <div className='imgTextura2'>
             <div className='areaTextura2 d-flex flex-column align-items-center justify-content-around'>
             <BarraBusca />
-            <div className='areaMiniaturas2 d-flex flex-column align-items-center justify-content-around'>
+            <div className='areaMiniaturas2 d-flex flex-column align-items-center justify-content-between'>
 
               <Restaurante titulo="Restaurante bem avaliados" capa={Kfc} nomeRestaurante="KFC" />
               <Restaurante titulo="Restaurantes perto de você" capa={Kfc} nomeRestaurante="KFC"
