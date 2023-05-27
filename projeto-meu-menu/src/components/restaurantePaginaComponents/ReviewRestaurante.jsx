@@ -1,39 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import SelectReview from './SelectReview';
 import api from '../../api'
-<<<<<<< Updated upstream
-=======
 import ModalReview from './ModalReview';
 
->>>>>>> Stashed changes
 function ReviewRestaurante(props) {
 
     const [pilha, setPilha] = useState([]);
     const [fila, setFila] = useState([]);
 
     const tempFiltro = {
-<<<<<<< Updated upstream
-        filtro : "recente"
-=======
         filtro: "recente"
->>>>>>> Stashed changes
     }
 
     const [data, setData] = useState(tempFiltro)
 
     const updateFielHandler = (key, value) => {
         setData((prev) => {
-<<<<<<< Updated upstream
-          return { ...prev, [key]: value };
-        });
-        console.log(data)
-      };
-=======
             return { ...prev, [key]: value };
         });
         console.log(data)
     };
->>>>>>> Stashed changes
 
 
     /* sessionStorage.ID_RESTAURANTE_REVIEW */
@@ -53,16 +39,13 @@ function ReviewRestaurante(props) {
             });
     }, []);
 
-<<<<<<< Updated upstream
-=======
     const [openModal, setOpenModal] = useState(false)
 
->>>>>>> Stashed changes
     console.log(pilha);
     return (
         <>
             <div className='rp_divSelect'>
-            <button className='rp_botaoAddReview'>Adicionar review</button>
+                <button className='rp_botaoAddReview' onClick={() => setOpenModal(true)}>Adicionar review</button>
                 <select className="rp_selectFiltro" name="filtro" onChange={(e) => updateFielHandler("filtro", e.target.value)}>
                     <option defaultValue>Ordenar</option>
                     <option value="recente">Mais recente</option>
@@ -79,6 +62,7 @@ function ReviewRestaurante(props) {
                             <div className='rp_divNomeReview'>
                                 <span className='rp_nomeReview'>{dadostemp.nome}</span>
                                 <span className='rp_dataReview'>{dadostemp.data_hora}</span>
+
                             </div>
                             <div>Comida : {dadostemp.nt_comida}/5 || Ambiente : {dadostemp.nt_ambiente}/5 || Atendimento : {dadostemp.nt_atendimento}/5</div>
                             <div className='rp_textoReview'>{dadostemp.descricao}</div>
@@ -86,6 +70,7 @@ function ReviewRestaurante(props) {
                     </div>
                 </div>
             )}
+            <ModalReview isOpen={openModal} setModalOpen={setOpenModal} />
         </>
     )
 }
