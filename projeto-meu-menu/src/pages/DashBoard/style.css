@@ -9,7 +9,7 @@ body {
     position: absolute;
     width: 10%;
     height: 10%;
-    left:580px;
+    left: 580px;
     top: 690px;
     display: flex;
     align-items: center;
@@ -20,7 +20,7 @@ body {
     position: absolute;
     width: 150px;
     height: 20px;
-    left:580px;
+    left: 580px;
     top: 580px;
     font-family: 'Roboto';
     font-style: normal;
@@ -35,7 +35,7 @@ body {
     ;
 }
 
-canvas{
+canvas {
     width: 90% !important;
     height: 100% !important;
     display: flex;
@@ -49,7 +49,7 @@ canvas{
     position: absolute;
     width: 149px;
     height: 20px;
-    left:580px;
+    left: 580px;
     top: 50px;
     font-family: 'Roboto';
     font-style: normal;
@@ -67,7 +67,7 @@ canvas{
     position: absolute;
     width: 168.05px;
     height: 23.87px;
-    left:580px;
+    left: 580px;
     top: 120px;
     font-family: 'Roboto';
     font-style: normal;
@@ -78,9 +78,9 @@ canvas{
     align-items: center;
     letter-spacing: 0.1px;
     color: #000000;
-} */
+}
 
-.star-avaliacao {
+*/ .star-avaliacao {
     position: absolute;
     width: 31.37px;
     height: 23.87px;
@@ -110,7 +110,7 @@ canvas{
     left: 438px;
     top: 300px;
     list-style-type: none;
-    border: 1px solid #fff;
+    border: 1px solid #ffffff00;
     cursor: pointer;
     color: #DFDA62;
     font-size: 40px;
@@ -285,7 +285,7 @@ canvas{
     position: absolute;
     width: 150px;
     height: 20px;
-    left:580px;
+    left: 580px;
     top: 265px;
     font-family: 'Roboto';
     font-style: normal;
@@ -311,7 +311,7 @@ canvas{
     position: absolute;
     width: 350px;
     height: 225px;
-    left:580px;
+    left: 580px;
     top: 320px;
     background: linear-gradient(0deg, rgba(141, 0, 0, 0.08), rgba(141, 0, 0, 0.08)), #FCFCFC;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px rgba(0, 0, 0, 0.15);
@@ -364,8 +364,7 @@ canvas{
     flex-direction: column;
 }
 
-.cards h4{
+.cards h4 {
     margin: 20px;
     font-size: 15px;
 }
-
