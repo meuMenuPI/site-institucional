@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.busca2 {
+    width: 80%; 
+    height: 100vh;
+}
+
+.imgTextura2 {
+    background-image: url('../../assets/images/fundoBusca.svg');
+    width: 100%;
+    height: 100%;
+
+}
+
+.areaTextura2{
+    width: 100%;
+    height: 100%;
+}
+
+.areaMiniaturas2{
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+}

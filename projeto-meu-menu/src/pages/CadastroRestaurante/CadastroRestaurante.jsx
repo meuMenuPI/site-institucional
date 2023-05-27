@@ -38,6 +38,7 @@ const formTemplate2 = {
   complemento: ""
 }
 
+
 export default function CadastroRestaurante() {
 
   const [data, setData] = useState(formTemplate)
@@ -58,6 +59,12 @@ export default function CadastroRestaurante() {
     console.log(data2)
   };
 
+  function pegarCEP(){
+    fetch(`https://viacep.com.br/ws/${data2.cep}/json/`).then(res => res.json()).then(datacep => {
+      console.log(datacep);
+    })
+  }
+
   function cadastrar(e) {
     e.preventDefault();
 
@@ -77,7 +84,8 @@ export default function CadastroRestaurante() {
       fk_usuario: null,
       cep: data2.cep,
       numero: data2.numero,
-      complemento: data2.complemento
+      complemento: data2.complemento,
+      uf: 0
     }
 
     api.post("restaurantes/cadastrar", restauranteInfo)

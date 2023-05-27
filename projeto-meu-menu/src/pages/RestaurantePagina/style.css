@@ -273,8 +273,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-<<<<<<< Updated upstream
-=======
+
 }
 
 .rp_botaoAddReview {
@@ -442,5 +441,16 @@ li {
     background-color: #8D0000;
     color: #FFFF;
     font-weight: bold;
->>>>>>> Stashed changes
+
+}
+
+.rp_botaoAddReview{
+        background-color: #F0DCF5;
+        border-radius: 10px;
+        padding: 0.5%;
+        min-width: 15%;
+        font-weight: 400;
+        border: none;
+        margin-right: 5%;
+
 }
