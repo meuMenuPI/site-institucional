@@ -61,7 +61,14 @@ function CadastroUsuarioP2() {
         'error'
       )
     } else {
-      navigate("/login");
+      api.post("usuarios/cadastrar", infoUser)
+      .then(() => {
+        navigate("/login")
+      })
+      .catch((erro) => {
+        console.log(infoUser.nome)
+        alert("deu erro, muita gente testando")
+      })
     }
 
   }
