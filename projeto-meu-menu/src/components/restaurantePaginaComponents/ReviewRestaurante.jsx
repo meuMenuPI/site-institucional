@@ -1,23 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import SelectReview from './SelectReview';
 import api from '../../api'
+<<<<<<< Updated upstream
+=======
+import ModalReview from './ModalReview';
+
+>>>>>>> Stashed changes
 function ReviewRestaurante(props) {
 
     const [pilha, setPilha] = useState([]);
     const [fila, setFila] = useState([]);
 
     const tempFiltro = {
+<<<<<<< Updated upstream
         filtro : "recente"
+=======
+        filtro: "recente"
+>>>>>>> Stashed changes
     }
 
     const [data, setData] = useState(tempFiltro)
 
     const updateFielHandler = (key, value) => {
         setData((prev) => {
+<<<<<<< Updated upstream
           return { ...prev, [key]: value };
         });
         console.log(data)
       };
+=======
+            return { ...prev, [key]: value };
+        });
+        console.log(data)
+    };
+>>>>>>> Stashed changes
 
 
     /* sessionStorage.ID_RESTAURANTE_REVIEW */
@@ -37,6 +53,11 @@ function ReviewRestaurante(props) {
             });
     }, []);
 
+<<<<<<< Updated upstream
+=======
+    const [openModal, setOpenModal] = useState(false)
+
+>>>>>>> Stashed changes
     console.log(pilha);
     return (
         <>
