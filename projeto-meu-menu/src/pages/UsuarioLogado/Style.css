@@ -1,0 +1,61 @@
+.all {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.header_section {
+    height: 10%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.div_left_header_perfil {
+    height: 27%;
+    margin-top: 4.5%;
+    width: 50%;
+}
+
+#img_perfil_pessoa {
+    position: absolute;
+    width: 173px;
+    height: 172px;
+    left: 26%;
+    top: 39px;
+}
+
+.Name {
+    position: absolute;
+    width: 124px;
+    height: 20px;
+    left: 30%;
+    top: 244px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #FFFFFF;
+}
+
+.div_input_half_User{
+    height: 53px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.div_box_inputs {
+    height: 30%;
+    width: 84%;
+    margin-left: 8%;
+}
+

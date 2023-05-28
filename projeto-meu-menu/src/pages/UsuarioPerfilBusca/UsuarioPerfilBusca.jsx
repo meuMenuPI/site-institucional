@@ -1,7 +1,9 @@
 import React from 'react'
 import './style.css'
 import MenuLeftUsuario from '../../components/UsuarioLogadoComponents/MenuLeftUsuario';
+
 import BarraBuscaPerfil from '../../components/UsuarioLogadoComponents/BarraBuscaPerfil';
+
 import Restaurante from '../../components/inicioComponents/Restaurante';
 import Kfc from '../../assets/images/kfcImagem.svg'
 
@@ -16,6 +18,7 @@ function UsuarioPerfilBusca() {
             <div className='imgTextura2'>
             <div className='areaTextura2 d-flex flex-column align-items-center justify-content-between'>
             <BarraBuscaPerfil />
+
             <div className='areaMiniaturas2 d-flex flex-column align-items-center justify-content-between'>
 
               <Restaurante titulo="Restaurante bem avaliados" capa={Kfc} nomeRestaurante="KFC" />

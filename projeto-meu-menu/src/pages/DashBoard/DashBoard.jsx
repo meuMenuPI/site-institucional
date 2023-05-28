@@ -63,7 +63,7 @@ export default function Inicio() {
 
                 <h1 class="titulo"> DashBoard </h1>
 
-                <p>Média de estrela</p>
+                <p class="mediaStar">Média de estrela</p>
 
                 <div class="star-avaliacao">
 
