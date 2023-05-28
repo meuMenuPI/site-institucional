@@ -9,6 +9,7 @@ import Carrossel from '../../components/inicioComponents/carrosel/Carrossel';
 import Logo from '../../assets/images/logoBranco.svg'
 import Predio from '../../assets/images/pessoaPredios.svg'
 import BotaoIcone from '../../components/inicioComponents/BotaoIcone';
+import BotaoIcone2 from '../../components/inicioComponents/BotaoIcone2';
 import Casa from '../../assets/images/home.svg'
 import User from '../../assets/images/user.svg'
 import BarraBusca from '../../components/inicioComponents/BarraBusca';
@@ -17,9 +18,10 @@ import Kfc from '../../assets/images/kfcImagem.svg'
 import DivinoFogao from '../../assets/images/divinoFogao.svg'
 import LaGuapa from '../../assets/images/laGuapa.svg'
 import api from '../../api';
+import { useNavigate } from 'react-router-dom'
 
 export default function Index() {
-
+ // eslint-disable-next-line
   const [restaurantes, setRestaurante] = useState([]);
 
   useEffect(() => {
@@ -34,13 +36,13 @@ export default function Index() {
       });
   }, []);
 
-
+  const navigate = useNavigate();
   return (
     <Container fluid className='p-0'>
 
       <Row className="nav m-0 d-flex flex-row justify-content-between align-items-center">
         <img className='imgLogo' src={Logo} alt="Logo meu menu" />
-        <Button className='button'>Fazer Login</Button>
+        <Button onClick={() => navigate("/login")} className='button'>Fazer Login</Button>
       </Row>
 
       <Col lg={12} md={12} className="container-image d-flex flex-column justify-content-center align-items-start">
@@ -52,7 +54,7 @@ export default function Index() {
           </div>
           <div className='d-flex'>
             <BotaoIcone buttonText="Cadastre seu comercio" image={Casa}></BotaoIcone>
-            <BotaoIcone buttonText="Novo Usuario" image={User}></BotaoIcone>
+            <BotaoIcone2 buttonText="Novo Usuario" image={User}></BotaoIcone2>
           </div>
         </div>
       </Col>
