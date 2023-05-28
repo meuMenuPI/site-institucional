@@ -126,6 +126,15 @@ body {
     border: 0px;
 }
 
+<<<<<<< Updated upstream
+=======
+.iconeLupa {
+    width: 22px;
+    position: absolute;
+    top: 161.5%;
+    left: 170px; 
+}
+>>>>>>> Stashed changes
 .miniatura {
     width: 27%;
     height: 100%;
@@ -149,9 +158,24 @@ body {
     height: 65%;
 }
 
+<<<<<<< Updated upstream
 .divMiniaturas{
     width: 100%;
     height: 67%;
+=======
+.divMiniaturas {
+
+    width: 80%;
+    height: 100%;
+    //overflow-x: scroll;
+    overflow-y: hidden;
+
+}
+
+.abc {
+    width: 100%;
+    height: 160px;
+>>>>>>> Stashed changes
 }
 
 .restaurantes {
