@@ -1,9 +1,7 @@
 import React from "react";
 import Forms from "../../components/cadastroUsuario/forms";
 import Fundo from "../../components/cadastroUsuario/fundo";
-import Inputs from "../../components/cadastroUsuario/inputs";
 import { Button, Form } from "react-bootstrap"
-import api from "../../api"; // importando a instância do Axios de "api.js"
 import { IMaskInput } from "react-imask"
 
 import { useNavigate } from 'react-router-dom';
@@ -21,12 +19,6 @@ function CadastroUsuario() {
     
     e.preventDefault();
 
-    const infoUser = {
-/*    nome : e.target.nome.value,
-      sobrenome : e.target.sobrenome.value,
-      cpf : e.target.cpf.value
- */
-    }
 /* 
     api.post("/", infoUser)
     .then(() => {
@@ -42,7 +34,7 @@ function CadastroUsuario() {
     sessionStorage.sobrenome = e.target.sobrenome.value
     sessionStorage.cpf = e.target.cpf.value
 
-    if (e.target.nome.value == '' || e.target.sobrenome.value == '' || e.target.cpf.value == '') {
+    if (e.target.nome.value === '' || e.target.sobrenome.value === '' || e.target.cpf.value === '') {
       Swal.fire(
         'Verificou todos os campos?',
         'Preencha todos os campos para prosseguir!',

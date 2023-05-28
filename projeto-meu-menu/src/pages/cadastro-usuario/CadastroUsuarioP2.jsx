@@ -1,7 +1,6 @@
 
 import Forms from "../../components/cadastroUsuario/forms";
 import Fundo from "../../components/cadastroUsuario/fundo";
-import Inputs from "../../components/cadastroUsuario/inputs";
 import { Button, Form } from "react-bootstrap"
 import Especialidade from "../../components/cadastroUsuario/especialidade";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +20,7 @@ function CadastroUsuarioP2() {
     const infoUser = {
       nome: sessionStorage.nome,
       sobrenome: sessionStorage.sobrenome,
-      cpf: sessionStorage.cpf,
+      cpf: sessionStorage.cpf.replace(/\D/g, ''),
       email: e.target.email.value,
       senha: e.target.senha.value,
       tipoComidaPreferida: e.target.especialidade.value
@@ -36,7 +35,7 @@ function CadastroUsuarioP2() {
     
           console.log(erroObtido); 
         }); */
-    if (e.target.email.value == '' || e.target.senha.value == '' || e.target.conf_senha.value == '' || e.target.especialidade.value == '') {
+    if (e.target.email.value === '' || e.target.senha.value === '' || e.target.conf_senha.value === '' || e.target.especialidade.value === '') {
       Swal.fire(
         'Verificou todos os campos?',
         'Preencha todos os campos para prosseguir!',
@@ -48,7 +47,7 @@ function CadastroUsuarioP2() {
         'Nome ou sobrenome curtos demais! Verifique e tente novamente.',
         'error'
       )
-    } else if (e.target.senha.value != e.target.conf_senha.value) {
+    } else if (e.target.senha.value !== e.target.conf_senha.value) {
       Swal.fire(
         'Ops',
         'A senha deve ser igual a confirmação de senha! Verifique e tente novamente.',
