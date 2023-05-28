@@ -70,12 +70,6 @@ export default function Index() {
           <div className='areaTextura d-flex flex-column align-items-center justify-content-around'>
             <BarraBusca />
             <div className='areaMiniaturas d-flex flex-column align-items-center justify-content-around'>
-              {/* {restaurantes.map((restaurante) => (
-                <Restaurante titulo="Restaurante bem avaliados" capa={restaurante.imagem} nomeRestaurante={restaurante.nome}
-                  capa2={DivinoFogao} nomeRestaurante2="Divino Fogão"
-                  capa3={LaGuapa} nomeRestaurante3="La Guapa" />
-              ))
-              } */}
 
               <Restaurante titulo="Restaurante bem avaliados" capa={Kfc} nomeRestaurante="KFC" />
               <Restaurante titulo="Restaurantes perto de você" capa={Kfc} nomeRestaurante="KFC"
