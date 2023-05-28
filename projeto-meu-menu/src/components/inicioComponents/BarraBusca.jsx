@@ -1,13 +1,13 @@
 import React from 'react'
 import '../../pages/Inicio/style.css'
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"></link>
+import IconeLupa from '../../assets/images/iconeLupa.svg'
 
 const BarraBusca = (props) => {
     return (
         <>
-                <i class="fa fa-search icon" aria-hidden="true"></i>
+                
                 <input className='barraBusca' placeholder='Busque o que deseja' />
-
+                <img src={IconeLupa}className='iconeLupa' />
         </>
     )
 }
