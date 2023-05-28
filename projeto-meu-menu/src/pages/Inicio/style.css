@@ -128,12 +128,14 @@ body {
     border: 0px;
 }
 
+
 .iconeLupa {
     width: 22px;
     position: absolute;
-    top: 159%;
-    left: 225px; 
+    top: 161.5%;
+    left: 170px; 
 }
+
 .miniatura {
 
     width: 280px;
@@ -168,10 +170,20 @@ body {
 
 }
 
+.divMiniaturas {
+
+    width: 80%;
+    height: 100%;
+    //overflow-x: scroll;
+    overflow-y: hidden;
+
+}
+
+
+
 .abc {
     width: 100%;
     height: 160px;
-
 }
 
 
