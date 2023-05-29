@@ -16,9 +16,7 @@ function BoxInputsCardapio(props) {
                     <InputHalfCardapio />
                 </div>
 
-                <div className="div_input_description">
-                    <input type="text" id='id_input_description_edition' placeholder='Descrição' />
-                </div>
+
 
             </div>
 

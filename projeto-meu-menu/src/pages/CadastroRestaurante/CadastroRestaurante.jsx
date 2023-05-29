@@ -59,7 +59,7 @@ export default function CadastroRestaurante() {
     console.log(data2)
   };
 
-  function pegarCEP(){
+  function pegarCEP() {
     fetch(`https://viacep.com.br/ws/${data2.cep}/json/`).then(res => res.json()).then(datacep => {
       console.log(datacep);
     })
@@ -69,23 +69,24 @@ export default function CadastroRestaurante() {
     e.preventDefault();
 
     const restauranteInfo = {
+      id: 3,
       usuario: 1,
       nome: data.nomeRestaurante,
-      cnpj: data.cnpj,
+      cnpj: "02189924000103",
       especialidade: data.especialidade,
-      beneficio: data.beneficio,
       telefone: data.telefone,
       site: data.site,
       estrela: data.estrela,
+      beneficio: data.beneficio
     }
 
     const enderecoResInfo = {
-      fk_restaurante: 0,
-      fk_usuario: null,
+      fk_restaurante: 3,
+      fk_usuario: 1,
       cep: data2.cep,
       numero: data2.numero,
       complemento: data2.complemento,
-      uf: 0
+      uf: 1
     }
 
     api.post("restaurantes/cadastrar", restauranteInfo)
@@ -109,7 +110,7 @@ export default function CadastroRestaurante() {
 
 
 
-    console.log(enderecoResInfo);
+    console.log(restauranteInfo);
 
   }
 

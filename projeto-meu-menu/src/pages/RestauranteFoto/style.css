@@ -1,0 +1,89 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.div_all_restaurante_foto {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.div_menu_left {
+    height: 100%;
+    width: 22.9%;
+}
+
+.div_header_restaurante_foto {
+    height: 100%;
+    width: 65%;
+    margin-left: 6%;
+}
+
+.div_header_img_mini_foto {
+    margin-top: 28px;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    list-style-type: none;
+}
+
+#img_perfil_mini_foto {
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+}
+
+.div_header_restaurante_foto p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.titulos_fotos_padroes {
+    height: 7%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.div_fotos_padroes,
+.div_fotos_produtos {
+    height: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.div_box_foto {
+    background-color: #FFFF;
+    height: 100%;
+    border-style: dashed;
+    border-color: #727272;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+#img_adicionar_prato_cardapio {
+    cursor: pointer;
+}
+
+.titulo_foto_produtos {
+    margin-top: 2%;
+    height: 7%;
+    width: 100%;
+}
+
+.div_button_save {
+    height: 9%;
+    width: 94%;
+}

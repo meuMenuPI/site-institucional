@@ -19,14 +19,22 @@ function MenuLeft() {
         var style_section1 = "first_section"
         var style_section2 = "first_section_not_background"
         var style_section3 = "first_section_not_background"
+        var style_section4 = "first_section_not_background"
     } else if (location.pathname === '/restaurante-cardapio') {
         var style_section1 = "first_section_not_background"
         var style_section2 = "first_section"
         var style_section3 = "first_section_not_background"
-    } else {
+        var style_section4 = "first_section_not_background"
+    } else if (location.pathname === '/restaurante-foto') {
         var style_section1 = "first_section_not_background"
         var style_section2 = "first_section_not_background"
         var style_section3 = "first_section"
+        var style_section4 = "first_section_not_background"
+    } else {
+        var style_section1 = "first_section_not_background"
+        var style_section2 = "first_section_not_background"
+        var style_section3 = "first_section_not_background"
+        var style_section4 = "first_section"
     }
 
     return (
@@ -39,9 +47,10 @@ function MenuLeft() {
                     <HeaderSection text='Perfil' />
                     <Section img={IconCircle} text="Perfil" height={22} caminho={"/restaurante-perfil"} style={style_section1} />
                     <Section img={IconTriangle} text="Cardápio" height={22} caminho={"/restaurante-cardapio"} style={style_section2} />
+                    <Section img={IconCircle} text="Foto" height={22} caminho={"/restaurante-foto"} style={style_section3} />
                     <LineSection />
                     <HeaderSection text='Relatórios' />
-                    <Section img={IconBox} text="DashBoard" caminho={"/dashboard"} height={10} style={style_section3} />
+                    <Section img={IconBox} text="DashBoard" caminho={"/dashboard"} height={10} style={style_section4} />
                     <LineSection />
                     <HeaderSection text='Filiais' />
                     <BoxFiliais />

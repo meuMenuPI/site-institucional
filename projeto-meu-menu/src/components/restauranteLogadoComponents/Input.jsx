@@ -6,7 +6,7 @@ function Input(props) {
 
     <>
 
-      <input type='text' id='id_input' placeholder={props.nome}></input>
+      <input type='text' id='id_input' placeholder={props.nome} name={props.name}></input>
 
     </>
 
