@@ -8,11 +8,10 @@ function ItemCardapio(props) {
 
     const [cardapio, setCardapio] = useState([]);
 
-    /* sessionStorage.ID_RESTAURANTE_CARDAPIO */
-    let id = 1;
+    /* sessionStorage.ID_RESTAURANTE_PAGINA */
 
     useEffect(() => {
-        api.get(`/cardapios?id=${id}`)
+        api.get(`/cardapios?id=${sessionStorage.ID_RESTAURANTE_PAGINA}`)
             .then((respostaObtida) => {
                 setCardapio(respostaObtida.data);
                 console.log(respostaObtida.data)
@@ -20,7 +19,7 @@ function ItemCardapio(props) {
             .catch((erroObtido) => {
                 console.log(erroObtido);
             });
-    }, [id]);
+    }, []);
 
     return (
         <>
