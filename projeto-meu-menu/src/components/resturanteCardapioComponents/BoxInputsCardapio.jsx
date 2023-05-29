@@ -1,6 +1,5 @@
 import React from 'react'
 import Input from '../../components/restauranteLogadoComponents/Input'
-import DivInputHalf from '../restauranteLogadoComponents/DivInputHalf'
 import InputHalfCardapio from './InputHalfCardapio'
 
 function BoxInputsCardapio(props) {

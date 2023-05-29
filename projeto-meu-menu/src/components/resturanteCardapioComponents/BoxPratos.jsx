@@ -1,5 +1,4 @@
 import React from 'react'
-import BoxPratoLeft from './BoxPratoLeft'
 import BoxPratoAll from './BoxPratoAll'
 
 function BoxPratos() {

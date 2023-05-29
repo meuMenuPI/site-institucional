@@ -1,7 +1,6 @@
 import React from 'react'
 import IconAdicionarPrato from '../../assets/images/IconAdicionarPrato.png'
 import ImgPratoCardapio from '../../assets/images/ImgPratoCardapio.png'
-import BoxPratoRight from './BoxPratoRight'
 
 function BoxPratoLeft() {
     return (

@@ -19,8 +19,13 @@ import Taco from '../../../assets/images/logoTaco.svg'
 
 const Carrossel = () => {
 
+
+/*     useEffect(() => {
+        let count = 1;
+
     
     const countRef = useRef(1);
+
 
   useEffect(() => {
     const interval = setInterval(nextImage, 2000);
@@ -30,11 +35,24 @@ const Carrossel = () => {
     };
   }, []);
 
+
+        function nextImage() {
+            count++;
+            if (count > 9) {
+                
+                count = 1;
+            }
+
+            document.getElementById("radio" + count).checked = true;
+        }
+    }); */
+
   function nextImage() {
     countRef.current++;
     if (countRef.current > 9) {
       countRef.current = 1;
     }
+
 
     const radioElement = document.getElementById("radio" + countRef.current);
     if (radioElement) {

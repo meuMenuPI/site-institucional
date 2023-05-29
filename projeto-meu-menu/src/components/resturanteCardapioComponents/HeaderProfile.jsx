@@ -1,7 +1,6 @@
 import React from 'react'
 import '../../pages/RestauranteLogado/style.css'
 import ImgProfileMini from '../../assets/images/ImgPerfilMini.png'
-import ImgProfileBig from '../../assets/images/ImgPerfilBig.png'
 
 function HeaderProfile() {
   return (

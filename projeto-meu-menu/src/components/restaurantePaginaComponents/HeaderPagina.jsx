@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../../pages/RestaurantePagina/style.css'
 
 function HeaderPagina(props) {
