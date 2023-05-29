@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useEffect , useRef } from 'react';
 import '../../../pages/Inicio/style.css'
 import LogoRestaurante from '../LogoRestaurante';
 import '../carrosel/styleCarrossel.css';
@@ -17,16 +17,24 @@ import Taco from '../../../assets/images/logoTaco.svg'
 
 
 
-const Carrossel = (props) => {
+const Carrossel = () => {
+
 
 /*     useEffect(() => {
         let count = 1;
 
-        document.getElementById("radio1").checked = true;
+    
+    const countRef = useRef(1);
 
-        setInterval(function () {
-            nextImage();
-        }, 2000)
+
+  useEffect(() => {
+    const interval = setInterval(nextImage, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
 
         function nextImage() {
             count++;
@@ -39,6 +47,18 @@ const Carrossel = (props) => {
         }
     }); */
 
+  function nextImage() {
+    countRef.current++;
+    if (countRef.current > 9) {
+      countRef.current = 1;
+    }
+
+
+    const radioElement = document.getElementById("radio" + countRef.current);
+    if (radioElement) {
+      radioElement.checked = true;
+    }
+  }
 
 
     return (
