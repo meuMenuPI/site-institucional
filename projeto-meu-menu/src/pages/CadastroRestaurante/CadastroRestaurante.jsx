@@ -68,6 +68,13 @@ export default function CadastroRestaurante() {
       console.log(enderecoResInfo);
       return newData2;
     });
+
+  };
+
+  function pegarCEP() {
+    fetch(`https://viacep.com.br/ws/${data2.cep}/json/`).then(res => res.json()).then(datacep => {
+      console.log(datacep);
+    })
   }, [data2]);
 
   
@@ -90,22 +97,48 @@ useEffect(() => {
     e.preventDefault();
 
     const restauranteInfo = {
+      id: 3,
       usuario: 1,
       nome: data.nomeRestaurante,
-      cnpj: data.cnpj,
+      cnpj: "02189924000103",
       especialidade: data.especialidade,
-      beneficio: data.beneficio,
       telefone: data.telefone,
       site: data.site,
       estrela: data.estrela,
+      beneficio: data.beneficio
     }
 
     const enderecoResInfo = {
-      fk_restaurante: 0,
-      fk_usuario: null,
+      fk_restaurante: 3,
+      fk_usuario: 1,
       cep: data2.cep,
       numero: data2.numero,
       complemento: data2.complemento,
+      uf: 1
+    }
+
+    api.post("restaurantes/cadastrar", restauranteInfo)
+      .then((res) => {
+        enderecoResInfo.fk_restaurante = res.data.id;
+        console.log(enderecoResInfo)
+
+        api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
+          .then((res2) => {
+            alert("Cadastrado!")
+          }).catch((err) => {
+            alert("Não foi possível realizar o cadastro de seu endereço, tente novamente..");
+            navigate("/restaurante-cadastrar");
+          })
+
+      })
+      .catch((erro) => {
+        alert("Não foi possível realizar o cadastro de seu restaurante, tente novamente..");
+        navigate("/restaurante-cadastrar");
+      })
+
+
+
+    console.log(restauranteInfo);
       uf: data2.uf
     }
 
