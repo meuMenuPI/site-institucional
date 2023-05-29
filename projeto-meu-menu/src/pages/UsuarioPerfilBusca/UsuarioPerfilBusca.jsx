@@ -5,7 +5,6 @@ import MenuLeftUsuario from '../../components/UsuarioLogadoComponents/MenuLeftUs
 import BarraBuscaPerfil from '../../components/UsuarioLogadoComponents/BarraBuscaPerfil';
 
 import Restaurante from '../../components/inicioComponents/Restaurante';
-import Kfc from '../../assets/images/kfcImagem.svg'
 
 function UsuarioPerfilBusca() {
     return (
@@ -21,11 +20,9 @@ function UsuarioPerfilBusca() {
 
             <div className='areaMiniaturas2 d-flex flex-column align-items-center justify-content-between'>
 
-              <Restaurante titulo="Restaurante bem avaliados" capa={Kfc} nomeRestaurante="KFC" />
-              <Restaurante titulo="Restaurantes perto de você" capa={Kfc} nomeRestaurante="KFC"
-                 />
-              <Restaurante titulo="Descubra novas culturas" capa={Kfc} nomeRestaurante="KFC"
-                 />
+            <Restaurante titulo="Restaurante bem avaliados" valor={1}/>
+              <Restaurante titulo="Restaurantes perto de você" valor={2}/>
+              <Restaurante titulo="Descubra novas culturas" valor={3}/>
             </div>
           </div>
         </div>

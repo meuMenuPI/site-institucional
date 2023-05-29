@@ -42,9 +42,6 @@ function MenuLeft() {
                     <LineSection />
                     <HeaderSection text='Relatórios' />
                     <Section img={IconBox} text="DashBoard" caminho={"/dashboard"} height={10} style={style_section3} />
-                    <LineSection />
-                    <HeaderSection text='Filiais' />
-                    <BoxFiliais />
                     <ButtonExit />
 
                 </div>
