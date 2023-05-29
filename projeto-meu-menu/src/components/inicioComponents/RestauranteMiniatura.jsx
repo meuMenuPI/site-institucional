@@ -1,6 +1,5 @@
 import '../../pages/Inicio/style.css'
-import ModalReview from '../restaurantePaginaComponents/ModalReview'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ModalRestaurante from './ModalRestaurante'
 
 const RestauranteMiniatura = (props) => {

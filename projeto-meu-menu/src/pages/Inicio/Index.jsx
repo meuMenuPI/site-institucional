@@ -11,9 +11,6 @@ import Casa from '../../assets/images/home.svg'
 import User from '../../assets/images/user.svg'
 import BarraBusca from '../../components/inicioComponents/BarraBusca';
 import Restaurante from '../../components/inicioComponents/Restaurante';
-import Kfc from '../../assets/images/kfcImagem.svg'
-import DivinoFogao from '../../assets/images/divinoFogao.svg'
-import LaGuapa from '../../assets/images/laGuapa.svg'
 import api from '../../api';
 import { useNavigate } from 'react-router-dom'
 
