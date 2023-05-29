@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import CadastroRestaurante from "../pages/CadastroRestaurante/CadastroRestaurante";
 import Index from "../pages/Inicio/Index";
@@ -37,6 +36,7 @@ export default function Routers() {
                 <Route path="/restaurante-pagina" element={<RestaurantePagina />} />
                 <Route path="/usuario-perfil" element={<UsuarioPerfil />} />
                 <Route path="/usuario-perfil-busca" element={<UsuarioPerfilBusca />} />
+
 
             </Routes>
         </Router>

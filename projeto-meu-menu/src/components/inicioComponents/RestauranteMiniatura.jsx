@@ -1,9 +1,10 @@
 import '../../pages/Inicio/style.css'
-import ModalReview from '../restaurantePaginaComponents/ModalReview'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ModalRestaurante from './ModalRestaurante'
 
 const RestauranteMiniatura = (props) => {
+
+    
 
     const estiloCard = {
         backgroundImage: `url(${props.capa})`,
@@ -17,7 +18,7 @@ const RestauranteMiniatura = (props) => {
 
     return (
         <>
-            <div className='miniatura' style={estiloCard}>
+            <div className='miniatura' onClick={props.onClick} style={estiloCard}>
                 <div className='fundoPreto d-flex justify-content-center align-items-center' onClick={() => setOpenModal(true)}>
                     <h2 style={estiloNome}>{props.nomeRestaurante}</h2>
                 </div>

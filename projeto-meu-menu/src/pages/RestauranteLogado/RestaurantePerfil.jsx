@@ -3,7 +3,6 @@ import MenuLeft from '../../components/restauranteLogadoComponents/MenuLeft';
 import SideEditionProfile from '../../components/restauranteLogadoComponents/SideEditionProfile';
 import './style.css';
 import { useState } from "react";
-import api from "../../api";
 import { useNavigate } from 'react-router-dom';
 
 const formTemplate = {

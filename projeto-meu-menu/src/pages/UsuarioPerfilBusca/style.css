@@ -4,7 +4,7 @@ body {
 }
 
 .busca2 {
-    width: 80%; 
+    width: 78.5%; 
     height: 100vh;
 }
 
@@ -18,10 +18,19 @@ body {
 .areaTextura2{
     width: 100%;
     height: 100%;
+    padding-top: 20px;
 }
 
 .areaMiniaturas2{
     width: 100%;
     height: 100%;
     overflow-x: auto;
+    padding-top: 20px
+}
+
+.iconeLupaPerfil {
+    width: 22px;
+    position: absolute;
+    top: 4%;
+    left: 413px; 
 }

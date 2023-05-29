@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import '../../../pages/Inicio/style.css'
 import LogoRestaurante from '../LogoRestaurante';
 import '../carrosel/styleCarrossel.css';
@@ -17,35 +17,36 @@ import Taco from '../../../assets/images/logoTaco.svg'
 
 
 
-const Carrossel = (props) => {
+const Carrossel = () => {
+
+    const countRef = useRef(1);
 
     useEffect(() => {
-        let count = 1;
+        const interval = setInterval(nextImage, 2000);
 
-        document.getElementById("radio1").checked = true;
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
 
-        setInterval(function () {
-            nextImage();
-        }, 2000)
-
-        function nextImage() {
-            count++;
-            if (count > 9) {
-                
-                count = 1;
-            }
-
-            document.getElementById("radio" + count).checked = true;
+    function nextImage() {
+        countRef.current++;
+        if (countRef.current > 9) {
+            countRef.current = 1;
         }
-    });
 
+        const radioElement = document.getElementById("radio" + countRef.current);
+        if (radioElement) {
+            radioElement.checked = true;
+        }
+    }
 
 
     return (
         <>
 
-            <div class="slider">
-                <div class="slides">
+            <div className="slider">
+                <div className="slides">
                     <input type="radio" name="radio-btn" id="radio1" />
                     <input type="radio" name="radio-btn" id="radio2" />
                     <input type="radio" name="radio-btn" id="radio3" />
@@ -96,30 +97,30 @@ const Carrossel = (props) => {
 
 
 
-                    <div class="navigation-auto">
-                        <div class="auto-btn1"></div>
-                        <div class="auto-btn2"></div>
-                        <div class="auto-btn3"></div>
-                        <div class="auto-btn4"></div>
-                        <div class="auto-btn5"></div>
-                        <div class="auto-btn6"></div>
-                        <div class="auto-btn7"></div>
-                        <div class="auto-btn8"></div>
-                        <div class="auto-btn9"></div>
+                    <div className="navigation-auto">
+                        <div className="auto-btn1"></div>
+                        <div className="auto-btn2"></div>
+                        <div className="auto-btn3"></div>
+                        <div className="auto-btn4"></div>
+                        <div className="auto-btn5"></div>
+                        <div className="auto-btn6"></div>
+                        <div className="auto-btn7"></div>
+                        <div className="auto-btn8"></div>
+                        <div className="auto-btn9"></div>
                     </div>
 
                 </div>
 
-                <div class="manual-navigation">
-                    <label for="radio1" class="manual-btn"></label>
-                    <label for="radio2" class="manual-btn"></label>
-                    <label for="radio3" class="manual-btn"></label>
-                    <label for="radio4" class="manual-btn"></label>
-                    <label for="radio5" class="manual-btn"></label>
-                    <label for="radio6" class="manual-btn"></label>
-                    <label for="radio7" class="manual-btn"></label>
-                    <label for="radio8" class="manual-btn"></label>
-                    <label for="radio9" class="manual-btn"></label>
+                <div className="manual-navigation">
+                    <label htmlFor="radio1" className="manual-btn"></label>
+                    <label htmlFor="radio2" className="manual-btn"></label>
+                    <label htmlFor="radio3" className="manual-btn"></label>
+                    <label htmlFor="radio4" className="manual-btn"></label>
+                    <label htmlFor="radio5" className="manual-btn"></label>
+                    <label htmlFor="radio6" className="manual-btn"></label>
+                    <label htmlFor="radio7" className="manual-btn"></label>
+                    <label htmlFor="radio8" className="manual-btn"></label>
+                    <label htmlFor="radio9" className="manual-btn"></label>
                 </div>
 
             </div>
