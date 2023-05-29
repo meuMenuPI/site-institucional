@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import ImgProfile from '../../assets/images/imgPessoa.png'
 import Section from '../restauranteLogadoComponents/Section'
 import LineSection from '../restauranteLogadoComponents/LineSection';
 import HeaderSection from '../restauranteLogadoComponents/HeaderSection';
@@ -13,14 +12,16 @@ function MenuLeftUsuario() {
 
     const [fotoPerfil, setFotoPerfil] = useState();
 
-    var mama = sessionStorage.FOTO_PERFIL;
+    const nome = sessionStorage.NOME;
+
+    var nomeFoto = sessionStorage.FOTO_PERFIL;
 
     useEffect(() => {
         
         if (fotoPerfil == null) {
           setFotoPerfil("");
         } else {
-            setFotoPerfil(link + mama);
+            setFotoPerfil(link + nomeFoto);
             console.log(fotoPerfil)
         }
       }, [fotoPerfil]);
@@ -28,8 +29,8 @@ function MenuLeftUsuario() {
         <>
             <div className="container_menu_left">
             <div className="div_left_header_perfil">
-                        <img src={fotoPerfil} id="img_perfil_pessoa" alt="Imagem do perfil" />
-                        <p className='Name'> Carla Roberta </p>
+                        <img src={fotoPerfil} className="img_perfil_pessoa" alt="Imagem do perfil" />
+                        <p className='Name'>{nome}</p>
                     </div>
 
                 <div className='sections'>
