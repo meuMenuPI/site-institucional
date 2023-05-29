@@ -8,6 +8,11 @@ import IconTriangle from '../../assets/images/IconTriangle.png'
 import IconBox from '../../assets/images/IconBox.png'
 
 function MenuLeftUsuario() {
+
+    /* const link = "https://meumenuimagens.blob.core.windows.net/foto-suario/";
+    const foto = sessionStorage.fotoPerfil;
+    link += foto; */
+
     return (
         <>
             <div className="container_menu_left">

@@ -26,6 +26,7 @@ function Login() {
       sessionStorage.nome = dadosUsuario.data.nome;
       sessionStorage.email = dadosUsuario.data.email;
       sessionStorage.tipoComidaPreferida = dadosUsuario.data.tipoComidaPreferida;
+      sessionStorage.fotoPerfil = dadosUsuario.data.fotoPerfil
       alert("Usuário encontrado, logando...")
       console.log(dadosUsuario.data)
     })
