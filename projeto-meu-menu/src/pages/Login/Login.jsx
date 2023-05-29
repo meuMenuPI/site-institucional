@@ -23,10 +23,10 @@ function Login() {
 
     api.post("usuarios/logar",userLogin)
     .then((dadosUsuario) => {
-      sessionStorage.nome = dadosUsuario.data.nome;
-      sessionStorage.email = dadosUsuario.data.email;
-      sessionStorage.tipoComidaPreferida = dadosUsuario.data.tipoComidaPreferida;
-      sessionStorage.fotoPerfil = dadosUsuario.data.fotoPerfil
+      sessionStorage.NOME = dadosUsuario.data.nome;
+      sessionStorage.EMAIL = dadosUsuario.data.email;
+      sessionStorage.TIPO_COMIDA_PREFERIDA = dadosUsuario.data.tipoComidaPreferida;
+      sessionStorage.FOTO_PERFIL = dadosUsuario.data.fotoPerfil
       alert("Usuário encontrado, logando...")
       console.log(dadosUsuario.data)
     })

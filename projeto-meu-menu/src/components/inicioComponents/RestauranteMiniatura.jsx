@@ -4,6 +4,8 @@ import ModalRestaurante from './ModalRestaurante'
 
 const RestauranteMiniatura = (props) => {
 
+    
+
     const estiloCard = {
         backgroundImage: `url(${props.capa})`,
         backgroundSize: "cover no-repeat"
@@ -16,7 +18,7 @@ const RestauranteMiniatura = (props) => {
 
     return (
         <>
-            <div className='miniatura' style={estiloCard}>
+            <div className='miniatura' onClick={props.onClick} style={estiloCard}>
                 <div className='fundoPreto d-flex justify-content-center align-items-center' onClick={() => setOpenModal(true)}>
                     <h2 style={estiloNome}>{props.nomeRestaurante}</h2>
                 </div>

@@ -3,8 +3,16 @@ import '../../pages/Inicio/style.css'
 import RestauranteMiniatura from './RestauranteMiniatura'
 import api from '../../api'
 import { useLoadScript } from '@react-google-maps/api';
+import { useNavigate } from 'react-router-dom';
 
 const Restaurante = (props) => {
+
+    const navigate = useNavigate();
+
+    function alterarPagina(fk){
+        sessionStorage.ID_RESTAURANTE_PAGINA = fk;
+        navigate("restaurante-pagina")
+    }
 
     const estiloTitulo = {
         fontSize: "1.5rem"
@@ -118,7 +126,7 @@ const Restaurante = (props) => {
 
                         <div className='divMiniaturas d-flex justify-content-around'>
                             {filtroAvaliado && filtroAvaliado.map((item) =>
-                                <RestauranteMiniatura nomeRestaurante={item.nome} capa={item.nomeFoto} />
+                                <RestauranteMiniatura key={item.id} onClick={ () => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={item.nomeFoto} />
                             )}
 
                         </div>
@@ -141,7 +149,7 @@ const Restaurante = (props) => {
 
                         <div className='divMiniaturas d-flex justify-content-around'>
                             {filtroLocal && filtroLocal.map((item) =>
-                                <RestauranteMiniatura nomeRestaurante={item.nome} capa={item.nomeFoto} />
+                                <RestauranteMiniatura key={item.id} onClick={ () => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={item.nomeFoto} />
                             )}
                         </div>
 
@@ -163,7 +171,7 @@ const Restaurante = (props) => {
 
                         <div className='divMiniaturas d-flex justify-content-around'>
                             {filtroEspecialidade && filtroEspecialidade.map((item) =>
-                                <RestauranteMiniatura nomeRestaurante={item.nome} capa={item.nomeFoto} />
+                                <RestauranteMiniatura key={item.id} idResataurante= {item.id} nomeRestaurante={item.nome} capa={item.nomeFoto} />
                             )}
                         </div>
 
