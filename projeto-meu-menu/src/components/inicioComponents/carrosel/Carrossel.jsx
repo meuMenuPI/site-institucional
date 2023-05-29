@@ -19,7 +19,7 @@ import Taco from '../../../assets/images/logoTaco.svg'
 
 const Carrossel = (props) => {
 
-    useEffect(() => {
+/*     useEffect(() => {
         let count = 1;
 
         document.getElementById("radio1").checked = true;
@@ -37,7 +37,7 @@ const Carrossel = (props) => {
 
             document.getElementById("radio" + count).checked = true;
         }
-    });
+    }); */
 
 
 

@@ -3,8 +3,6 @@ import Cardapio from './CardapioPagina';
 import ItemCardapio from './ItemCardapio';
 import ReviewRestaurante from './ReviewRestaurante'
 import FotoCardapio from './FotoCardapio';
-import SelectReview from '../../components/restaurantePaginaComponents/SelectReview';
-
 // import { Container } from './styles';
 
 

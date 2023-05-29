@@ -4,29 +4,13 @@ import './style.css'
 
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { BiArrowBack } from 'react-icons/bi';
-import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
-import { FiSend } from 'react-icons/fi'
 import Forms from "../../components/loginComponents/Forms"
 import Logo from '../../assets/images/logoBranco.svg'
 import LoginFundo from '../../assets/images/login_fundo.svg'
 import api from '../../api';
 import Swal from 'sweetalert2'
 
-
-
-// Hooks
-import { EtapasControl } from "../../hooks/EtapasControl";
-import { useState } from "react";
-
-
-
 function Login() {
-
-  const formLogin = {
-    email: "",
-    senha: ""
-  }
-
 
   function logar(e) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -54,7 +38,7 @@ function Login() {
 
     })
     
-    if (e.target.email.value == '' || e.target.senha.value == '') {
+    if (e.target.email.value === '' || e.target.senha.value === '') {
       Swal.fire(
         'Verificou todos os campos?',
         'Preencha todos os campos para prosseguir!',

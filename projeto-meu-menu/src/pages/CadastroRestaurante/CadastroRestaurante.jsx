@@ -1,4 +1,4 @@
-import {React, useEffect }from "react";
+import {React, useCallback, useEffect }from "react";
 import './style.css'
 import { useNavigate } from 'react-router-dom'
 // import api from "../../api";
@@ -52,7 +52,7 @@ export default function CadastroRestaurante() {
   };
 
 
-  const updateFielHandler2 = (key, value) => {
+  const updateFielHandler2 = useCallback((key, value) => {
     setData2((prev) => {
       const newData2 = { ...prev, [key]: value };
       const enderecoResInfo = {
@@ -68,7 +68,7 @@ export default function CadastroRestaurante() {
       console.log(enderecoResInfo);
       return newData2;
     });
-  };
+  }, [data2]);
 
   
 useEffect(() => {
@@ -83,7 +83,7 @@ useEffect(() => {
         console.log("Erro ao obter informações do CEP:", error);
       });
   }
-}, [data2.cep]);
+}, [data2.cep, updateFielHandler2]);
 
 
   function cadastrar(e) {

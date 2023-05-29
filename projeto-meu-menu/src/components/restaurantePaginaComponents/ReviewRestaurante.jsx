@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import SelectReview from './SelectReview';
 import api from '../../api'
 import ModalReview from './ModalReview';
 
@@ -25,9 +24,6 @@ function ReviewRestaurante(props) {
     /* sessionStorage.ID_RESTAURANTE_REVIEW */
     var fkRestaurante = 1;
 
-    /* sessionStorage.ID_USUARIO_REVIEW */
-    var fkUsuario = 1;
-
     useEffect(() => {
         api.get(`/reviews?fkRestaurante=${fkRestaurante}`)
             .then((respostaObtida) => {
@@ -37,7 +33,7 @@ function ReviewRestaurante(props) {
             .catch((erroObtido) => {
                 console.log(erroObtido);
             });
-    }, []);
+    }, [fkRestaurante]);
 
     const [openModal, setOpenModal] = useState(false)
 

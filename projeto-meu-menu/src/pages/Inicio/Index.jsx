@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
 import './style.css'
-
-
 import { Container, Button, Row, Col } from "react-bootstrap"
 import Destaque from "../../components/inicioComponents/Destaque"
 import Carrossel from '../../components/inicioComponents/carrosel/Carrossel';
@@ -21,25 +18,29 @@ import api from '../../api';
 import { useNavigate } from 'react-router-dom'
 
 export default function Index() {
- // eslint-disable-next-line
+  // eslint-disable-next-line
   const [restaurantes, setRestaurante] = useState([]);
 
-  useEffect(() => {
-    api
-      .get()
-      .then((respostaObtida) => {
-        console.log(respostaObtida.data);
-        setRestaurante(respostaObtida.data)
-      })
-      .catch((erroObtido) => {
-        console.log(erroObtido)
-      });
-  }, []);
+/*     useEffect(() => {
+      api
+        .get("/restaurantes")
+        .then((respostaObtida) => {
+          console.log(respostaObtida.data);
+          setRestaurante(respostaObtida.data)
+        })
+        .catch((erroObtido) => {
+          console.log(erroObtido)
+        });
+    }, []); */
 
   const navigate = useNavigate();
-  return (
-    <Container fluid className='p-0'>
 
+
+  return (
+
+
+
+    <Container fluid className='p-0'>
       <Row className="nav m-0 d-flex flex-row justify-content-between align-items-center">
         <img className='imgLogo' src={Logo} alt="Logo meu menu" />
         <Button onClick={() => navigate("/login")} className='button'>Fazer Login</Button>
@@ -73,13 +74,9 @@ export default function Index() {
             <BarraBusca />
             <div className='areaMiniaturas d-flex flex-column align-items-center justify-content-around'>
 
-              <Restaurante titulo="Restaurante bem avaliados" capa={Kfc} nomeRestaurante="KFC" />
-              <Restaurante titulo="Restaurantes perto de você" capa={Kfc} nomeRestaurante="KFC"
-                capa2={DivinoFogao} nomeRestaurante2="Divino Fogão"
-                capa3={LaGuapa} nomeRestaurante3="La Guapa" />
-              <Restaurante titulo="Descubra novas culturas" capa={Kfc} nomeRestaurante="KFC"
-                capa2={DivinoFogao} nomeRestaurante2="Divino Fogão"
-                capa3={LaGuapa} nomeRestaurante3="La Guapa" />
+              <Restaurante titulo="Restaurante bem avaliados" valor={1}/>
+              <Restaurante titulo="Restaurantes perto de você" valor={2}/>
+              <Restaurante titulo="Descubra novas culturas" valor={3}/>
             </div>
           </div>
         </div>
