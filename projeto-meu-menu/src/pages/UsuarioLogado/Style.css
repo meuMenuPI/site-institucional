@@ -18,12 +18,14 @@
     width: 50%;
 }
 
-#img_perfil_pessoa {
+.img_perfil_pessoa {
     position: absolute;
-    width: 173px;
-    height: 172px;
+    width: 163px;
+    height: 162px;
     left: 26%;
     top: 39px;
+    border-radius: 100px;
+    background-size: cover;
 }
 
 .Name {
