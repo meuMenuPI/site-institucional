@@ -20,12 +20,8 @@ export default function Routers() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home />} />
                 <Route path="/restaurante-cadastrar" element={<CadastroRestaurante />} />
-
-                <Route path="/index" element={<Index />} />
-
-
+                <Route path="/" element={<Index />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/4s" element={<CadastroUsuario />} />
                 <Route path="/usuario-cadastrarp2" element={<CadastroUsuarioP2 />} />
@@ -36,8 +32,6 @@ export default function Routers() {
                 <Route path="/restaurante-pagina" element={<RestaurantePagina />} />
                 <Route path="/usuario-perfil" element={<UsuarioPerfil />} />
                 <Route path="/usuario-perfil-busca" element={<UsuarioPerfilBusca />} />
-
-
             </Routes>
         </Router>
     )
