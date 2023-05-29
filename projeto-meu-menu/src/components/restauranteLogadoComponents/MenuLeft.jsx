@@ -50,10 +50,8 @@ function MenuLeft() {
                     <Section img={IconCircle} text="Foto" height={22} caminho={"/restaurante-foto"} style={style_section3} />
                     <LineSection />
                     <HeaderSection text='Relatórios' />
-                    <Section img={IconBox} text="DashBoard" caminho={"/dashboard"} height={10} style={style_section4} />
-                    <LineSection />
-                    <HeaderSection text='Filiais' />
-                    <BoxFiliais />
+                    <Section img={IconBox} text="DashBoard" caminho={"/dashboard"} height={10} style={style_section3} />
+
                     <ButtonExit />
 
                 </div>

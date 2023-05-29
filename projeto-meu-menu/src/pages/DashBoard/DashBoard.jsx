@@ -3,20 +3,20 @@ import './style.css'
 import MenuLeft from '../../components/restauranteLogadoComponents/MenuLeft'
 
 export default function Inicio() {
-    useEffect(() => {
+    // useEffect(() => {
 
-        var stars = document.querySelectorAll('.star-icon');
+    //     var stars = document.querySelectorAll('.star-icon');
 
-        document.addEventListener('click', function (e) {
-            var classStar = e.target.classList;
-            if (!classStar.contains('ativo')) {
-                stars.forEach(function (star) {
-                    star.classList.remove('ativo');
-                });
-                classStar.add('ativo');
-                console.log(e.target.getAttribute('data-avaliacao'));
-            }
-        });
+    //     document.addEventListener('click', function (e) {
+    //         var classStar = e.target.classList;
+    //         if (!classStar.contains('ativo')) {
+    //             stars.forEach(function (star) {
+    //                 star.classList.remove('ativo');
+    //             });
+    //             classStar.add('ativo');
+    //             console.log(e.target.getAttribute('data-avaliacao'));
+    //         }
+    //     });
 
     // //     const labels = [
     // //         'Janeiro',
@@ -47,7 +47,7 @@ export default function Inicio() {
     // //         config
     // //     );
 
-      })
+    //   })
 
     return (
 
