@@ -11,7 +11,7 @@ const Restaurante = (props) => {
 
     function alterarPagina(fk) {
         sessionStorage.ID_RESTAURANTE_PAGINA = fk;
-        navigate("restaurante-pagina")
+        navigate("/restaurante-pagina")
     }
 
     const estiloTitulo = {
