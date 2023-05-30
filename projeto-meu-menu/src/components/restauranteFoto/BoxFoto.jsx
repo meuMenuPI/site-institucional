@@ -1,12 +1,12 @@
 import React from 'react'
-import IconAdicionarPrato from '../../assets/images/IconAdicionarPrato.png'
+import UploadFoto from '../UsuarioLogadoComponents/UploadFoto'
 
 function BoxFoto() {
     return (
         <>
-
+            
             <div className="div_box_foto">
-                <img src={IconAdicionarPrato} alt="" id='img_adicionar_prato_cardapio' />
+                <UploadFoto/>
             </div>
 
         </>
