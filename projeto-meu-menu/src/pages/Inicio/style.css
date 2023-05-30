@@ -32,7 +32,7 @@ body {
 
 .button:hover{
     background-color: #fafafa;
-    border: 2px solid rgb(255, 255, 255);
+    border: none;
     color: black;
 }
 
@@ -61,7 +61,7 @@ body {
 
 .button-banner:hover {
     background-color: #000000;
-    border: 2px solid black;
+    border: none;
 }
 
 .icone-botao {
@@ -185,7 +185,7 @@ body {
 
     width: 80%;
     height: 100%;
-    //overflow-x: scroll;
+    overflow-x: scroll;
     overflow-y: hidden;
 
 }
