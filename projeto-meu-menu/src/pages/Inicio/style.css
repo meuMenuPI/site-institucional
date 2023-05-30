@@ -30,6 +30,12 @@ body {
     font-size: 15px
 }
 
+.button:hover{
+    background-color: #fafafa;
+    border: 2px solid rgb(255, 255, 255);
+    color: black;
+}
+
 .imgPredio {
     width: 46%;
     position: absolute;
@@ -51,6 +57,11 @@ body {
     font-size: 15px;
     align-items: center;
     margin-right: 3%;
+}
+
+.button-banner:hover {
+    background-color: #000000;
+    border: 2px solid black;
 }
 
 .icone-botao {

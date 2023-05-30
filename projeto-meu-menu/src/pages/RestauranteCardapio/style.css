@@ -41,6 +41,14 @@ body {
     width: 100%;
 }
 
+.div_box_inputs_cardapio {
+    background-color: red;
+    width: 64.5%;
+    margin-left: 29%;
+    height: 50%;
+}
+
+/* 
 .div_box_inputs_cardapio_all {
     height: 36%;
     margin-top: 2%;
@@ -49,9 +57,10 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-}
+} */
 
 .div_box_inputs_inside {
+    background-color: red;
     height: 17%;
     width: 84%;
     margin-left: 8%;
