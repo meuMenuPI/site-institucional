@@ -20,11 +20,11 @@
 
 .img_perfil_pessoa {
     position: absolute;
-    width: 163px;
-    height: 162px;
+    width: 143px;
+    height: 142px;
     left: 26%;
     top: 39px;
-    border-radius: 100px;
+    border-radius: 50%;
     background-size: cover;
 }
 

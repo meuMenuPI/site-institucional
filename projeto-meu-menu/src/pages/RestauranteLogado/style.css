@@ -26,11 +26,13 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 90px;
     align-items: center;
 }
 
 .img_logo {
     width: 60px;
+    margin-top: 35%;
 }
 
 .header_section {

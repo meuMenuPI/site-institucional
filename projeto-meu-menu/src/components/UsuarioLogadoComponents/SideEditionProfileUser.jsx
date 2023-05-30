@@ -14,7 +14,7 @@ function SideEditionProfileUser() {
 
     useEffect(() => {
         
-        if (fotoPerfil == null) {
+        if (nomeFoto == null) {
           setFotoPerfil("");
         } else {
             setFotoPerfil(link + nomeFoto);
