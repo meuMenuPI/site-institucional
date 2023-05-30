@@ -9,7 +9,7 @@ const Restaurante = (props) => {
 
     const navigate = useNavigate();
 
-    function alterarPagina(fk){
+    function alterarPagina(fk) {
         sessionStorage.ID_RESTAURANTE_PAGINA = fk;
         navigate("restaurante-pagina")
     }
@@ -19,7 +19,6 @@ const Restaurante = (props) => {
     }
 
     // SessionStorage
-    var especialidade = "BRASILEIRA"
     // Setando geolocalização
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: 'AIzaSyB9qheN9UJ7wG0KzmteOllzhl4cTQCr8S4', // Substitua pela sua própria chave de API do Google Maps
@@ -101,17 +100,18 @@ const Restaurante = (props) => {
             });
     }, []);
 
-    const [filtroEspecialidade, setFiltroEspecialidade] = useState([]);
+    const [nomeEspecialidade, setNomeEspecialidade] = useState([]);
 
     useEffect(() => {
-        api.get(`/restaurantes/filtrar/especialidade?especialidade=${especialidade}`)
+        api.get(`/restaurantes/filtrar/nome-especialiade`)
             .then((respostaObtida) => {
-                setFiltroEspecialidade(respostaObtida.data);
+                setNomeEspecialidade(respostaObtida.data);
+                console.log(respostaObtida.data)
             })
             .catch((erroObtido) => {
                 console.log(erroObtido);
             });
-    }, [especialidade]);
+    }, []);
 
     if (props.valor === 1) {
         return (
@@ -126,7 +126,7 @@ const Restaurante = (props) => {
 
                         <div className='divMiniaturas d-flex justify-content-around'>
                             {filtroAvaliado && filtroAvaliado.map((item) =>
-                                <RestauranteMiniatura key={item.id} onClick={ () => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={item.nomeFoto} />
+                                <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={item.nomeFoto} />
                             )}
 
                         </div>
@@ -170,13 +170,17 @@ const Restaurante = (props) => {
                     <div className='abc d-flex justify-content-center'>
 
                         <div className='divMiniaturas d-flex justify-content-around'>
-                            {filtroEspecialidade && filtroEspecialidade.map((item) =>
-                                <RestauranteMiniatura key={item.id} idResataurante= {item.id} nomeRestaurante={item.nome} capa={item.nomeFoto} />
+                            {nomeEspecialidade && nomeEspecialidade.map((item) =>
+                                <RestauranteMiniatura 
+                                    nomeRestaurante={item.toLowerCase()[0].toUpperCase() + item.substring(1).toLowerCase()}
+                                    especialidade={item}
+                                />
                             )}
                         </div>
 
                     </div>
                 </div>
+               
             </>
         )
     }

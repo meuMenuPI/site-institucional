@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ImgLogo from '../../assets/images/logo_preto_sozinho.png'
 import BtnClose from '../../assets/images/btn_close.png'
-import Stars from '../restaurantePaginaComponents/Stars'
 import RestauranteModal from './RestauranteModal'
+import api from '../../api'
 
 function ModalRestaurante({ isOpen, setModalOpen }) {
+
+    const [filtroEspecialidade, setFiltroEspecialidade] = useState([]);
+
+    function apiEspecialidade() {
+        api.get(`/restaurantes/filtrar/especialidade?especialidade=${sessionStorage.PARAMS_ESPECIALIDADE}`)
+            .then((respostaObtida) => {
+                setFiltroEspecialidade(respostaObtida.data);
+                console.log(respostaObtida.data)
+            })
+            .catch((erroObtido) => {
+                console.log(erroObtido);
+            });
+    }
+
     if (isOpen) {
         return (
-            <div className='modal_background'>
+            <div className='modal_background' onClick={apiEspecialidade()}>
 
                 <div className='modal_container'>
                     <div className="modal_inside_all">
@@ -17,8 +31,7 @@ function ModalRestaurante({ isOpen, setModalOpen }) {
                                     <img src={ImgLogo} alt="Logo Meu Menu" id='logo_meu_menu_preto' />
                                 </div>
                                 <div className="modal_title">
-                                    <h4>Culinaria Japonesa </h4>
-                                    <h5>Restaurantes com essa especialidade  </h5>
+                                    <h4>Culinaria  {sessionStorage.PARAMS_ESPECIALIDADE}</h4>
                                 </div>
                                 <div className="modal_btn_close" onClick={() => setModalOpen(false)} >
                                     <img src={BtnClose} alt="Botao de fechar modal" id='id_btn_close' />
@@ -26,17 +39,10 @@ function ModalRestaurante({ isOpen, setModalOpen }) {
                                 </div>
                             </div>
                             <div className="modal_restaurantes">
-                                <RestauranteModal />
-                                <RestauranteModal />
-                                <RestauranteModal />
-                                <RestauranteModal />
-                                <RestauranteModal />
-                                <RestauranteModal />
-                                <RestauranteModal />
-                                <RestauranteModal />
-                                <RestauranteModal />
-                                <RestauranteModal />
-                                <RestauranteModal />
+                                {filtroEspecialidade && filtroEspecialidade.map((item) =>
+                                    <RestauranteModal nome={item.nome} id={item.id}/>
+                                )}
+
                             </div>
                             {/* <div className="modal_avaliacoes">
                                 <Stars text='Atendimento' />
