@@ -4,7 +4,9 @@ import ModalRestaurante from './ModalRestaurante'
 
 const RestauranteMiniatura = (props) => {
 
-    
+    function setParamsEspecialidade(){
+        sessionStorage.PARAMS_ESPECIALIDADE = props.especialidade
+    }
 
     const estiloCard = {
         backgroundImage: `url(${props.capa})`,
@@ -18,12 +20,16 @@ const RestauranteMiniatura = (props) => {
 
     return (
         <>
-            <div className='miniatura' onClick={props.onClick} style={estiloCard}>
+            <div className='miniatura'   style={estiloCard}>
                 <div className='fundoPreto d-flex justify-content-center align-items-center' onClick={() => setOpenModal(true)}>
                     <h2 style={estiloNome}>{props.nomeRestaurante}</h2>
                 </div>
             </div>
-            <ModalRestaurante isOpen={openModal} setModalOpen={setOpenModal} />
+            <ModalRestaurante isOpen={openModal} setModalOpen={setOpenModal} especialidade={props.especialidade}/>
+            {
+                setParamsEspecialidade()
+            }
+
 
         </>
     )
