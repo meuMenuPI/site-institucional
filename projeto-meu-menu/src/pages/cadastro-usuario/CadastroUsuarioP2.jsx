@@ -28,13 +28,14 @@ function CadastroUsuarioP2() {
 
 
 
-    /*     api.get("/usuarios").then((respostaObtida) => {
+    /*  api.get("/usuarios").then((respostaObtida) => {
           console.log(respostaObtida.nome); 
         })
         .catch((erroObtido) => {
     
           console.log(erroObtido); 
         }); */
+        
     if (e.target.email.value === '' || e.target.senha.value === '' || e.target.conf_senha.value === '' || e.target.especialidade.value === '') {
       Swal.fire(
         'Verificou todos os campos?',

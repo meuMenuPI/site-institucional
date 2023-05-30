@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function ButtonSave(props) {
   const navigate = useNavigate();
 
-  const atualizar = async (e) => {
+/*   const atualizar = async (e) => {
     e.preventDefault();
     console.log("Clicou");
 
@@ -18,11 +18,11 @@ function ButtonSave(props) {
       alert("Não foi possível atualizar o restaurante, tente novamente.");
       navigate("/restaurante-perfil");
     }
-  };
+  }; */
 
   return (
     <div className="div_button_save">
-      <button id='id_button_save' onClick={atualizar}>{props.text}</button>
+      <button id='id_button_save' onClick={props.funcao} type="submit">{props.text}</button>
     </div>
   );
 }
