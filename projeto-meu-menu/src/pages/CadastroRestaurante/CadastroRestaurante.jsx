@@ -1,8 +1,7 @@
-import {React, useCallback, useEffect }from "react";
+import { React, useCallback, useEffect } from "react";
 import './style.css'
 import { useNavigate } from 'react-router-dom'
 // import api from "../../api";
-
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { BiArrowBack } from 'react-icons/bi';
@@ -15,7 +14,6 @@ import Passo4 from "../../components/cadastroRestauranteComponents/Passo4"
 import Logo from '../../assets/images/logoBranco.svg'
 import ChefeCadastro from '../../assets/images/chefeCadastro.svg'
 import api from "../../api";
-
 
 // Hooks
 import { EtapasControl } from "../../hooks/EtapasControl";
@@ -70,20 +68,20 @@ export default function CadastroRestaurante() {
     });
   }, [data2]);
 
-  
-useEffect(() => {
-  if (data2.cep.length === 8) {
-    fetch(`https://viacep.com.br/ws/${data2.cep}/json/`)
-      .then((res) => res.json())
-      .then((datacep) => {
-        const { uf } = datacep;
-        updateFielHandler2("uf", uf);
-      })
-      .catch((error) => {
-        console.log("Erro ao obter informações do CEP:", error);
-      });
-  }
-}, [data2.cep, updateFielHandler2]);
+
+  useEffect(() => {
+    if (data2.cep.length === 8) {
+      fetch(`https://viacep.com.br/ws/${data2.cep}/json/`)
+        .then((res) => res.json())
+        .then((datacep) => {
+          const { uf } = datacep;
+          updateFielHandler2("uf", uf);
+        })
+        .catch((error) => {
+          console.log("Erro ao obter informações do CEP:", error);
+        });
+    }
+  }, [data2.cep, updateFielHandler2]);
 
 
   function cadastrar(e) {
@@ -113,7 +111,7 @@ useEffect(() => {
       api.post("restaurantes/cadastrar", restauranteInfo)
         .then((res) => {
           enderecoResInfo.fk_restaurante = res.data.id;
-  
+
           api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
             .then((res2) => {
               alert("Cadastrado!");
@@ -128,7 +126,7 @@ useEffect(() => {
           navigate("/restaurante-cadastrar");
         });
     };
-  
+
     if (data2.uf === 0) {
       fetch(`https://viacep.com.br/ws/${data2.cep}/json/`)
         .then((res) => res.json())
@@ -145,7 +143,7 @@ useEffect(() => {
     } else {
       cadastrarRestaurante();
     }
-  
+
     console.log(enderecoResInfo);
   }
 

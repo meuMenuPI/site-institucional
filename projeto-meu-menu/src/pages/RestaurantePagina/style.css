@@ -379,15 +379,43 @@ h5 {
 .modal_avaliacoes {
     height: 40%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .modal_avaliacao {
-    height: 33%;
-    width: 50%;
+    height: 33.33%;
+    width: 60%;
+    font-size: 17px;
+    display: flex;
+}
+
+.titulo_avaliacao_review {
+    height: 100%;
+    width: 30%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    font-size: 17px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.div_starts_review {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.avaliacao_review {
+    background-color: yellow;
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal_avaliacao p,
@@ -444,13 +472,13 @@ li {
 
 }
 
-.rp_botaoAddReview{
-        background-color: #F0DCF5;
-        border-radius: 10px;
-        padding: 0.5%;
-        min-width: 15%;
-        font-weight: 400;
-        border: none;
-        margin-right: 5%;
+.rp_botaoAddReview {
+    background-color: #F0DCF5;
+    border-radius: 10px;
+    padding: 0.5%;
+    min-width: 15%;
+    font-weight: 400;
+    border: none;
+    margin-right: 5%;
 
 }
