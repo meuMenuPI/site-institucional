@@ -32,7 +32,7 @@ function ModalReview({ isOpen, setModalOpen }) {
                             </div>
                             <div className="modal_comentario">
                                 <p>Comentário</p>
-                                <input type="text" id='input_comentario_review' placeholder='Opicional' />
+                                <input type="text" id='input_comentario_review' placeholder='Opcional' />
                             </div>
                             <div className="modal_save">
                                 <button id='id_btn_save'>Salvar</button>
