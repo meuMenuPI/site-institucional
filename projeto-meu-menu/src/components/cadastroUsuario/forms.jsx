@@ -10,7 +10,7 @@ function Forms(props){
       }
     return (
             <div className="container">
-            <div className="voltar" onClick={voltar(props.url)}><img src={Seta} alt="" /></div>
+            <div onClick={() => navigate("/")} className="voltar"><img src={Seta} alt="" /></div>
             <div className="header"><span className="passos"> <span>PASSO <span className="passo_01" style={{color: props.colorp1}}>01</span> <span className="passo_02" style={{color: props.colorp2}}>02</span> </span> </span></div>
             <div className="campos_obrigatorios">Todos os campos são obrigatórios</div>
             <img src={Linha} alt="" className="linha"/>

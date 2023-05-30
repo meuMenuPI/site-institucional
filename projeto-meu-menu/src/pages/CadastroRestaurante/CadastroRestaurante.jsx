@@ -2,7 +2,6 @@ import {React, useCallback, useEffect }from "react";
 import './style.css'
 import { useNavigate } from 'react-router-dom'
 // import api from "../../api";
-
 // Components
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { BiArrowBack } from 'react-icons/bi';
@@ -15,7 +14,6 @@ import Passo4 from "../../components/cadastroRestauranteComponents/Passo4"
 import Logo from '../../assets/images/logoBranco.svg'
 import ChefeCadastro from '../../assets/images/chefeCadastro.svg'
 import api from "../../api";
-
 
 // Hooks
 import { EtapasControl } from "../../hooks/EtapasControl";
@@ -117,6 +115,7 @@ useEffect(() => {
           api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
             .then((res2) => {
               alert("Cadastrado!");
+              navigate("/restaurante-perfil")
             })
             .catch((err) => {
               alert("Não foi possível realizar o cadastro do endereço, tente novamente.");

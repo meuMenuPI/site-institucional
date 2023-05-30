@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css'
-
+import { useNavigate } from 'react-router-dom'
 
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { BiArrowBack } from 'react-icons/bi';
@@ -27,7 +27,7 @@ function Login() {
       sessionStorage.EMAIL = dadosUsuario.data.email;
       sessionStorage.TIPO_COMIDA_PREFERIDA = dadosUsuario.data.tipoComidaPreferida;
       sessionStorage.FOTO_PERFIL = dadosUsuario.data.fotoPerfil
-      alert("Usuário encontrado, logando...")
+      navigate("/usuario-perfil");
       console.log(dadosUsuario.data)
     })
     .catch((erro) => {
@@ -38,27 +38,15 @@ function Login() {
       )
 
     })
-    
-    if (e.target.email.value === '' || e.target.senha.value === '') {
-      Swal.fire(
-        'Verificou todos os campos?',
-        'Preencha todos os campos para prosseguir!',
-        'error'
-      )
-    }else {
-     // navigate("/usuario-logado");
-    }
-
-
   }
 
 
-
+  const navigate = useNavigate();
   return (
     <Container fluid>
       <Row className="d-flex flex-wrap ">
         <Col lg={7} md={6} className="container-image d-none d-md-flex flex-column">
-          <BiArrowBack className="align-self-start mt-5 " size="80px" fill="#ffffff" />
+          <BiArrowBack onClick={() => navigate("/")} className="align-self-start mt-5 " size="400px" fill="#ffffff" />
           <img className="imgLogo" src={Logo} alt="logo meu menu" />
           <img className="imgLogin" src={LoginFundo} alt="Mulher com cardapio pronta para pegar pedido" />
         </Col>
