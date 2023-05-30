@@ -1,4 +1,4 @@
-import {React, useCallback, useEffect }from "react";
+import { React, useCallback, useEffect } from "react";
 import './style.css'
 import { useNavigate } from 'react-router-dom'
 // import api from "../../api";
@@ -68,20 +68,20 @@ export default function CadastroRestaurante() {
     });
   }, [data2]);
 
-  
-useEffect(() => {
-  if (data2.cep.length === 8) {
-    fetch(`https://viacep.com.br/ws/${data2.cep}/json/`)
-      .then((res) => res.json())
-      .then((datacep) => {
-        const { uf } = datacep;
-        updateFielHandler2("uf", uf);
-      })
-      .catch((error) => {
-        console.log("Erro ao obter informações do CEP:", error);
-      });
-  }
-}, [data2.cep, updateFielHandler2]);
+
+  useEffect(() => {
+    if (data2.cep.length === 8) {
+      fetch(`https://viacep.com.br/ws/${data2.cep}/json/`)
+        .then((res) => res.json())
+        .then((datacep) => {
+          const { uf } = datacep;
+          updateFielHandler2("uf", uf);
+        })
+        .catch((error) => {
+          console.log("Erro ao obter informações do CEP:", error);
+        });
+    }
+  }, [data2.cep, updateFielHandler2]);
 
 
   function cadastrar(e) {
@@ -111,7 +111,7 @@ useEffect(() => {
       api.post("restaurantes/cadastrar", restauranteInfo)
         .then((res) => {
           enderecoResInfo.fk_restaurante = res.data.id;
-  
+
           api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
             .then((res2) => {
               alert("Cadastrado!");
@@ -127,7 +127,7 @@ useEffect(() => {
           navigate("/restaurante-cadastrar");
         });
     };
-  
+
     if (data2.uf === 0) {
       fetch(`https://viacep.com.br/ws/${data2.cep}/json/`)
         .then((res) => res.json())
@@ -144,7 +144,7 @@ useEffect(() => {
     } else {
       cadastrarRestaurante();
     }
-  
+
     console.log(enderecoResInfo);
   }
 
