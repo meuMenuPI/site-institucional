@@ -4,7 +4,7 @@ import IconAdicionarPrato from '../../assets/images/IconAdicionarPrato.png'
 
 
 function UploadFoto ({onFileSelect}) {
-  const [selectedFile, setSelectedFile] = useState(null);
+   const [selectedFile, setSelectedFile] = useState(null); 
 
   const handleFileSelect = (file) => {
     onFileSelect(file[0]);
@@ -28,7 +28,7 @@ function UploadFoto ({onFileSelect}) {
         <div>
           <h4>Arquivo selecionado:</h4>
           <p>{selectedFile.name}</p>
-          {/* <button onClick={fileUpload}>Teste</button> */}
+           {/* <button onClick={fileUpload}>Teste</button> */} 
         </div>
       )}
     </div>
