@@ -1,40 +1,68 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-function Stars(props) {
+function Stars({ filhoPraPai, parametro }) {
+  const [rating, setRating] = useState(0);
 
-    var stars = document.querySelectorAll('.star-icon');
+  const handleStarClick = (value) => {
+    setRating(value);
+    switch (parametro) {
+      case 1:
+        filhoPraPai({ nt_atendimento: value });
+        break;
+      case 2:
+        filhoPraPai({ nt_comida: value });
+        break;
+      case 3:
+        filhoPraPai({ nt_ambiente: value });
+        break;
+      default:
+        break;
+    }
+  };
 
-    document.addEventListener('click', function (e) {
-        var classStar = e.target.classList;
-        if (!classStar.contains('ativo')) {
-            stars.forEach(function (star) {
-                star.classList.remove('ativo');
-            });
-            classStar.add('ativo');
-            console.log(e.target.getAttribute('data-avaliacao'));
-        }
-    });
+  const renderStars = (count) => {
+    const stars = [];
+    for (let i = 1; i <= count; i++) {
+      stars.push(
+        <li
+          key={i}
+          className={`star-icon${parametro} ${i <= rating ? 'ativo' : ''}`}
+          data-avaliacao={i}
+          primary
+          onClick={() => handleStarClick(i)}
+        ></li>
+      );
+    }
+    return stars;
+  };
 
-    return (
+  let title = '';
+  let count = 0;
 
-        <>
-            <div className="modal_avaliacao">
-                <div className="titulo_avaliacao_review">
-                    {props.text}
-                </div>
-                <div className="div_starts_review">
+  switch (parametro) {
+    case 1:
+      title = 'Atendimento';
+      count = 5;
+      break;
+    case 2:
+      title = 'Comida';
+      count = 5;
+      break;
+    case 3:
+      title = 'Ambiente';
+      count = 5;
+      break;
+    default:
+      break;
+  }
 
-                    <li class="star-icon ativo" data-avaliacao="1"></li>
-                    <li class="star-icon" data-avaliacao="2"></li>
-                    <li class="star-icon" data-avaliacao="3"></li>
-                    <li class="star-icon" data-avaliacao="4"></li>
-                    <li class="star-icon" data-avaliacao="5"></li>
-                </div>
-            </div>
-
-        </>
-
-    )
+  return (
+    <div className="modal_avaliacao">
+      <div className="titulo_avaliacao_review">{title}</div>
+      <div className={`div_starts_review${parametro}`}>
+        {renderStars(count)}
+      </div>
+    </div>
+  );
 }
-
-export default Stars
+export default Stars;

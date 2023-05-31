@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
 import ModalReview from './ModalReview';
+import EstrelaReview from './EstrelaReviewColorida';
 
 function ReviewRestaurante(props) {
 
@@ -21,8 +22,7 @@ function ReviewRestaurante(props) {
     };
 
 
-    /* sessionStorage.ID_RESTAURANTE_REVIEW */
-    var fkRestaurante = 1;
+    var fkRestaurante = sessionStorage.ID_RESTAURANTE_PAGINA;
 
     useEffect(() => {
         api.get(`/reviews?fkRestaurante=${fkRestaurante}`)
@@ -60,8 +60,21 @@ function ReviewRestaurante(props) {
                                 <span className='rp_dataReview'>{dadostemp.data_hora}</span>
 
                             </div>
-                            <div>Comida : {dadostemp.nt_comida}/5 || Ambiente : {dadostemp.nt_ambiente}/5 || Atendimento : {dadostemp.nt_atendimento}/5</div>
+
+                            <div style={{display : "flex"}}> <span style={{marginRight : "3%", marginTop : "0.20%"}}>Atendimento :</span>  {Array.from({ length: dadostemp.nt_atendimento }).map((_, index) => (
+                                <EstrelaReview key={index} />
+                            ))}</div>
+
+                            <div style={{display : "flex"}}><span style={{marginRight : "3%", marginTop : "0.20%"}}>Comida :</span> {Array.from({ length: dadostemp.nt_comida }).map((_, index) => (
+                                <EstrelaReview key={index} />
+                            ))}</div>
+
+                            <div style={{display : "flex"}}><span style={{marginRight : "3%", marginTop : "0.20%"}}>Ambiente :</span> {Array.from({ length: dadostemp.nt_ambiente }).map((_, index) => (
+                                <EstrelaReview key={index} />
+                            ))}</div>
+
                             <div className='rp_textoReview'>{dadostemp.descricao}</div>
+
                         </div>
                     </div>
                 </div>
