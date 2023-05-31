@@ -23,7 +23,7 @@ const formTemplate = {
 
 const formTemplate2 = {
     id: 1,
-    fk_restaurante: 16,
+    fk_restaurante: 0,
     fk_usuario: null,
     cep: "",
     numero: "",
@@ -48,7 +48,7 @@ function SideEditionProfile() {
         setData2((prev) => {
             const newData2 = { ...prev, [key]: value };
             const enderecoResInfo = {
-                fk_restaurante: 16,
+                fk_restaurante: sessionStorage.ID_RESTAURANTE_EDICOES,
                 fk_usuario: null,
                 cep: newData2.cep,
                 numero: newData2.numero,
@@ -97,8 +97,8 @@ function SideEditionProfile() {
         e.preventDefault();
 
         const restauranteInfo = {
-            id: 16,
-            usuario: 1,
+            id: sessionStorage.ID_RESTAURANTE_EDICOES,
+            usuario: sessionStorage.ID_USUARIO,
             nome: nomeRes,
             especialidade: especialidadeRes,
             telefone: telefoneRes,
@@ -178,7 +178,7 @@ function SideEditionProfile() {
                     </div>
                     <div className="div_right_header_perfil">
                         <div className="div_perfil_mini">
-                            <li>Olá, Jorge Augusto</li>
+                            <li>{sessionStorage.NOME}</li>
                             <li>
                                 <img src={ImgProfileMini} id="img_perfil_mini" alt="img perfil" />
                             </li>

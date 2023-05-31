@@ -41,7 +41,7 @@ function MenuLeftUsuario() {
 
     useEffect(() => {
         
-        if (nomeFoto == null) {
+        if (nomeFoto === null) {
             setFotoPerfil(FotoUsuarioDefault);
         } else {
             setFotoPerfil(link + nomeFoto);
