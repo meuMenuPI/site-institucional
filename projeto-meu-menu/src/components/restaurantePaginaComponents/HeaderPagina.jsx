@@ -60,7 +60,8 @@ function HeaderPagina(props) {
             .catch((erroObtido) => {
                 console.log(seguindo);
             });
-    }, [seguindo]);
+            // eslint-disable-next-line
+    }, []);
 
     useEffect(() => {
         api.get(`/restaurantes/endereco/${sessionStorage.ID_RESTAURANTE_PAGINA}`)
@@ -102,7 +103,7 @@ function HeaderPagina(props) {
                 Swal.fire(
                     'Erro ao favoritar!',
                     'error'
-                  )
+                )
             })
     }
 
@@ -118,7 +119,7 @@ function HeaderPagina(props) {
                 Swal.fire(
                     'Erro ao desfavoritar!',
                     'error'
-                  )
+                )
             })
     }
 
@@ -143,14 +144,10 @@ function HeaderPagina(props) {
                     <div className='rp_dadosRestaurante'>
                         <h3 className='rp_nomeH2'>{dados.nome}</h3>
                         <div className='rp_divEstrelaSeguir'>
-                            <span>{Array.from({ length: dados.estrela }).map((_, index) => (
-                                <EstrelaReview key={index} />
-                            ))}</span>
+                            {dados.estrela === 0 ? "" : estrelaMichelan()}
                             <button className='rp_botaoSeguir' onClick={desfavoritar}> Seguindo <BiCheckCircle></BiCheckCircle></button>
                         </div>
-                        <span className='rp_endereco'>{dadosE.cep}</span> 
-                        <span>{dadosE.numero} - </span>
-                        <span>{dadosE.uf} - </span>
+                        <span className='rp_endereco'>CEP: {dadosE.cep} - N° {dadosE.numero} - {dadosE.uf}</span>
                     </div>
                 </div>
             </div>
@@ -171,7 +168,7 @@ function HeaderPagina(props) {
                             {dados.estrela === 0 ? "" : estrelaMichelan()}
                             <button className='rp_botaoSeguir' onClick={favoritar}>Seguir </button>
                         </div>
-                        <span className='rp_endereco'>CEP: {dadosE.cep} - N° {dadosE.numero} - {dadosE.uf}</span> 
+                        <span className='rp_endereco'>CEP: {dadosE.cep} - N° {dadosE.numero} - {dadosE.uf}</span>
                     </div>
                 </div>
             </div>
