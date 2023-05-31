@@ -129,7 +129,7 @@ canvas {
     content: "\2605";
 }
 
-/* .star-icon.ativo~.star-icon::before {
+.star-icon.ativo~.star-icon::before {
     content: "\2606";
 }
 
@@ -139,7 +139,7 @@ canvas {
 
 .star-icon:hover~.star-icon::before {
     content: "\2606";
-} */
+}
 
 .feedback-titulo {
     position: absolute;

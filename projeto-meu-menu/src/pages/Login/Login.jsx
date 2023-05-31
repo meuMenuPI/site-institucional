@@ -25,8 +25,8 @@ function Login() {
     .then((dadosUsuario) => {
       sessionStorage.NOME = dadosUsuario.data.nome;
       sessionStorage.EMAIL = dadosUsuario.data.email;
-      sessionStorage.TIPO_COMIDA_PREFERIDA = dadosUsuario.data.tipoComidaPreferida;
       sessionStorage.FOTO_PERFIL = dadosUsuario.data.fotoPerfil
+      sessionStorage.ID_USUARIO = dadosUsuario.data.id
       navigate("/usuario-perfil");
       console.log(dadosUsuario.data)
     })
