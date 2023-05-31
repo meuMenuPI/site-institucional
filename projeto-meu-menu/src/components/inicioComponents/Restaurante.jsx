@@ -94,6 +94,7 @@ const Restaurante = (props) => {
                                 });
                         } else {
                             Swal.fire(
+                                '',
                                 'Nenhum resultado encontrado',
                                 'error'
                               )

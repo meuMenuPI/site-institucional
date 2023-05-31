@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../../pages/Inicio/style.css'
-import IconeLupa from '../../assets/images/iconeLupa.svg'
+import IconeLupa2 from '../../assets/images/iconeLupa2.svg'
 import api from '../../api'
 import ResultadoBusca from './ResultadoBusca'
 
@@ -35,7 +35,7 @@ const BarraBusca = (props) => {
             <div className='containerBusca'>
                 <form>
                     <input id='busca' name='busca' className='barraBusca' placeholder='Busque o que deseja' onChange={pesquisa}/>
-                    <img src={IconeLupa} className='iconeLupa' alt=''/>
+                    <img src={IconeLupa2} className='iconeLupa2' alt=''/>
                 </form>
                 <ResultadoBusca data={data} busca={busca}></ResultadoBusca>
             </div>

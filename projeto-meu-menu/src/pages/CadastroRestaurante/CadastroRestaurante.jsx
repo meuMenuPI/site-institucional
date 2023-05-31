@@ -116,13 +116,15 @@ export default function CadastroRestaurante() {
           api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
             .then((res2) => {
               Swal.fire(
+                '',
                 'Cadastrado!',
-                'sucess'
+                'success'
               )
               navigate("/restaurante-perfil")
             })
             .catch((err) => {
               Swal.fire(
+                '',
                 'Não foi possível cadastrar seu endereço!',
                 'error'
               )
@@ -131,6 +133,7 @@ export default function CadastroRestaurante() {
         })
         .catch((erro) => {
           Swal.fire(
+            '',
             'Não foi possível cadastrar seu restaurante!',
             'error'
           )

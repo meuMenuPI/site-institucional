@@ -53,6 +53,7 @@ function RestauranteFoto() {
             } catch (error) {
                 console.error('Erro ao enviar o arquivo:', error);
                 Swal.fire(
+                    '',
                     'Erro ao enviar o arquivo!',
                     'error'
                 )
