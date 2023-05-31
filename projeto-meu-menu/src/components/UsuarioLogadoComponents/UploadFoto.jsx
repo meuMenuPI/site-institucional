@@ -3,15 +3,11 @@ import { useDropzone } from "react-dropzone";
 import IconAdicionarPrato from '../../assets/images/IconAdicionarPrato.png'
 
 
-const UploadFoto = () => {
+function UploadFoto ({onFileSelect}) {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileSelect = (file) => {
-    setSelectedFile(file[0]);
-  };
-
-  const fileUpload = () => {
-    console.log(selectedFile);
+    onFileSelect(file[0]);
   };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -32,7 +28,7 @@ const UploadFoto = () => {
         <div>
           <h4>Arquivo selecionado:</h4>
           <p>{selectedFile.name}</p>
-          <button onClick={fileUpload}>Teste</button>
+          {/* <button onClick={fileUpload}>Teste</button> */}
         </div>
       )}
     </div>
