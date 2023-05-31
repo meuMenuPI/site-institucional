@@ -7,7 +7,7 @@ function SectionFilial(props) {
             <div className='div_box_filial'>
                 <div className='first_section_filial'>
                     <div className='icon_side_filial'>
-                        <img className='img_section' src={props.img} height={props.height}></img>
+                        <img className='img_section' alt='Imagem Restaurantes' src={props.img} height={props.height}></img>
                     </div>
                     {props.text}
                 </div>

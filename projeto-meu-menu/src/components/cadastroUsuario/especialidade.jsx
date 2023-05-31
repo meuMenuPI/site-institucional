@@ -1,6 +1,4 @@
-import { useState } from 'react';
 function Especialidade(props) {
-  const [nome, setNome] = useState(props.nome);
   return (
     <select className="i_c_d" onChange={props.onChange} name={props.name} style={{backgroundColor: props.color}}>
       <option defaultValue>{props.valorInicial}</option>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import './style.css'
 import { Container, Button, Row, Col } from "react-bootstrap"
 import Destaque from "../../components/inicioComponents/Destaque"
@@ -11,24 +11,9 @@ import Casa from '../../assets/images/home.svg'
 import User from '../../assets/images/user.svg'
 import BarraBusca from '../../components/inicioComponents/BarraBusca';
 import Restaurante from '../../components/inicioComponents/Restaurante';
-import api from '../../api';
 import { useNavigate } from 'react-router-dom'
 
 export default function Index() {
-  // eslint-disable-next-line
-  const [restaurantes, setRestaurante] = useState([]);
-
-/*     useEffect(() => {
-      api
-        .get("/restaurantes")
-        .then((respostaObtida) => {
-          console.log(respostaObtida.data);
-          setRestaurante(respostaObtida.data)
-        })
-        .catch((erroObtido) => {
-          console.log(erroObtido)
-        });
-    }, []); */
 
   const navigate = useNavigate();
 

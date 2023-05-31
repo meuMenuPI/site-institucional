@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import ImgProfileEdicao from '../../assets/images/edicaous.png'
 import TextEditionProfile from '../restauranteLogadoComponents/TextEditionProfile';
 import BoxInputsUsuario  from '../UsuarioLogadoComponents/BoxInputsUsuario';
 import ButtonSave from '../restauranteLogadoComponents/ButtonSave';
@@ -20,7 +19,7 @@ function SideEditionProfileUser() {
             setFotoPerfil(link + nomeFoto);
             console.log(fotoPerfil)
         }
-      }, [fotoPerfil]);
+      }, [fotoPerfil,nomeFoto]);
 
     return (
 
