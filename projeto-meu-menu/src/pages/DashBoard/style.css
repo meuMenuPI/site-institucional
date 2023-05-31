@@ -84,7 +84,7 @@ canvas {
     color: #000000;
 }
 
-*/ .star-avaliacao {
+.star-avaliacao .avaliacao {
     position: absolute;
     width: 31.37px;
     height: 23.87px;
