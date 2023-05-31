@@ -18,17 +18,6 @@ function CadastroUsuario() {
   function cadastrar(e){
     
     e.preventDefault();
-
-/* 
-    api.post("/", infoUser)
-    .then(() => {
-      navigate("/usuarios/cadastrar");
-    })
-    .catch((erro) => {
-    alert("deu erro, muita gente testando")
-    }) */
-
-
     
     sessionStorage.nome = e.target.nome.value
     sessionStorage.sobrenome = e.target.sobrenome.value

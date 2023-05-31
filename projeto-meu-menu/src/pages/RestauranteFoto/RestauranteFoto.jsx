@@ -37,7 +37,10 @@ function RestauranteFoto() {
             console.log('Arquivo enviado com sucesso!');
         } catch (error) {
             console.error('Erro ao enviar o arquivo:', error);
-            alert("Erro ao enviar o arquivo")
+            Swal.fire(
+                'Erro ao enviar o arquivo!',
+                'error'
+              )
         }
     }
     };

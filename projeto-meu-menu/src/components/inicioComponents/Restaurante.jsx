@@ -93,7 +93,10 @@ const Restaurante = (props) => {
                                     console.log(erroObtido);
                                 });
                         } else {
-                            window.alert("No results found");
+                            Swal.fire(
+                                'Nenhum resultado encontrado',
+                                'error'
+                              )
                         }
                     })
                     .catch((e) => window.alert("Geocoder failed due to: " + e));

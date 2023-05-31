@@ -99,7 +99,10 @@ function HeaderPagina(props) {
                 setSeguindo(true);
             })
             .catch((erro) => {
-                alert("Erro!!!")
+                Swal.fire(
+                    'Erro ao favoritar!',
+                    'error'
+                  )
             })
     }
 
@@ -112,7 +115,10 @@ function HeaderPagina(props) {
                 setSeguindo(false);
             })
             .catch((erro) => {
-                alert("Erro, tente novamente")
+                Swal.fire(
+                    'Erro ao desfavoritar!',
+                    'error'
+                  )
             })
     }
 
