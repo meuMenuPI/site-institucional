@@ -115,6 +115,7 @@ export default function CadastroRestaurante() {
           api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
             .then((res2) => {
               alert("Cadastrado!");
+              navigate("/restaurante-perfil")
             })
             .catch((err) => {
               alert("Não foi possível realizar o cadastro do endereço, tente novamente.");

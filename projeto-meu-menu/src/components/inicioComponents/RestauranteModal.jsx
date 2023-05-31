@@ -8,7 +8,7 @@ function RestauranteModal(props) {
 
     function alterarPagina() {
         sessionStorage.ID_RESTAURANTE_PAGINA = props.id;
-        navigate("restaurante-pagina")
+        navigate("/restaurante-pagina")
     }
     return (
 

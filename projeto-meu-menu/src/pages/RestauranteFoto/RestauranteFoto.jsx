@@ -1,11 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MenuLeft from '../../components/restauranteLogadoComponents/MenuLeft'
 import './style.css';
-import ImgProfileMini from '../../assets/images/ImgPerfilMini.png';
 import BoxFoto from '../../components/restauranteFoto/BoxFoto';
+import FotoUsuarioDefault from '../../assets/images/fotoUsuario.png'
 import ButtonSave from '../../components/restauranteLogadoComponents/ButtonSave';
 
 function RestauranteFoto() {
+
+    const link = "https://meumenuimagens.blob.core.windows.net/foto-suario/";
+
+    const [fotoPerfil, setFotoPerfil] = useState();
+
+    const nome = sessionStorage.NOME;
+
+    var nomeFoto = sessionStorage.FOTO_PERFIL;
+
+    useEffect(() => {
+        
+        if (nomeFoto == null) {
+            setFotoPerfil(FotoUsuarioDefault);
+        } else {
+            setFotoPerfil(link + nomeFoto);
+            console.log(fotoPerfil)
+        }
+      }, [fotoPerfil]);
+
     return (
         <>
 
@@ -15,9 +34,9 @@ function RestauranteFoto() {
                 </div>
                 <div className="div_header_restaurante_foto">
                     <div className="div_header_img_mini_foto">
-                        <li>Olá, Jorge Augusto</li>
+                        <li>Olá, {nome}</li>
                         <li>
-                            <img src={ImgProfileMini} id="img_perfil_mini_foto" alt="Imagem do perfil" />
+                            <img src={fotoPerfil} id="img_perfil_mini_foto" alt="Imagem do perfil" />
                         </li>
                     </div>
                     <p>Adicione suas fotos</p>

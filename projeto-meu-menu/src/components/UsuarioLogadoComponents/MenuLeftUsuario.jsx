@@ -7,16 +7,17 @@ import IconTriangle from '../../assets/images/IconTriangle.png'
 import IconBox from '../../assets/images/IconBox.png'
 import { useLocation } from "react-router-dom";
 import ButtonExit from '../restauranteLogadoComponents/ButtonExit';
+import FotoUsuarioDefault from '../../assets/images/fotoUsuario.png'
 
 
 function MenuLeftUsuario() {
 
     const location = useLocation();
-    if (location.pathname === '/restaurante-perfil') {
+    if (location.pathname === '/perfil-usuario') {
         var style_section1 = "first_section"
         var style_section2 = "first_section_not_background"
         var style_section3 = "first_section_not_background"
-    } else if (location.pathname === '/restaurante-cardapio') {
+    } else if (location.pathname === '/perfil-usuario-busca') {
         var style_section1 = "first_section_not_background"
         var style_section2 = "first_section"
         var style_section3 = "first_section_not_background"
@@ -36,8 +37,8 @@ function MenuLeftUsuario() {
 
     useEffect(() => {
         
-        if (fotoPerfil == null) {
-          setFotoPerfil("");
+        if (nomeFoto == null) {
+            setFotoPerfil(FotoUsuarioDefault);
         } else {
             setFotoPerfil(link + nomeFoto);
             console.log(fotoPerfil)
@@ -53,13 +54,13 @@ function MenuLeftUsuario() {
                 </div>
                 <div className='sections'>
                     <HeaderSection text='Perfil' />
-                    <Section img={IconCircle} text="Perfil" height={22} caminho={"/restaurante-perfil"} style={style_section1} />
-                    <Section img={IconTriangle} text="Restaurantes" height={22} caminho={"/restaurante-cardapio"} style={style_section2} />
+                    <Section img={IconCircle} text="Perfil" height={22} caminho={"/usuario-perfil"} style={style_section1} />
+                    <Section img={IconTriangle} text="Busca" height={22} caminho={"/usuario-perfil-busca"} style={style_section2} />
                     <LineSection />
                     <HeaderSection text='Filtros' />
-                    <Section img={IconBox} text="Menor Preço" caminho={"/dashboard"} height={10} style={style_section3} />
-                    <Section img={IconBox} text="Maior Preço" caminho={"/dashboard"} height={10} style={style_section3} />
-                    <Section img={IconBox} text="Benéficios" caminho={"/dashboard"} height={10} style={style_section3} />
+                    <Section img={IconBox} text="Menor Preço" height={10} style={style_section3} />
+                    <Section img={IconBox} text="Maior Preço" height={10} style={style_section3} />
+                    <Section img={IconBox} text="Benéficios" height={10} style={style_section3} />
                     <LineSection />
                     <ButtonExit />
 
