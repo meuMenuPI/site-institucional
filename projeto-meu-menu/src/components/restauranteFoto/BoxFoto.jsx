@@ -1,12 +1,13 @@
 import React from 'react'
 import UploadFoto from '../UsuarioLogadoComponents/UploadFoto'
 
-function BoxFoto() {
+function BoxFoto({arquivo}) {
+
     return (
         <>
-            
+
             <div className="div_box_foto">
-                <UploadFoto/>
+                <UploadFoto onFileSelect={arquivo} />
             </div>
 
         </>
