@@ -2,15 +2,14 @@ import React from 'react';
 import MenuLeft from '../../components/restauranteLogadoComponents/MenuLeft';
 import SideEditionProfile from '../../components/restauranteLogadoComponents/SideEditionProfile';
 import './style.css';
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+/* import { useState } from "react"; */
 
-const formTemplate = {
+/* const formTemplate = {
     nomeRestaurante: "Pedro",
     telefone: "11951676901",
     estrela: 3,
     site: "https://www.youtubeaaa.com/"
-};
+}; */
 /* 
 const formTemplate2 = {
     cep: "",
@@ -19,12 +18,11 @@ const formTemplate2 = {
 }; */
 
 function RestaurantePerfil() {
-    const [data, setData] = useState(formTemplate);
-    const navigate = useNavigate();
+    /* const [data, setData] = useState(formTemplate); */
 
-    const updateFieldHandler = (key, value) => {
+    /* const updateFieldHandler = (key, value) => {
         setData((prev) => ({ ...prev, [key]: value }));
-    };
+    }; */
 
     /*  function atualizar(e) {
          e.preventDefault();

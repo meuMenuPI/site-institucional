@@ -1,5 +1,4 @@
 import React from 'react'
-import Section from './Section';
 import IconCircle from '../../assets/images/IconCircle.png'
 import IconTriangle from '../../assets/images/IconTriangle.png'
 import IconBox from '../../assets/images/IconBox.png'

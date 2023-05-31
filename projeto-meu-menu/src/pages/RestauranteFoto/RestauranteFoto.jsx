@@ -23,7 +23,7 @@ function RestauranteFoto() {
             setFotoPerfil(link + nomeFoto);
             console.log(fotoPerfil)
         }
-      }, [fotoPerfil]);
+      }, [fotoPerfil, nomeFoto]);
 
     return (
         <>
