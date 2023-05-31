@@ -432,6 +432,12 @@ li {
     width: 100%;
 }
 
+.modal_comentario_email {
+    height: 25%;
+    width: 100%;
+    margin-top: 5%;
+}
+
 .modal_comentario p {
     margin-top: 10px;
     margin-bottom: 0px;
@@ -441,6 +447,26 @@ li {
 
 #input_comentario_review {
     height: 90px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1.5px solid #7c747d;
+    text-align: flex-start;
+    border-radius: 4px;
+}
+
+.input_comentario_email {
+    height: 80px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1.5px solid #7c747d;
+    text-align: flex-start;
+    border-radius: 4px;
+}
+
+.input_comentario_email1 {
+    height: 60px;
     width: 100%;
     margin-bottom: 10px;
     background-color: rgba(255, 255, 255, 0);
@@ -469,7 +495,20 @@ li {
     background-color: #8D0000;
     color: #FFFF;
     font-weight: bold;
+}
 
+.id_btn_save_email {
+    width: 80px;
+    height: 33px;
+    border-radius: 100px;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+    border-width: 1.5px;
+    background-color: #8D0000;
+    color: #FFFF;
+    font-weight: bold;
+    margin-top: 10%;
 }
 
 .rp_botaoAddReview {

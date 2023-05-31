@@ -14,7 +14,6 @@ import Passo4 from "../../components/cadastroRestauranteComponents/Passo4"
 import Logo from '../../assets/images/logoBranco.svg'
 import ChefeCadastro from '../../assets/images/chefeCadastro.svg'
 import api from "../../api";
-
 import Swal from 'sweetalert2'
 // Hooks
 import { EtapasControl } from "../../hooks/EtapasControl";

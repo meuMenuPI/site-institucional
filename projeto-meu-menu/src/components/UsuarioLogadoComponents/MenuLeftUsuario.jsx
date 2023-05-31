@@ -5,12 +5,16 @@ import HeaderSection from '../restauranteLogadoComponents/HeaderSection';
 import IconCircle from '../../assets/images/IconCircle.png'
 import IconTriangle from '../../assets/images/IconTriangle.png'
 import IconBox from '../../assets/images/IconBox.png'
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ButtonExit from '../restauranteLogadoComponents/ButtonExit';
 import FotoUsuarioDefault from '../../assets/images/fotoUsuario.png'
 
 
-function MenuLeftUsuario() {
+function MenuLeftUsuario(props) {
+
+    const navigate = useNavigate()
+
+    const caminho = props.caminho ? props.caminho : null
 
     var style_section1 = "first_section"
     var style_section2 = "first_section_not_background"
@@ -48,6 +52,7 @@ function MenuLeftUsuario() {
             console.log(fotoPerfil)
         }
       }, [fotoPerfil]);
+
     return (
         <>
         
@@ -58,20 +63,20 @@ function MenuLeftUsuario() {
                 </div>
                 <div className='sections'>
                     <HeaderSection text='Perfil' />
-                    <Section img={IconCircle} text="Perfil" height={22} caminho={"/usuario-perfil"} style={style_section1} />
-                    <Section img={IconTriangle} text="Busca" height={22} caminho={"/usuario-perfil-busca"} style={style_section2} />
+                    <Section img={IconCircle} text="Perfil" height={22}  style={style_section1} funcao={() => navigate("/usuario-perfil")}/>
+                    <Section img={IconTriangle} text="Busca" height={22} style={style_section2} funcao={() => navigate("/usuario-perfil-busca")}/>
                     <LineSection />
                     <HeaderSection text='Filtros' />
                     <Section img={IconBox} text="Menor Preço" height={10} style={style_section3} />
                     <Section img={IconBox} text="Maior Preço" height={10} style={style_section3} />
                     <Section img={IconBox} text="Benéficios" height={10} style={style_section3} />
                     <LineSection />
+                    <HeaderSection text='Filtros' />
+                    <Section img={IconBox} text="Enviar email" height={10} style={style_section1} />
+                    <LineSection />
                     <ButtonExit />
-
                 </div>
-            </div>
-        
-    
+            </div> 
         </>
     )
 };

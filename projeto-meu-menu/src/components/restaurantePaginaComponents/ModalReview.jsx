@@ -13,7 +13,6 @@ function ModalReview({ isOpen, setModalOpen }) {
         e.preventDefault();
 
         const templateReview = {
-
             fkRestaurante: sessionStorage.ID_RESTAURANTE_PAGINA,
             fkUsuario: sessionStorage.ID_USUARIO,
             descricao: e.target.descricao.value,
@@ -26,7 +25,7 @@ function ModalReview({ isOpen, setModalOpen }) {
             .then((res2) => {
                 Swal.fire(
                     'Cadastrado!',
-                    'sucess'
+                    'sucesso'
                   )
               window.location.reload()
             })
