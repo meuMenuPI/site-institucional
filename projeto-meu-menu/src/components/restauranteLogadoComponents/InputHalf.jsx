@@ -5,7 +5,7 @@ function InputHalf(props) {
 
     <>
 
-      <input type='text' id='id_input_half' placeholder={props.nome} name={props.name}></input >
+      <input type='text' id='id_input_half' placeholder={props.placeholder}></input >
 
     </>
 
