@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ImgLogo from '../../assets/images/logo_preto_sozinho.png'
 import BtnClose from '../../assets/images/btn_close.png'
 import api from '../../api';
@@ -61,7 +61,7 @@ function ModalEmail({ isOpen, setModalOpen }) {
                                     <input type="text" name='texto' id='input_comentario_review' />
                                 </div>
                                 <div className="modal_save">
-                                    <button type='submit' id='id_btn_save' className='id_btn_save_email'>Salvar</button>
+                                    <button type='submit' id='id_btn_save' className='id_btn_save_email'>Enviar</button>
                                 </div>
                             </div>
                         </div>
