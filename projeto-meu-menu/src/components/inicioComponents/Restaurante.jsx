@@ -13,7 +13,7 @@ const Restaurante = (props) => {
 
     function alterarPagina(fk) {
 
-        if (sessionStorage.ID_USUARIO !== null) {
+        if (sessionStorage.ID_USUARIO !== undefined) {
             sessionStorage.ID_RESTAURANTE_PAGINA = fk;
             navigate("/restaurante-pagina")
         }
