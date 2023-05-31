@@ -5,8 +5,7 @@ function Especialidade(props) {
       <option value="BRASILEIRA">Brasileira</option>
       <option value="MEXICANA">Mexicana</option>
       <option value="JAPONESA">Japonesa</option>
-      <option value="ITALIANA">Italiana</option>
-      <option value="ARABE">Arabe</option>
+      <option value="CHINESA">Chinesa</option>
     </select>
   );
 }
