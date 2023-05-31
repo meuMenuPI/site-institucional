@@ -3,6 +3,7 @@ import TextEditionProfile from '../restauranteLogadoComponents/TextEditionProfil
 import BoxInputsUsuario  from '../UsuarioLogadoComponents/BoxInputsUsuario';
 import ButtonSave from '../restauranteLogadoComponents/ButtonSave';
 
+
 function SideEditionProfileUser() {
 
     const link = "https://meumenuimagens.blob.core.windows.net/foto-suario/";

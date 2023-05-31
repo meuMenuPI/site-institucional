@@ -4,6 +4,7 @@ import './style.css';
 import BoxFoto from '../../components/restauranteFoto/BoxFoto';
 import FotoUsuarioDefault from '../../assets/images/fotoUsuario.png';
 import api from '../../api';
+import Swal from 'sweetalert2'
 
 
 function RestauranteFoto() {
@@ -21,7 +22,6 @@ function RestauranteFoto() {
         console.log(selectedFiles);
         e.preventDefault();
 
-        const formData = new FormData();
         for (let c = 0; c < selectedFiles.length; c++) {
 
         const file = {

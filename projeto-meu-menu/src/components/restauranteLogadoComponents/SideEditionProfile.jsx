@@ -8,6 +8,8 @@ import api from '../../api';
 import { useNavigate } from 'react-router-dom';
 import Input from './Input';
 import InputHalf from './InputHalf';
+import Swal from 'sweetalert2'
+
 
 
 const formTemplate = {

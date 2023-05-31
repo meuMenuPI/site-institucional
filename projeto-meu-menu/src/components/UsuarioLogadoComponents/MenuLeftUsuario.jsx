@@ -12,17 +12,23 @@ import FotoUsuarioDefault from '../../assets/images/fotoUsuario.png'
 
 function MenuLeftUsuario() {
 
-    const location = useLocation();
-    let style_section1 = {}; // Define as objects instead of strings
-    let style_section2 = {};
-    let style_section3 = {};
+    var style_section1 = "first_section"
+    var style_section2 = "first_section_not_background"
+    var style_section3 = "first_section_not_background"
 
+    const location = useLocation();
     if (location.pathname === '/perfil-usuario') {
-        style_section1 = { first_section: true };
+        style_section1 = "first_section"
+        style_section2 = "first_section_not_background"
+        style_section3 = "first_section_not_background"
     } else if (location.pathname === '/perfil-usuario-busca') {
-        style_section2 = { first_section: true };
+        style_section1 = "first_section_not_background"
+        style_section2 = "first_section"
+        style_section3 = "first_section_not_background"
     } else {
-        style_section3 = { first_section: true };
+        style_section1 = "first_section_not_background"
+        style_section2 = "first_section_not_background"
+        style_section3 = "first_section"
     }
 
     const link = "https://meumenuimagens.blob.core.windows.net/foto-suario/";
@@ -34,20 +40,21 @@ function MenuLeftUsuario() {
     var nomeFoto = sessionStorage.FOTO_PERFIL;
 
     useEffect(() => {
+        
         if (nomeFoto == null) {
             setFotoPerfil(FotoUsuarioDefault);
         } else {
             setFotoPerfil(link + nomeFoto);
             console.log(fotoPerfil)
         }
-    }, [fotoPerfil, nomeFoto]);
-
+      }, [fotoPerfil]);
     return (
         <>
+        
             <div className="container_menu_left">
                 <div className='headerLogo'>
-                    <img src={fotoPerfil} className="img_perfil_pessoa" alt="Imagem do perfil" />
-                    <p className='Name'>{nome}</p>
+                        <img src={fotoPerfil} className="img_perfil_pessoa" alt="Imagem do perfil" />
+                        <p className='Name'>{nome}</p>
                 </div>
                 <div className='sections'>
                     <HeaderSection text='Perfil' />
@@ -57,11 +64,14 @@ function MenuLeftUsuario() {
                     <HeaderSection text='Filtros' />
                     <Section img={IconBox} text="Menor Preço" height={10} style={style_section3} />
                     <Section img={IconBox} text="Maior Preço" height={10} style={style_section3} />
-                    <Section img={IconBox} text="Benefícios" height={10} style={style_section3} />
+                    <Section img={IconBox} text="Benéficios" height={10} style={style_section3} />
                     <LineSection />
                     <ButtonExit />
+
                 </div>
             </div>
+        
+    
         </>
     )
 };
