@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ImgProfileBig from '../../assets/images/ImgPerfilBig.png';
 import ImgProfileMini from '../../assets/images/ImgPerfilMini.png';
 import TextEditionProfile from './TextEditionProfile';
@@ -9,66 +9,156 @@ import { useNavigate } from 'react-router-dom';
 import Input from './Input';
 import InputHalf from './InputHalf';
 
+
+const formTemplate = {
+    nomeRestauranteEdicao: "",
+    cnpj: "",
+    telefone: "",
+    cep: "",
+    especialidade: "",
+    beneficio: "",
+    estrela: 0,
+    site: ""
+}
+
+const formTemplate2 = {
+    id: 1,
+    fk_restaurante: 16,
+    fk_usuario: null,
+    cep: "",
+    numero: "",
+    complemento: "",
+    uf: ""
+}
+
+
 function SideEditionProfile() {
+    const [data, setData] = useState(formTemplate)
+    const [data2, setData2] = useState(formTemplate2)
     const navigate = useNavigate();
-    const [restauranteInfo, setRestauranteInfo] = useState({
-        id: 1,
-        usuario: 1,
-        nome: '',
-        especialidade: '',
-        telefone: '',
-        estrela: '',
-        site: '',
-        cep: '',
-        numero: '',
-        complemento: '',
-    });
+
+    const updateFielHandler = (key, value) => {
+        setData((prev) => {
+            return { ...prev, [key]: value };
+        });
+        console.log(data)
+    };
+
+    const updateFielHandler2 = useCallback((key, value) => {
+        setData2((prev) => {
+            const newData2 = { ...prev, [key]: value };
+            const enderecoResInfo = {
+                fk_restaurante: 16,
+                fk_usuario: null,
+                cep: newData2.cep,
+                numero: newData2.numero,
+                complemento: newData2.complemento,
+                uf: newData2.uf
+            };
+            setData2(newData2);
+            console.log(data2);
+            console.log(enderecoResInfo);
+            return newData2;
+        });
+    }, [data2]);
+
 
     useEffect(() => {
-        const nome = sessionStorage.getItem('nome') || '';
-        const especialidade = sessionStorage.getItem('especialidade') || '';
-        const telefone = sessionStorage.getItem('telefone') || '';
-        const estrela = sessionStorage.getItem('estrela') || '';
-        const site = sessionStorage.getItem('site') || '';
-        const cep = sessionStorage.getItem('cep') || '';
-        const numero = sessionStorage.getItem('numero') || '';
-        const complemento = sessionStorage.getItem('complemento') || '';
-
-        setRestauranteInfo((prevState) => ({
-            ...prevState,
-            nome,
-            especialidade,
-            telefone,
-            estrela,
-            site,
-            cep,
-            numero,
-            complemento,
-        }));
-    }, []);
-
-    const atualizar = async (e) => {
-        e.preventDefault();
-        console.log('Clicou');
-        console.log(restauranteInfo);
-
-        try {
-            await api.put(`/restaurantes/${restauranteInfo.id}`, restauranteInfo);
-            console.log('Atualizado com sucesso!');
-            alert('Atualizado com sucesso!');
-        } catch (error) {
-            console.error(error);
-            alert('Não foi possível atualizar o restaurante, tente novamente.');
-            navigate('/restaurante-perfil');
+        if (data2.cep.length === 8) {
+            fetch(`https://viacep.com.br/ws/${data2.cep}/json/`)
+                .then((res) => res.json())
+                .then((datacep) => {
+                    const { uf } = datacep;
+                    updateFielHandler2("uf", uf);
+                })
+                .catch((error) => {
+                    console.log("Erro ao obter informações do CEP:", error);
+                });
         }
-    };
+    }, [data2.cep, updateFielHandler2]);
 
-    const handleChange = (name) => (value) => {
-        setRestauranteInfo((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
+
+    const [nomeRes, setNomeRes] = useState();
+    const [cnpjRes, setCnpjRes] = useState();
+    const [especialidadeRes, setEspecialidadeRes] = useState();
+    const [telefoneRes, setTelefoneRes] = useState();
+    const [siteRes, setSiteRes] = useState();
+    const [estrelaRes, setEstrelaRes] = useState();
+
+    const [idRes, setIdRes] = useState();
+    const [fkRestauranteRes, setFkRestauranteRes] = useState();
+    const [fkUsuarioRes, setFkUsuarioRes] = useState();
+    const [cepRes, setCepRes] = useState();
+    const [numeroRes, setNumeroRes] = useState();
+    const [complementoRes, setComplementoRes] = useState();
+    const [ufRes, setUfRes] = useState();
+
+    function atualizar(e) {
+        e.preventDefault();
+
+        const restauranteInfo = {
+            id: 16,
+            usuario: 1,
+            nome: nomeRes,
+            especialidade: especialidadeRes,
+            telefone: telefoneRes,
+            site: siteRes,
+            estrela: estrelaRes,
+        }
+
+        const enderecoResInfo = {
+            id: 1,
+            fk_restaurante: fkRestauranteRes,
+            fk_usuario: fkUsuarioRes,
+            cep: cepRes,
+            /* cep: data2.cep, */
+            numero: numeroRes,
+            complemento: complementoRes,
+            uf: 0
+        }
+
+        const atualizarRestaurante = () => {
+            api.put(`restaurantes/${restauranteInfo.id}`, restauranteInfo)
+                .then((res) => {
+                    enderecoResInfo.fk_restaurante = restauranteInfo.id;
+                    console.log("Passsou no atualizar restaurante")
+
+
+                    api.put(`/restaurantes/atualizar/endereco/${enderecoResInfo.id}`, enderecoResInfo)
+                        .then((res2) => {
+                            alert("Atualizado com sucesso!");
+                        })
+                        .catch((err) => {
+                            alert("Não foi possível atualizar o endereco do restaurante, tente novamente.");
+                            navigate("/restaurante-perfil");
+                        });
+                })
+                .catch((erro) => {
+                    alert("Não foi possível atualizar o restaurante, tente novamente.");
+                    console.log(erro)
+                    navigate("/restaurante-perfil");
+                });
+        };
+
+        if (enderecoResInfo.uf === 0) {
+            fetch(`https://viacep.com.br/ws/${enderecoResInfo.cep}/json/`)
+                .then((res) => res.json())
+                .then((datacep) => {
+                    enderecoResInfo.uf = datacep.uf;
+                    atualizarRestaurante();
+                    console.log(enderecoResInfo.uf)
+                })
+                .catch((error) => {
+                    console.log("Erro ao obter informações do CEP:", error);
+                    atualizarRestaurante();
+                });
+        } else {
+            atualizarRestaurante();
+        }
+
+        console.log(restauranteInfo);
+        console.log(enderecoResInfo);
+    }
 
     return (
         <>
@@ -89,69 +179,63 @@ function SideEditionProfile() {
 
                 <div className="div_box_inputs_restaurante">
                     <TextEditionProfile />
-                    <div className="div_nome_especialidade">
-                        <Input
-                            nome="Nome"
-                            name="nome"
-                            value={restauranteInfo.nome}
-                            onChange={(event) => handleChange('nome')(event.target.value)}
-                        />
-                        <Input
-                            nome="Especialidade"
-                            name="especialidade"
-                            value={restauranteInfo.especialidade}
-                            onChange={(event) => handleChange('especialidade')(event.target.value)}
-                        />
-                    </div>
+                    <form action="">
 
-                    <div className="div_inputs_half_restaurante">
-                        <div className="div_left_input_half_restaurante">
-                            <InputHalf
-                                nome="Telefone"
-                                name="telefone"
-                                value={restauranteInfo.telefone}
-                                onChange={(event) => handleChange('telefone')(event.target.value)}
-                            />
-                            <InputHalf
-                                nome="Estrelas"
-                                name="estrela"
-                                value={restauranteInfo.estrela}
-                                onChange={(event) => handleChange('estrela')(event.target.value)}
-                            />
+                        <div className="div_nome_especialidade">
+                            {/* <Input
+                            value={data.nomeRestauranteEdicao}
+                            onChange={(e) => updateFielHandler("nomeRestauranteEdicao", e.target.value)}
+                            name="nomeRestauranteEdicao"
+                            id="nomeRestauranteEdicao"
+                            type="text"
+                            placeholder="Nome Restaurante"
+                        /> */}
+                            <input type="text" id='id_input' placeholder='Nome' onChange={(e) => setNomeRes(e.target.value)} />
+                            <input type="text" id='id_input' placeholder='Especialidade' onChange={(e) => setEspecialidadeRes(e.target.value)} />
+                            {/* <Input
+                            value={data.especialidade || ""} onChange={(e) => updateFielHandler("especialidade", e.target.value)} name='especialidade' id='especialidade' type="text" placeholder="Especialidade"
+                        /> */}
                         </div>
-                        <div className="div_right_input_half_restaurante">
-                            <InputHalf
-                                nome="Site"
-                                name="site"
-                                value={restauranteInfo.site}
-                                onChange={(event) => handleChange('site')(event.target.value)}
+
+                        <div className="div_inputs_half_restaurante">
+                            <div className="div_left_input_half_restaurante">
+                                {/* <InputHalf
+                                value={data.telefone || ""} onChange={(e) => updateFielHandler("telefone", e.target.value)} name='telefone' id='telefone' type="text" placeholder="Telefone"
+                            /> */}
+                                <input type="text" id='id_input_half' placeholder='Telefone' onChange={(e) => setTelefoneRes(e.target.value)} />
+                                <input type="text" id='id_input_half' placeholder='Estrelas' onChange={(e) => setEstrelaRes(e.target.value)} />
+                                {/* <InputHalf
+                                value={data.estrelas || ""} onChange={(e) => updateFielHandler("estrelas", e.target.value)} name='estrelas' id='estrelas' type="text" placeholder="Estrelas"
+                            /> */}
+                            </div>
+                            <div className="div_right_input_half_restaurante">
+                                {/* <InputHalf
+                                value={data.site || ""} onChange={(e) => updateFielHandler("site", e.target.value)} name='site' id='site' type="text" placeholder="Site"
                             />
                             <InputHalf
-                                nome="CEP"
-                                name="cep"
-                                value={restauranteInfo.cep}
-                                onChange={(event) => handleChange('cep')(event.target.value)}
-                            />
+                                value={data.cep || ""} onChange={(e) => updateFielHandler("cep", e.target.value)} name='cep' id='cep' type="text" placeholder="CEP"
+                            /> */}
+                                <input type="text" id='id_input_half' placeholder='Site' onChange={(e) => setSiteRes(e.target.value)} />
+                                <input type="text" id='id_input_half' placeholder='CEP' onChange={(e) => setCepRes(e.target.value)} />
+
+                            </div>
                         </div>
-                    </div>
-                    <div className="div_numero_complemento">
-                        <Input
-                            nome="Número"
-                            name="numero"
-                            value={restauranteInfo.numero}
-                            onChange={(event) => handleChange('numero')(event.target.value)}
+                        <div className="div_numero_complemento">
+                            {/* <Input
+                            value={data.numero || ""} onChange={(e) => updateFielHandler("numero", e.target.value)} name='numero' id='numero' type="text" placeholder="Número"
                         />
                         <Input
-                            nome="Complemento"
-                            name="complemento"
-                            value={restauranteInfo.complemento}
-                            onChange={(event) => handleChange('complemento')(event.target.value)}
-                        />
-                    </div>
+                            value={data.complemento || ""} onChange={(e) => updateFielHandler("complemento", e.target.value)} name='complemento' id='complemento' type="text" placeholder="Complemento"
+                        /> */}
+                            <input type="text" id='id_input_half' placeholder='Número' onChange={(e) => setNumeroRes(e.target.value)} />
+                            <input type="text" id='id_input_half' placeholder='Complemento' onChange={(e) => setComplementoRes(e.target.value)} />
+
+                        </div>
+                    </form>
                 </div>
 
                 <div className="div_button_save_perfil">
-                    <button id='id_button_save_perfil'>Salvar</button>
+                    <button id='id_button_save_perfil' onClick={atualizar}>Salvar</button>
                 </div>
             </div>
         </>

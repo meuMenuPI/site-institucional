@@ -1,12 +1,17 @@
-import React, { useState } from "react";
-
+import React, { useState } from 'react'
 
 function Input(props) {
-  const [nome, setNome] = useState(props.nome);
+
+  const [nome, setNome] = useState(props.name);
+
+
   return (
+
     <>
-      <input type='text' id='id_input' placeholder={props.nome} name={props.name} onChange={(e) => setNome(e.target.value)}></input>
+
+      <input type={props.tipo} id='id_input' placeholder={props.placeholder} onChange={(e) => setNome(e.target.value)} name={props.name} />
     </>
+
   )
 }
 
