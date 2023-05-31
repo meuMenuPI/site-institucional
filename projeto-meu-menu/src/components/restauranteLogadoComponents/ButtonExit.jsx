@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import api from '../../api';
 
-function ButtonExit() {
+function ButtonExit(props) {
   const navigate = useNavigate();
 
   const [restaurante, setRestaurante] = useState();
@@ -36,7 +36,7 @@ function ButtonExit() {
     <>
 
       <div className='box_button_exit'>
-        {valido ? botaoMeuRestaurante() : ''}
+        {props.parametro ? (valido ? botaoMeuRestaurante() : '') : ''}
         <button onClick={() => navigate("/")} id='id_button_exit'>Sair</button>
       </div>
 

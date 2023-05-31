@@ -109,34 +109,52 @@ export default function CadastroRestaurante() {
     }
 
     const cadastrarRestaurante = () => {
-      api.post("restaurantes/cadastrar", restauranteInfo)
-        .then((res) => {
-          enderecoResInfo.fk_restaurante = res.data.id;
 
-          api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
-            .then((res2) => {
-              Swal.fire(
-                'Cadastrado!',
-                'sucess'
-              )
-              navigate("/restaurante-perfil")
-            })
-            .catch((err) => {
-              Swal.fire(
-                'Não foi possível cadastrar seu endereço!',
-                'error'
-              )
-              navigate("/restaurante-cadastrar");
-            });
+      api.get(`restaurantes/filtrar/fkUsuario/${sessionStorage.ID_USUARIO}`)
+        .then((respostaObtida) => {
+          console.log(respostaObtida.data);
+
+          if (respostaObtida.data !== null) {
+            Swal.fire(
+              '',
+              'Usuário já tem restaurante!',
+              'error'
+            )
+          }
+          else {
+
+            api.post("restaurantes/cadastrar", restauranteInfo)
+              .then((res) => {
+                enderecoResInfo.fk_restaurante = res.data.id;
+
+                api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
+                  .then((res2) => {
+                    Swal.fire(
+                      'Cadastrado!',
+                      'sucess'
+                    )
+                    navigate("/restaurante-perfil")
+                  })
+                  .catch((err) => {
+                    Swal.fire(
+                      'Não foi possível cadastrar seu endereço!',
+                      'error'
+                    )
+                    navigate("/restaurante-cadastrar");
+                  });
+              })
+              .catch((erro) => {
+                Swal.fire(
+                  'Não foi possível cadastrar seu restaurante!',
+                  'error'
+                )
+                navigate("/restaurante-cadastrar");
+              });
+          }
+        }).catch((erroObtido) => {
+          console.log(erroObtido);
         })
-        .catch((erro) => {
-          Swal.fire(
-            'Não foi possível cadastrar seu restaurante!',
-            'error'
-          )
-          navigate("/restaurante-cadastrar");
-        });
-    };
+    }
 
     if (data2.uf === 0) {
       fetch(`https://viacep.com.br/ws/${data2.cep}/json/`)

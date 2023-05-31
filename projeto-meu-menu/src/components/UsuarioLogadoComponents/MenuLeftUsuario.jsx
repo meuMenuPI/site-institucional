@@ -66,7 +66,7 @@ function MenuLeftUsuario() {
                     <Section img={IconBox} text="Maior Preço" height={10} style={style_section3} />
                     <Section img={IconBox} text="Benéficios" height={10} style={style_section3} />
                     <LineSection />
-                    <ButtonExit />
+                    <ButtonExit parametro={1}/>
 
                 </div>
             </div>
