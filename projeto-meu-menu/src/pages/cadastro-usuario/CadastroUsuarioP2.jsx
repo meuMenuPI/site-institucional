@@ -67,7 +67,11 @@ function CadastroUsuarioP2() {
       })
       .catch((erro) => {
         console.log(infoUser.nome)
-        alert("deu erro, muita gente testando")
+        Swal.fire(
+          'Ops',
+          'Não foi possível realizar seu cadastro, tente novamente.',
+          'error'
+        )
       })
     }
 

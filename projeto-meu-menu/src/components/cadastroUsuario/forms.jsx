@@ -5,9 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 function Forms(props){
     const navigate = useNavigate();
-    function voltar(url){
-        navigate(url); 
-      }
     return (
             <div className="container">
             <div onClick={() => navigate("/")} className="voltar"><img src={Seta} alt="" /></div>

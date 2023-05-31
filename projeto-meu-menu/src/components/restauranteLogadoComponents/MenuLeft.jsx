@@ -6,7 +6,6 @@ import HeaderSection from './HeaderSection';
 import IconCircle from '../../assets/images/IconCircle.png'
 import IconTriangle from '../../assets/images/IconTriangle.png'
 import IconBox from '../../assets/images/IconBox.png'
-import BoxFiliais from './BoxFiliais';
 import ButtonExit from './ButtonExit';
 import { useLocation } from "react-router-dom";
 
@@ -19,22 +18,18 @@ function MenuLeft() {
         var style_section1 = "first_section"
         var style_section2 = "first_section_not_background"
         var style_section3 = "first_section_not_background"
-        var style_section4 = "first_section_not_background"
     } else if (location.pathname === '/restaurante-cardapio') {
-        var style_section1 = "first_section_not_background"
-        var style_section2 = "first_section"
-        var style_section3 = "first_section_not_background"
-        var style_section4 = "first_section_not_background"
+        style_section1 = "first_section_not_background"
+        style_section2 = "first_section"
+        style_section3 = "first_section_not_background"
     } else if (location.pathname === '/restaurante-foto') {
-        var style_section1 = "first_section_not_background"
-        var style_section2 = "first_section_not_background"
-        var style_section3 = "first_section"
-        var style_section4 = "first_section_not_background"
+        style_section1 = "first_section_not_background"
+        style_section2 = "first_section_not_background"
+        style_section3 = "first_section"
     } else {
-        var style_section1 = "first_section_not_background"
-        var style_section2 = "first_section_not_background"
-        var style_section3 = "first_section_not_background"
-        var style_section4 = "first_section"
+        style_section1 = "first_section_not_background"
+        style_section2 = "first_section_not_background"
+        style_section3 = "first_section_not_background"
     }
 
     return (

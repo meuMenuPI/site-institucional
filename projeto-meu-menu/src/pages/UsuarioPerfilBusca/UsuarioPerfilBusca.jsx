@@ -1,10 +1,8 @@
 import React from 'react'
 import './style.css'
 import MenuLeftUsuario from '../../components/UsuarioLogadoComponents/MenuLeftUsuario';
-
-import BarraBuscaPerfil from '../../components/UsuarioLogadoComponents/BarraBuscaPerfil';
-
 import Restaurante from '../../components/inicioComponents/Restaurante';
+import BarraBusca from '../../components/inicioComponents/BarraBusca';
 
 function UsuarioPerfilBusca() {
     return (
@@ -16,7 +14,7 @@ function UsuarioPerfilBusca() {
             <div className="busca2 d-flex flex-column align-items-center justify-content-around">
             <div className='imgTextura2'>
             <div className='areaTextura2 d-flex flex-column align-items-center justify-content-between'>
-            <BarraBuscaPerfil />
+            <BarraBusca />
 
             <div className='areaMiniaturas2 d-flex flex-column align-items-center justify-content-between'>
 

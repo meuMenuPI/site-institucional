@@ -3,11 +3,10 @@ import ImgLogo from '../../assets/images/logo_preto_sozinho.png'
 import BtnClose from '../../assets/images/btn_close.png'
 import Stars from './Stars';
 import api from '../../api';
-import { useNavigate } from 'react-router';
+
+import Swal from 'sweetalert2'
 
 function ModalReview({ isOpen, setModalOpen }) {
-
-    const navigate = useNavigate();
 
     function cadastrar(e) {
 
@@ -25,11 +24,17 @@ function ModalReview({ isOpen, setModalOpen }) {
 
         api.post("/reviews", templateReview)
             .then((res2) => {
-              alert("Cadastrado!");
+                Swal.fire(
+                    'Cadastrado!',
+                    'sucess'
+                  )
               window.location.reload()
             })
             .catch((err) => {
-              alert("Não foi possível registrar sua review");
+                Swal.fire(
+                    'Não foi possível cadastrar sua review!',
+                    'error'
+                  )
               window.location.reload()
             });
 

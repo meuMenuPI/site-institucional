@@ -8,10 +8,10 @@ function BoxInputs() {
         <>
 
             <div className="div_box_inputs">
-                <Input nome="Nome" />
-                <Input nome="Sobrenome" />
-                <DivInputHalfUser />
-                <Input nome="Email" />
+                <Input nome="Nome" placeholder="Nome"/>
+                <Input nome="Sobrenome" placeholder="Sobreome" />
+                <Input nome="Especialidade" placeholder="Especialidade Favorita" />
+                <Input nome="Email" placeholder="Email" />
             </div>
 
         </>
