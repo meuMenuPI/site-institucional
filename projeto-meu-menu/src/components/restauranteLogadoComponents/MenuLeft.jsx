@@ -40,7 +40,7 @@ function MenuLeft() {
 
             // importar csv
           function csv() {
-            api.get("/restaurantes/download/2")
+            api.get(`/restaurantes/download/${sessionStorage.ID_RESTAURANTE_EDICOES}`)
                 .then((res) => {
                     Swal.fire(
                         '',

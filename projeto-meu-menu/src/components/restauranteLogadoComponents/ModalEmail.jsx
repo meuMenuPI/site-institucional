@@ -14,7 +14,7 @@ function ModalEmail({ isOpen, setModalOpen }) {
             texto: e.target.texto.value
         }
 
-        api.post("/restaurantes/email/7", reqEmail)
+        api.post(`/restaurantes/email/${sessionStorage.ID_RESTAURANTE_EDICOES}`, reqEmail)
             .then((res) => {
                 Swal.fire(
                     '',
