@@ -10,8 +10,8 @@ function HeaderPagina(props) {
 
     const dadosFavoritar = {
         //SessionStorage
-        fk_usuario: 2,
-        fk_restaurante: 1
+        fk_usuario: sessionStorage.ID_USUARIO,
+        fk_restaurante: sessionStorage.ID_RESTAURANTE_PAGINA
     }
 
     useEffect(() => {
