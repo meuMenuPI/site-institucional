@@ -143,6 +143,7 @@ body {
 
     width: 280px;
     height: 150px;
+    margin-left: 3%;
     border-radius: 25px;
     border: #000000 2px solid;
 }
@@ -161,13 +162,14 @@ body {
 
 .recomendados {
     width: 100%;
-    height: 20%;
+    height: 500px;
 }
 
 .divMiniaturas {
 
     width: 80%;
     height: 100%;
+    padding-left: 70px;
     overflow-x: scroll;
     overflow-y: hidden;
 

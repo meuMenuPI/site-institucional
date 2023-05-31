@@ -2,7 +2,7 @@ import React from 'react'
 import './style.css'
 import MenuLeftUsuario from '../../components/UsuarioLogadoComponents/MenuLeftUsuario';
 import Restaurante from '../../components/inicioComponents/Restaurante';
-import BarraBusca from '../../components/inicioComponents/BarraBusca';
+import BarraPerfilBusca from '../../components/UsuarioLogadoComponents/BarraBuscaPerfil';
 
 function UsuarioPerfilBusca() {
     return (
@@ -14,11 +14,11 @@ function UsuarioPerfilBusca() {
             <div className="busca2 d-flex flex-column align-items-center justify-content-around">
             <div className='imgTextura2'>
             <div className='areaTextura2 d-flex flex-column align-items-center justify-content-between'>
-            <BarraBusca />
+            
 
-            <div className='areaMiniaturas2 d-flex flex-column align-items-center justify-content-between'>
-
-            <Restaurante titulo="Restaurante bem avaliados" valor={1}/>
+              <div className='areaMiniaturas2 d-flex flex-column align-items-center justify-content-between'>
+              <BarraPerfilBusca />
+              <Restaurante titulo="Restaurante bem avaliados" valor={1}/>
               <Restaurante titulo="Restaurantes perto de você" valor={2}/>
               <Restaurante titulo="Descubra novas culturas" valor={3}/>
             </div>

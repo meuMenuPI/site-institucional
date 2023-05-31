@@ -22,7 +22,7 @@ const ResultadoBusca = ({ data, busca }) => {
     if (!data || !data.length) return null
 
     const resultList = data.map((item) => {
-        if (item.nome.includes(busca)) {
+        if (item.nome.toLowerCase().includes(busca.toLowerCase())) {
             return (<li key={item.id} onClick={() => alterarPagina(item.id)} className='liBusca'><span className='spanResultadoBusca'>{item.nome}</span> <span className='spanResultadoBusca1'>Especialidade: {item.especialidade.toLowerCase()}</span></li>)
         }
         else {

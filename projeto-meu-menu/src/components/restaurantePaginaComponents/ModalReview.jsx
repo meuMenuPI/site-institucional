@@ -13,7 +13,6 @@ function ModalReview({ isOpen, setModalOpen }) {
         e.preventDefault();
 
         const templateReview = {
-
             fkRestaurante: sessionStorage.ID_RESTAURANTE_PAGINA,
             fkUsuario: sessionStorage.ID_USUARIO,
             descricao: e.target.descricao.value,
@@ -28,6 +27,7 @@ function ModalReview({ isOpen, setModalOpen }) {
                     '',
                     'Cadastrado!',
                     'success'
+
                   )
               window.location.reload()
             })

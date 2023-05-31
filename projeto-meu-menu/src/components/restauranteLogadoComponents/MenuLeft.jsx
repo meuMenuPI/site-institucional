@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from '../../assets/images/logo.png'
 import Section from './Section'
 import LineSection from './LineSection';
@@ -8,6 +8,7 @@ import IconTriangle from '../../assets/images/IconTriangle.png'
 import IconBox from '../../assets/images/IconBox.png'
 import ButtonExit from './ButtonExit';
 import { useLocation } from "react-router-dom";
+import ModalEmail from './ModalEmail';
 
 function MenuLeft() {
 
@@ -32,6 +33,9 @@ function MenuLeft() {
         style_section3 = "first_section_not_background"
     }
 
+          // enviar email
+          const [openModal, setOpenModal] = useState(false)
+
     return (
         <>
             <div className="container_menu_left">
@@ -46,10 +50,15 @@ function MenuLeft() {
                     <LineSection />
                     <HeaderSection text='Relatórios' />
                     <Section img={IconBox} text="DashBoard" caminho={"/dashboard"} height={10} style={style_section3} />
+                    <LineSection />
+                    <HeaderSection text='Filtros' />
+                    <Section img={IconBox} text="Enviar email" height={10} style={style_section1} funcao={() => setOpenModal(true)}/>
+                    <LineSection />
                     <ButtonExit />
 
                 </div>
             </div>
+            <ModalEmail isOpen={openModal} setModalOpen={setOpenModal} />
         </>
     )
 };
