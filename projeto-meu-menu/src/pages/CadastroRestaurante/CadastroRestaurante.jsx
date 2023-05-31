@@ -15,6 +15,7 @@ import Logo from '../../assets/images/logoBranco.svg'
 import ChefeCadastro from '../../assets/images/chefeCadastro.svg'
 import api from "../../api";
 
+import Swal from 'sweetalert2'
 // Hooks
 import { EtapasControl } from "../../hooks/EtapasControl";
 import { useState } from "react";
@@ -114,16 +115,25 @@ export default function CadastroRestaurante() {
 
           api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
             .then((res2) => {
-              alert("Cadastrado!");
+              Swal.fire(
+                'Cadastrado!',
+                'sucess'
+              )
               navigate("/restaurante-perfil")
             })
             .catch((err) => {
-              alert("Não foi possível realizar o cadastro do endereço, tente novamente.");
+              Swal.fire(
+                'Não foi possível cadastrar seu endereço!',
+                'error'
+              )
               navigate("/restaurante-cadastrar");
             });
         })
         .catch((erro) => {
-          alert("Não foi possível realizar o cadastro do restaurante, tente novamente.");
+          Swal.fire(
+            'Não foi possível cadastrar seu restaurante!',
+            'error'
+          )
           navigate("/restaurante-cadastrar");
         });
     };

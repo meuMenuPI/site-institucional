@@ -5,13 +5,27 @@ import api from '../../api'
 import { useLoadScript } from '@react-google-maps/api';
 import { useNavigate } from 'react-router-dom';
 
+import Swal from 'sweetalert2'
+
 const Restaurante = (props) => {
 
     const navigate = useNavigate();
 
     function alterarPagina(fk) {
-        sessionStorage.ID_RESTAURANTE_PAGINA = fk;
-        navigate("/restaurante-pagina")
+
+        if (sessionStorage.ID_USUARIO !== null) {
+            sessionStorage.ID_RESTAURANTE_PAGINA = fk;
+            navigate("/restaurante-pagina")
+        }
+        else{
+            Swal.fire(
+                'Ops',
+                'Parece que você ainda não está logado, por favor faça login para acessar funcionalidade',
+                'error'
+              )
+        }
+
+
     }
 
     const estiloTitulo = {
@@ -149,7 +163,7 @@ const Restaurante = (props) => {
 
                         <div className='divMiniaturas d-flex justify-content-around'>
                             {filtroLocal && filtroLocal.map((item) =>
-                                <RestauranteMiniatura key={item.id} onClick={ () => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={item.nomeFoto} />
+                                <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={item.nomeFoto} />
                             )}
                         </div>
 
@@ -171,7 +185,7 @@ const Restaurante = (props) => {
 
                         <div className='divMiniaturas d-flex justify-content-around'>
                             {nomeEspecialidade && nomeEspecialidade.map((item) =>
-                                <RestauranteMiniatura 
+                                <RestauranteMiniatura
                                     nomeRestaurante={item.toLowerCase()[0].toUpperCase() + item.substring(1).toLowerCase()}
                                     especialidade={item}
                                 />
@@ -180,7 +194,7 @@ const Restaurante = (props) => {
 
                     </div>
                 </div>
-               
+
             </>
         )
     }

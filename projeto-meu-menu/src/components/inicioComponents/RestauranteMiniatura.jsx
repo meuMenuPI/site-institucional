@@ -21,7 +21,7 @@ const RestauranteMiniatura = (props) => {
     return (
         <>
             <div className='miniatura' onClick={props.onClick} style={estiloCard}>
-                <div className='fundoPreto d-flex justify-content-center align-items-center' onClick={() => setOpenModal(true)}>
+                <div className='fundoPreto d-flex justify-content-center align-items-center' onClick={sessionStorage.ID_USUARIO !== undefined ? () => setOpenModal(true) : console.log("")}>
                     <h2 style={estiloNome}>{props.nomeRestaurante}</h2>
                 </div>
             </div>
