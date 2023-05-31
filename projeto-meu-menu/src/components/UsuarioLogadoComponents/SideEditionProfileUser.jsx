@@ -21,11 +21,13 @@ function SideEditionProfileUser() {
         }
       }, [fotoPerfil,nomeFoto]);
 
+      function atualizar(e){
+
+      }
+
     return (
 
         <>
-        
-
             <div className="div_all_perfil">
                 <div className="div_image_header_perfil">
                     <div className="div_left_header_perfil">
@@ -34,7 +36,7 @@ function SideEditionProfileUser() {
                 </div>
                 <TextEditionProfile />
                 <BoxInputsUsuario />
-                <ButtonSave />
+                <ButtonSave/>
             </div>
 
         </>
