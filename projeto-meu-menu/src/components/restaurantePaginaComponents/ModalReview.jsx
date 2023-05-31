@@ -24,13 +24,16 @@ function ModalReview({ isOpen, setModalOpen }) {
         api.post("/reviews", templateReview)
             .then((res2) => {
                 Swal.fire(
+                    '',
                     'Cadastrado!',
-                    'sucesso'
+                    'success'
+
                   )
               window.location.reload()
             })
             .catch((err) => {
                 Swal.fire(
+                    '',
                     'Não foi possível cadastrar sua review!',
                     'error'
                   )

@@ -74,7 +74,7 @@ body {
 
 .centered {
     background-color: #FFFFFF;
-    height: 40vh;
+    height: 28vh;
     margin: 0 auto !important;
     float: none !important;
 }
@@ -135,8 +135,8 @@ body {
 .iconeLupa {
     width: 22px;
     position: absolute;
-    top: 161.5%;
-    left: 170px; 
+    top: 146.1%;
+    left: 210px; 
 }
 
 .miniatura {

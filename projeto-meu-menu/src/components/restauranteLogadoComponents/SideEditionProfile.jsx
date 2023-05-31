@@ -127,12 +127,14 @@ function SideEditionProfile() {
                     api.put(`/restaurantes/atualizar/endereco/${enderecoResInfo.id}`, enderecoResInfo)
                         .then((res2) => {
                             Swal.fire(
+                                '',
                                 'Endereço atualizado!',
                                 'success'
                             )
                         })
                         .catch((err) => {
                             Swal.fire(
+                                '',
                                 'Não foi possível atualizar o endereço!',
                                 'error'
                             )
@@ -141,6 +143,7 @@ function SideEditionProfile() {
                 })
                 .catch((erro) => {
                     Swal.fire(
+                        '',
                         'Não foi possível atualizar o restaurante',
                         'error'
                     )

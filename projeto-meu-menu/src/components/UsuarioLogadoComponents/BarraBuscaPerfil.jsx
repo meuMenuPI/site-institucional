@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import '../../pages/Inicio/style.css'
 import '../../pages/UsuarioPerfilBusca/style.css'
+
 import IconeLupa from '../../assets/images/iconeLupa.svg'
 import ResultadoBusca from '../inicioComponents/ResultadoBusca'
 import api from '../../api'
@@ -34,7 +35,6 @@ const BarraBuscaPerfil = (props) => {
 
     return (
         <>
-                
                 <div className='containerBusca'>
                 <form>
                     <input id='busca' name='busca' className='barraBusca' placeholder='Busque o que deseja' onChange={pesquisa} />
