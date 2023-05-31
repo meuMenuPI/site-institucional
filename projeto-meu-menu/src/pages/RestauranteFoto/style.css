@@ -64,6 +64,8 @@ body {
 
 .div_box_foto {
     background-color: #FFFF;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100%;
     border-style: dashed;
     border-color: #727272;

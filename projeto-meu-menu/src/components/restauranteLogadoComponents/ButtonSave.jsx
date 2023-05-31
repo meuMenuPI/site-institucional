@@ -15,6 +15,7 @@ function ButtonSave(props) {
       await api.put(`/restaurantes/${props.restauranteId}`, props.restauranteInfo);
       console.log("Atualizado com sucesso!");
       Swal.fire(
+        '',
         'Atualizado com sucesso',
         'success'
       )

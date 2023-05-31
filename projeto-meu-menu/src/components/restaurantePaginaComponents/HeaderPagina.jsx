@@ -81,6 +81,7 @@ function HeaderPagina(props) {
             .catch((erroObtido) => {
 
                 Swal.fire(
+                    '',
                     'Não foi possível pegar os dados do restauante!',
                     'error'
                 )
@@ -101,6 +102,7 @@ function HeaderPagina(props) {
             })
             .catch((erro) => {
                 Swal.fire(
+                    '',
                     'Erro ao favoritar!',
                     'error'
                 )
@@ -117,6 +119,7 @@ function HeaderPagina(props) {
             })
             .catch((erro) => {
                 Swal.fire(
+                    '',
                     'Erro ao desfavoritar!',
                     'error'
                 )

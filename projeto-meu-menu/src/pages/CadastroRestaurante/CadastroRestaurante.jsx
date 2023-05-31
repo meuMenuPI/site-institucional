@@ -14,7 +14,6 @@ import Passo4 from "../../components/cadastroRestauranteComponents/Passo4"
 import Logo from '../../assets/images/logoBranco.svg'
 import ChefeCadastro from '../../assets/images/chefeCadastro.svg'
 import api from "../../api";
-
 import Swal from 'sweetalert2'
 // Hooks
 import { EtapasControl } from "../../hooks/EtapasControl";
@@ -89,7 +88,7 @@ export default function CadastroRestaurante() {
     e.preventDefault();
 
     const restauranteInfo = {
-      usuario: 1,
+      usuario: sessionStorage.ID_USUARIO,
       nome: data.nomeRestaurante,
       cnpj: data.cnpj,
       especialidade: data.especialidade,
@@ -130,6 +129,7 @@ export default function CadastroRestaurante() {
                 api.post("/restaurantes/cadastrar/endereco", enderecoResInfo)
                   .then((res2) => {
                     Swal.fire(
+                      '',
                       'Cadastrado!',
                       'sucess'
                     )
@@ -137,6 +137,7 @@ export default function CadastroRestaurante() {
                   })
                   .catch((err) => {
                     Swal.fire(
+                      '',
                       'Não foi possível cadastrar seu endereço!',
                       'error'
                     )
@@ -145,6 +146,7 @@ export default function CadastroRestaurante() {
               })
               .catch((erro) => {
                 Swal.fire(
+                  '',
                   'Não foi possível cadastrar seu restaurante!',
                   'error'
                 )
@@ -155,6 +157,7 @@ export default function CadastroRestaurante() {
           console.log(erroObtido);
         })
     }
+     
 
     if (data2.uf === 0) {
       fetch(`https://viacep.com.br/ws/${data2.cep}/json/`)
