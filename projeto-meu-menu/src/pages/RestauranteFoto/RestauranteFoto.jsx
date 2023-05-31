@@ -21,7 +21,6 @@ function RestauranteFoto() {
         console.log(selectedFiles);
         e.preventDefault();
 
-        const formData = new FormData();
         for (let c = 0; c < selectedFiles.length; c++) {
 
         const file = {

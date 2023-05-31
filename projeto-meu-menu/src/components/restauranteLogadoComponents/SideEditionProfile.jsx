@@ -10,7 +10,6 @@ import Input from './Input';
 import InputHalf from './InputHalf';
 import Swal from 'sweetalert2'
 
-
 const formTemplate = {
     nomeRestauranteEdicao: "",
     cnpj: "",
