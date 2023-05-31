@@ -6,7 +6,7 @@ import api from '../../api';
 import { useNavigate } from 'react-router-dom';
 
 
-const formTemplate = {
+/* const formTemplate = {
     nomeRestaurante: "Pedro",
     telefone: "11951676901",
     estrela: 3,
@@ -17,10 +17,10 @@ const formTemplate2 = {
     cep: "",
     numero: "",
     complemento: ""
-};
+}; */
 
 function RestaurantePerfil() {
-    const [data, setData] = useState(formTemplate);
+   /*  const [data, setData] = useState(formTemplate);
 
     const navigate = useNavigate();
 
@@ -32,8 +32,8 @@ function RestaurantePerfil() {
         e.preventDefault();
 
         const restauranteInfo = {
-            usuario: 1,
-            id: 1,
+            usuario: sessionStorage.ID_USUARIO,
+            id: sessionStorage.ID_RESTAURANTE_EDICOES,
             nomeRestaurante: data.nomeRestaurante,
             telefone: data.telefone,
             estrela: data.estrela,
@@ -51,7 +51,7 @@ function RestaurantePerfil() {
                 alert("Não foi possível atualizar o restaurante, tente novamente.");
                 navigate("/restaurante-perfil");
             });
-    }
+    } */
 
     return (
         <>

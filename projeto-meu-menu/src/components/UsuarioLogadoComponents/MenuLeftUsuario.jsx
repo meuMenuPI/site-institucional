@@ -45,7 +45,7 @@ function MenuLeftUsuario(props) {
 
     useEffect(() => {
         
-        if (nomeFoto == null) {
+        if (nomeFoto === null) {
             setFotoPerfil(FotoUsuarioDefault);
         } else {
             setFotoPerfil(link + nomeFoto);
@@ -71,10 +71,12 @@ function MenuLeftUsuario(props) {
                     <Section img={IconBox} text="Maior Preço" height={10} style={style_section3} />
                     <Section img={IconBox} text="Benéficios" height={10} style={style_section3} />
                     <LineSection />
+
                     <HeaderSection text='Filtros' />
                     <Section img={IconBox} text="Enviar email" height={10} style={style_section1} />
                     <LineSection />
-                    <ButtonExit />
+                    <ButtonExit parametro={1}/>
+
                 </div>
             </div> 
         </>
