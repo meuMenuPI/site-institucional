@@ -8,25 +8,25 @@ import 'sweetalert2/dist/sweetalert2.css';
 function ModalEmail({ isOpen, setModalOpen }) {
 
     function enviarEmail(e) {
-
+        e.preventDefault();
         const reqEmail = {
             titulo: e.target.titulo.value,
             texto: e.target.texto.value
         }
 
-        api.post("/restaurantes/email/6", reqEmail)
+        api.post("/restaurantes/email/7", reqEmail)
             .then((res) => {
-                Swal.fire({
-                    text: "Enviado com sucesso",
-                    timer: 1500
-                }
-                )
+                Swal.fire(
+                    '',
+                    'Enviado com sucesso',
+                    'success'
+                  )
             })
             .catch((err) => {
-                Swal.fire({
-                    text: "Erro ao enviar",
-                    timer: 1500
-                }
+                Swal.fire(
+                    '',
+                    'Erro ao enviar',
+                    'error'
                 )
             });
     }

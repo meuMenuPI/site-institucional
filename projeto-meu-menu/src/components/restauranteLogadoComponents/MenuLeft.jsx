@@ -9,6 +9,8 @@ import IconBox from '../../assets/images/IconBox.png'
 import ButtonExit from './ButtonExit';
 import { useLocation } from "react-router-dom";
 import ModalEmail from './ModalEmail';
+import api from '../../api';
+import Swal from 'sweetalert2';
 
 function MenuLeft() {
 
@@ -36,6 +38,24 @@ function MenuLeft() {
           // enviar email
           const [openModal, setOpenModal] = useState(false)
 
+            // importar csv
+          function csv() {
+            api.get("/restaurantes/download/2")
+                .then((res) => {
+                    Swal.fire(
+                        '',
+                        'Baixado com sucesso',
+                        'success'
+                      )
+                })
+                .catch((err) => {
+                    Swal.fire(
+                        '',
+                        'Erro ao baixar',
+                        'error'
+                      )
+                });
+        }
     return (
         <>
             <div className="container_menu_left">
@@ -52,7 +72,8 @@ function MenuLeft() {
                     <Section img={IconBox} text="DashBoard" caminho={"/dashboard"} height={10} style={style_section3} />
                     <LineSection />
                     <HeaderSection text='Filtros' />
-                    <Section img={IconBox} text="Enviar email" height={10} style={style_section1} funcao={() => setOpenModal(true)}/>
+                    <Section img={IconCircle} text="Enviar email" height={22} style={style_section1} funcao={() => setOpenModal(true)}/>
+                    <Section img={IconBox} text="Importar csv de usuários" height={10} style={style_section1} funcao={() => csv()}/>
                     <LineSection />
                     <ButtonExit />
 
