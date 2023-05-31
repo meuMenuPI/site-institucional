@@ -2,6 +2,8 @@ import React from 'react';
 import api from "../../api";
 import { useNavigate } from 'react-router-dom';
 
+import Swal from 'sweetalert2'
+
 function ButtonSave(props) {
   const navigate = useNavigate();
 
@@ -12,10 +14,17 @@ function ButtonSave(props) {
     try {
       await api.put(`/restaurantes/${props.restauranteId}`, props.restauranteInfo);
       console.log("Atualizado com sucesso!");
-      alert("Atualizado com sucesso!");
+      Swal.fire(
+        'Atualizado com sucesso',
+        'success'
+      )
     } catch (error) {
       console.error(error);
-      alert("Não foi possível atualizar o restaurante, tente novamente.");
+      Swal.fire(
+        'Ops',
+        'Não foi possível atualizar, tente novamente mais tarde',
+        'error'
+      )
       navigate("/restaurante-perfil");
     }
   };

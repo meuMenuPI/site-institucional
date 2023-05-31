@@ -126,15 +126,24 @@ function SideEditionProfile() {
 
                     api.put(`/restaurantes/atualizar/endereco/${enderecoResInfo.id}`, enderecoResInfo)
                         .then((res2) => {
-                            alert("Atualizado com sucesso!");
+                            Swal.fire(
+                                'Endereço atualizado!',
+                                'success'
+                            )
                         })
                         .catch((err) => {
-                            alert("Não foi possível atualizar o endereco do restaurante, tente novamente.");
+                            Swal.fire(
+                                'Não foi possível atualizar o endereço!',
+                                'error'
+                            )
                             navigate("/restaurante-perfil");
                         });
                 })
                 .catch((erro) => {
-                    alert("Não foi possível atualizar o restaurante, tente novamente.");
+                    Swal.fire(
+                        'Não foi possível atualizar o restaurante',
+                        'error'
+                    )
                     console.log(erro)
                     navigate("/restaurante-perfil");
                 });
