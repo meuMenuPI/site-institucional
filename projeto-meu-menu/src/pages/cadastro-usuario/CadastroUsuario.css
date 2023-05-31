@@ -83,12 +83,27 @@
     background-color: #8D0000;
 }
 
+.i_c_d_e{
+    width: 100%;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    text-align: left;
+    height: 45px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin-bottom: 2%;
+}
+
 select {
     text-align: flex-end;
 }
 
 .i_c_d::placeholder {
     color: white;
+}
+
+.i_c_d_e::placeholder {
+    color: rgb(0, 0, 0);
 }
 
 .btn_cad_usuario{
