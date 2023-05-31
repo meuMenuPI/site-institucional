@@ -89,7 +89,7 @@ export default function CadastroRestaurante() {
     e.preventDefault();
 
     const restauranteInfo = {
-      usuario: 1,
+      usuario: sessionStorage.ID_USUARIO,
       nome: data.nomeRestaurante,
       cnpj: data.cnpj,
       especialidade: data.especialidade,
