@@ -405,7 +405,7 @@ h5 {
     height: 100%;
     width: 70%;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -445,7 +445,7 @@ li {
     margin-bottom: 10px;
     background-color: rgba(255, 255, 255, 0);
     border: 1.5px solid #7c747d;
-    text-align: start;
+    text-align: flex-start;
     border-radius: 4px;
 }
 
@@ -487,23 +487,23 @@ li {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-  }
-  
-  .titulo_avaliacao_review {
+}
+
+.titulo_avaliacao_review {
     font-weight: bold;
     margin-right: 10px;
-  }
-  
-  .div_starts_review1,
-  .div_starts_review2,
-  .div_starts_review3 {
+}
+
+.div_starts_review1,
+.div_starts_review2,
+.div_starts_review3 {
     display: flex;
     align-items: center;
-  }
-  
-  .star-icon1,
-  .star-icon2,
-  .star-icon3 {
+}
+
+.star-icon1,
+.star-icon2,
+.star-icon3 {
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -511,15 +511,15 @@ li {
     background-size: cover;
     margin-right: 5px;
     cursor: pointer;
-  }
-  
-  .star-icon1.ativo,
-  .star-icon2.ativo,
-  .star-icon3.ativo {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='gold' d='M12 2l3.09 6.31L22 9.12l-5 4.88 1.18 6.87L12 18.63l-6.18 3.24L7 14.99l-5-4.88 6.91-0.81L12 2z'/%3E%3C/svg%3E");
-  }
+}
 
-  .rp_textoReview{
+.star-icon1.ativo,
+.star-icon2.ativo,
+.star-icon3.ativo {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='gold' d='M12 2l3.09 6.31L22 9.12l-5 4.88 1.18 6.87L12 18.63l-6.18 3.24L7 14.99l-5-4.88 6.91-0.81L12 2z'/%3E%3C/svg%3E");
+}
+
+.rp_textoReview {
     font-weight: bold;
     margin-top: 2%;
-  }
+}
