@@ -5,6 +5,7 @@ import ImgEditarPrato from '../../assets/images/btnEditarPrato.png';
 
 function BoxPrato(props) {
     const [cardapio, setCardapio] = useState([]);
+    const [pratoSelecionado, setPratoSelecionado] = useState(null);
 
     useEffect(() => {
         api
@@ -18,10 +19,21 @@ function BoxPrato(props) {
             });
     }, []);
 
+    const handleEditClick = (pratoId) => {
+        sessionStorage.ID_PRATO = pratoId;
+        console.log("hahaha")
+        console.log(sessionStorage.ID_PRATO)
+        setPratoSelecionado(pratoId);
+        // Outras ações relacionadas à edição do prato...
+    };
+
     return (
         <>
             {cardapio.map((item) => (
-                <div key={item.id} className="div_prato_box_cardapio">
+                <div
+                    key={item.id}
+                    className={`div_prato_box_cardapio ${pratoSelecionado === item.id ? 'prato-selecionado' : ''}`}
+                >
                     <div className="div_left_side_pratos">
                         <img src={ImgPratoCardapio} alt="" id="img_prato_cardapio" />
                         <div className="div_nome_descricao_prato">
@@ -33,7 +45,9 @@ function BoxPrato(props) {
                         <h4>{item.preco}</h4>
                         <p>{item.estiloGastronomico}</p>
                         <button id="id_btn_desativar">Deletar</button>
-                        <img src={ImgEditarPrato} alt="" id="id_img_editar_prato" onClick={props.onClick} />
+                        <div className="div_btn_editar_cardapio" onClick={() => handleEditClick(item.id)}>
+                            <img src={ImgEditarPrato} alt="" id="id_img_editar_prato" onClick={props.onClick} />
+                        </div>
                     </div>
                 </div>
             ))}

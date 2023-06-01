@@ -105,7 +105,7 @@ function SideEditionProfile() {
         }
 
         const enderecoResInfo = {
-            id: 1,
+            id: 0,
             fk_restaurante: fkRestauranteRes,
             fk_usuario: fkUsuarioRes,
             cep: cepRes,
@@ -117,6 +117,7 @@ function SideEditionProfile() {
 
 
 
+
         const atualizarRestaurante = () => {
             api.put(`restaurantes/${restauranteInfo.id}`, restauranteInfo)
                 .then((res) => {
@@ -124,32 +125,50 @@ function SideEditionProfile() {
                     console.log("Passsou no atualizar restaurante")
 
 
-                    api.put(`/restaurantes/atualizar/endereco/${enderecoResInfo.id}`, enderecoResInfo)
+                    api.get(`/restaurantes/endereco/${restauranteInfo.id}`)
                         .then((res2) => {
-                            Swal.fire(
-                                '',
-                                'Endereço atualizado!',
-                                'success'
-                            )
+                            enderecoResInfo.id = res2.data.id
+
+                            api.put(`/restaurantes/atualizar/endereco/${enderecoResInfo.id}`, enderecoResInfo)
+                                .then((res2) => {
+                                    Swal.fire(
+                                        '',
+                                        'Endereço atualizado!',
+                                        'success'
+                                    )
+                                })
+                                .catch((err) => {
+                                    Swal.fire(
+                                        '',
+                                        'Não foi possível atualizar o endereço!',
+                                        'error'
+                                    )
+                                    navigate("/restaurante-perfil");
+                                });
                         })
-                        .catch((err) => {
+                        .catch((erro) => {
                             Swal.fire(
                                 '',
-                                'Não foi possível atualizar o endereço!',
+                                'Não foi possível atualizar o restaurante',
                                 'error'
                             )
+                            console.log(erro)
                             navigate("/restaurante-perfil");
                         });
+
+
                 })
-                .catch((erro) => {
+                .catch((err) => {
                     Swal.fire(
                         '',
-                        'Não foi possível atualizar o restaurante',
+                        'Não foi possível atualizar o endereço!',
                         'error'
                     )
-                    console.log(erro)
                     navigate("/restaurante-perfil");
                 });
+
+
+
         };
 
         if (enderecoResInfo.uf === 0) {
@@ -206,7 +225,14 @@ function SideEditionProfile() {
                             placeholder="Nome Restaurante"
                         /> */}
                             <input type="text" id='id_input' placeholder='Nome' onChange={(e) => setNomeRes(e.target.value)} />
-                            <input type="text" id='id_input' placeholder='Especialidade' onChange={(e) => setEspecialidadeRes(e.target.value)} />
+                            {/* <input type="text" id='id_input' placeholder='Especialidade' onChange={(e) => setEspecialidadeRes(e.target.value)} /> */}
+                            <select className="select_especialidade" onChange={(e) => setEspecialidadeRes(e.target.value)}>
+                                <option>Especialidade</option>
+                                <option value="BRASILEIRA">Brasileira</option>
+                                <option value="MEXICANA">Mexicana</option>
+                                <option value="JAPONESA">Japonesa</option>
+                                <option value="CHINESA">Chinesa</option>
+                            </select>
                             {/* <Input
                             value={data.especialidade || ""} onChange={(e) => updateFielHandler("especialidade", e.target.value)} name='especialidade' id='especialidade' type="text" placeholder="Especialidade"
                         /> */}

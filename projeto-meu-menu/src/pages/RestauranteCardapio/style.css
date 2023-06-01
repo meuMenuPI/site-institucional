@@ -174,8 +174,9 @@ body {
 
 #id_img_editar_prato {
     cursor: pointer;
-    height: 50px;
-    margin-top: 5px;
+    height: 100%;
+    width: 100%;
+    margin-top: 3px;
 }
 
 .box_pratos_editar_cardapio {
@@ -201,13 +202,7 @@ body {
     margin: 0;
 }
 
-.div_prato_box_cardapio {
-    height: 65%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .div_button_editar_cardapipo {
     height: 8.5%;
@@ -230,4 +225,47 @@ body {
     background-color: #8D0000;
     color: #FFFF;
     font-weight: bold;
+}
+
+.div_btn_editar_cardapio {
+    height: 55px;
+    width: 55px;
+}
+
+.div_prato_box_cardapio {
+    height: 65%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prato-selecionado {
+    /* Estilos para o prato selecionado */
+    background-color: pink;
+    height: 65%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select_especialidade {
+    width: 99%;
+    margin-bottom: 10px;
+    height: 40px;
+
+    /* color: white;
+    border: 1px solid white;
+    text-align: left;
+    height: 45px;
+    border-radius: 8px;
+    color: #ffffff;
+    background-color: #8D0000; */
+
+    background-color: #FFFF;
+    margin-bottom: 10px;
+    border: 1.5px solid #7c747d;
+    text-align: left;
+    border-radius: 8px;
 }
