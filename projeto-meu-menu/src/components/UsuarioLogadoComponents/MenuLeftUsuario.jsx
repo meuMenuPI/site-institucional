@@ -44,7 +44,7 @@ function MenuLeftUsuario(props) {
         
             <div className="container_menu_left">
                 <div className='headerLogo'>
-                <img src={sessionStorage.FOTO_PERFIL == null ? link + sessionStorage.FOTO_PERFIL : FotoUsuarioDefault} className="img_perfil_pessoa" alt="Imagem do perfil" />
+                <img src={link + "2023-06-01T15:28:37.323531700homemSite.jpg"} className="img_perfil_pessoa" alt="Imagem do perfil" />
                         <p className='Name'>{nome}</p>
                 </div>
                 <div className='sections'>

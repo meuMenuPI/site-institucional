@@ -34,7 +34,7 @@ function SideEditionProfileUser() {
           
           await api.put(`/usuarios/foto-usuario/${sessionStorage.ID_USUARIO}`, formData);
           console.log('Arquivo enviado com sucesso!');
-          sessionStorage.FOTO_PERFIL = selectedFile;
+          sessionStorage.FOTO_PERFIL = selectedFile.name;
         } catch (error) {
           console.error('Erro ao enviar o arquivo:', error);
           Swal.fire(
