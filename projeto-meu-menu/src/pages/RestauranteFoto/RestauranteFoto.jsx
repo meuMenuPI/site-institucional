@@ -6,6 +6,8 @@ import FotoUsuarioDefault from '../../assets/images/fotoUsuario.png';
 import api from '../../api';
 import Swal from 'sweetalert2'
 
+
+
 function RestauranteFoto() {
 
     const [selectedFiles, setSelectedFiles] = useState([]);

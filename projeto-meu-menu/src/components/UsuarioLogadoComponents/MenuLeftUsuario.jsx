@@ -37,28 +37,14 @@ function MenuLeftUsuario(props) {
 
     const link = "https://meumenuimagens.blob.core.windows.net/foto-suario/";
 
-    const [fotoPerfil, setFotoPerfil] = useState();
-
     const nome = sessionStorage.NOME;
-
-    var nomeFoto = sessionStorage.FOTO_PERFIL;
-
-    useEffect(() => {
-        
-        if (nomeFoto === null) {
-            setFotoPerfil(FotoUsuarioDefault);
-        } else {
-            setFotoPerfil(link + nomeFoto);
-            console.log(fotoPerfil)
-        }
-      }, [fotoPerfil]);
 
     return (
         <>
         
             <div className="container_menu_left">
                 <div className='headerLogo'>
-                        <img src={fotoPerfil} className="img_perfil_pessoa" alt="Imagem do perfil" />
+                <img src={sessionStorage.FOTO_PERFIL == null ? link + sessionStorage.FOTO_PERFIL : FotoUsuarioDefault} className="img_perfil_pessoa" alt="Imagem do perfil" />
                         <p className='Name'>{nome}</p>
                 </div>
                 <div className='sections'>
