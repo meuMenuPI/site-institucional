@@ -36,7 +36,7 @@ function ButtonExit(props) {
     <>
 
       <div className='box_button_exit'>
-        {props.parametro ? (valido ? botaoMeuRestaurante() : '') : ''}
+        {props.parametro ===1? (valido ? botaoMeuRestaurante() : '') : ''}
         <button onClick={() => navigate("/")} id='id_button_exit'>Sair</button>
       </div>
 
