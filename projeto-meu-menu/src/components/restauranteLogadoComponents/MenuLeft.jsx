@@ -62,7 +62,7 @@ function MenuLeft() {
         }
     return (
         <>
-            <div className="container_menu_left">
+            <div className="">
                 <div className='headerLogo'>
                     <img src={Logo} className='img_logo' />
                 </div>

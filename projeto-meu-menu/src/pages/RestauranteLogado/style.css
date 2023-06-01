@@ -44,7 +44,8 @@ body {
 }
 
 .text_header_section {
-    display: flex;
+    margin-top: 45px;
+        display: flex;
     align-items: center;
     height: 100%;
     width: 85%;
@@ -55,11 +56,13 @@ body {
 }
 
 .sections {
-    height: 70%;
+    height: 84%;
     width: 100%;
+    display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    display: center;
+
 }
 
 .box {
