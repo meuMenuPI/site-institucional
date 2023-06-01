@@ -6,6 +6,8 @@ import api from '../../api'
 
 function ItemCardapio(props) {
 
+    const link = "https://meumenuimagens.blob.core.windows.net/restaurante/";
+
    /*  const [cardapio, setCardapio] = useState([]);
 
     /* sessionStorage.ID_RESTAURANTE_PAGINA */
@@ -79,7 +81,7 @@ function ItemCardapio(props) {
                             R${item.preco}
                         </div>
                         <div className='rp_fotoPrato'>
-                            <img src={Design} alt="" className='rp_fotoPrato' />
+                            <img src={link + item.nomeFoto} alt="" className='rp_fotoPrato' />
                         </div>
                     </div>
                 </div>

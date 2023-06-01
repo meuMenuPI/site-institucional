@@ -32,7 +32,7 @@ function Login() {
         'Logado!',
         'success'
       )
-      navigate("/usuario-perfil");
+      navigate("/usuario-perfil-busca");
       console.log(dadosUsuario.data)
     })
     .catch((erro) => {
