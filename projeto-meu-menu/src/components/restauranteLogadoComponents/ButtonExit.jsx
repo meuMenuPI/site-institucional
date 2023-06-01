@@ -6,69 +6,69 @@ import api from '../../api';
 
 function ButtonExit(props) {
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const [restaurante, setRestaurante] = useState();
+  const [restaurante, setRestaurante] = useState();
 
-const [valido, setValido] = useState();
+  const [valido, setValido] = useState();
 
-useEffect(() => {
+  useEffect(() => {
 
-api.get(`restaurantes/filtrar/fkUsuario/${sessionStorage.ID_USUARIO}`)
+    api.get(`restaurantes/filtrar/fkUsuario/${sessionStorage.ID_USUARIO}`)
 
-.then((respostaObtida) => {
+      .then((respostaObtida) => {
 
-console.log(respostaObtida.data);
+        console.log(respostaObtida.data);
 
-setRestaurante(respostaObtida.data);
+        setRestaurante(respostaObtida.data);
 
-setValido(true);
+        setValido(true);
 
-console.log(valido);
+        console.log(valido);
 
-})
+      })
 
-.catch((erroObtido) => {
+      .catch((erroObtido) => {
 
-setValido(false);
+        setValido(false);
 
-console.log(erroObtido);
+        console.log(erroObtido);
 
-});
+      });
 
-}, [valido]);
+  }, [valido]);
 
-function botaoMeuRestaurante() {
+  function botaoMeuRestaurante() {
 
-sessionStorage.ID_RESTAURANTE_EDICOES = restaurante.id;
+    sessionStorage.ID_RESTAURANTE_EDICOES = restaurante.id;
 
-return (
+    return (
 
-<button onClick={() => navigate("/restaurante-perfil")} id='id_button_meu_restaurante'>
+      <button onClick={() => navigate("/restaurante-perfil")} id='id_button_meu_restaurante'>
 
-Meu Restaurante
+        Meu Restaurante
 
-</button>
+      </button>
 
-);
+    );
 
-}
+  }
 
-return (
+  return (
 
-<div className='box_button_exit'>
+    <div className='box_button_exit'>
 
-{props.parametro ? (valido && restaurante ? botaoMeuRestaurante() : '') : ''}
+      {props.parametro ? (valido && restaurante ? botaoMeuRestaurante() : '') : ''}
 
-<button onClick={() => navigate("/")} id='id_button_exit'>
+      <button onClick={() => navigate("/")} id='id_button_exit'>
 
-Sair
+        Sair
 
-</button>
+      </button>
 
-</div>
+    </div>
 
-);
+  );
 
 }
 
