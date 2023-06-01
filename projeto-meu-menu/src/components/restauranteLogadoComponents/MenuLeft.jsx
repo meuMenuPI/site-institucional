@@ -70,15 +70,15 @@ function MenuLeft() {
                     <HeaderSection text='Perfil' />
                     <Section img={IconCircle} text="Perfil" height={22} funcao={() => navigate("/restaurante-perfil")} style={style_section1} />
                     <Section img={IconTriangle} text="Cardápio" height={22} funcao={() => navigate("/restaurante-cardapio")} style={style_section2} />
-                    <Section img={IconCircle} text="Foto" height={22} caminho={"/restaurante-foto"} style={style_section3} />
+                    <Section img={IconCircle} text="Foto" height={22} funcao={() => navigate("/restaurante-foto")} style={style_section3} />
                     <LineSection />
                     <HeaderSection text='Relatórios' />
-                    <Section img={IconBox} text="DashBoard" caminho={"/dashboard"} height={10} style={style_section3} />
+                    <Section img={IconBox} text="DashBoard" funcao={() => navigate("/dashboard")} height={10} style={'first_section_not_background'} />
                     <LineSection />
                     <HeaderSection text='Filtros' />
-                    <Section img={IconCircle} text="Enviar email" height={22} style={style_section1} funcao={() => setOpenModal(true)}/>
-                    <Section img={IconCircle} text="Enviar email" height={22} style={style_section1} funcao={() => setOpenModal2(true)}/>
-                    <Section img={IconBox} text="Importar csv de usuários" height={10} style={style_section1} funcao={() => csv()}/>       
+                    <Section img={IconCircle} text="Enviar email" height={22} style={"first_section"} funcao={() => setOpenModal(true)}/>
+                    <Section img={IconTriangle} text="Exportar cardápio" height={22} style={"first_section"} funcao={() => setOpenModal2(true)}/>
+                    <Section img={IconBox} text="Importar csv de usuários" height={10} style={"first_section"} funcao={() => csv()}/>       
                     <LineSection />
                     <ButtonExit />
 
