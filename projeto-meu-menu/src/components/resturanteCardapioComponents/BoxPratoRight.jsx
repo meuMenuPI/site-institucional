@@ -1,6 +1,7 @@
 import React from 'react'
 import ImgEditarPrato from '../../assets/images/btnEditarPrato.png'
 
+
 function BoxPratoRight() {
     return (
 
