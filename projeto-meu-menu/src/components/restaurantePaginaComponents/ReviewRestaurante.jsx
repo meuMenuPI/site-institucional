@@ -38,6 +38,7 @@ function ReviewRestaurante(props) {
     const [openModal, setOpenModal] = useState(false)
 
     console.log(pilha);
+
     return (
         <>
             <div className='rp_divSelect'>
