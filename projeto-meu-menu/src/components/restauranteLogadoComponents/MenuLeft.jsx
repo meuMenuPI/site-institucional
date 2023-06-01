@@ -36,34 +36,34 @@ function MenuLeft() {
         style_section3 = "first_section_not_background"
     }
 
-          // enviar email
-          const [openModal, setOpenModal] = useState(false)
+    // enviar email
+    const [openModal, setOpenModal] = useState(false)
 
-          //txt
-          const [openModal2, setOpenModal2] = useState(false)
+    //txt
+    const [openModal2, setOpenModal2] = useState(false)
 
-            // importar csv
-          function csv() {
-            api.get(`/restaurantes/download/${sessionStorage.ID_RESTAURANTE_EDICOES}`)
-                .then((res) => {
-                    Swal.fire(
-                        '',
-                        'Baixado com sucesso',
-                        'success'
-                      )
-                })
-                .catch((err) => {
-                    Swal.fire(
-                        '',
-                        'Erro ao baixar',
-                        'error'
-                      )
-                });
-        }
+    // importar csv
+    function csv() {
+        api.get(`/restaurantes/download/${sessionStorage.ID_RESTAURANTE_EDICOES}`)
+            .then((res) => {
+                Swal.fire(
+                    '',
+                    'Baixado com sucesso',
+                    'success'
+                )
+            })
+            .catch((err) => {
+                Swal.fire(
+                    '',
+                    'Erro ao baixar',
+                    'error'
+                )
+            });
+    }
     return (
         <>
-            <div className="">
-                <div className='headerLogo'>
+            <div className="container_menu_left1">
+                <div className='headerLogo1'>
                     <img src={Logo} className='img_logo' />
                 </div>
                 <div className='sections'>
@@ -76,16 +76,16 @@ function MenuLeft() {
                     <Section img={IconBox} text="DashBoard" funcao={() => navigate("/dashboard")} height={10} style={'first_section_not_background'} />
                     <LineSection />
                     <HeaderSection text='Filtros' />
-                    <Section img={IconCircle} text="Enviar email" height={22} style={"first_section"} funcao={() => setOpenModal(true)}/>
-                    <Section img={IconTriangle} text="Exportar cardápio" height={22} style={"first_section"} funcao={() => setOpenModal2(true)}/>
-                    <Section img={IconBox} text="Importar csv de usuários" height={10} style={"first_section"} funcao={() => csv()}/>       
+                    <Section img={IconCircle} text="Enviar email" height={22} style={"first_section"} funcao={() => setOpenModal(true)} />
+                    <Section img={IconTriangle} text="Exportar cardápio" height={22} style={"first_section"} funcao={() => setOpenModal2(true)} />
+                    <Section img={IconBox} text="Importar csv de usuários" height={10} style={"first_section"} funcao={() => csv()} />
                     <LineSection />
                     <ButtonExit />
 
                 </div>
             </div>
-            <ModalEmail isOpen={openModal} setModalOpen={setOpenModal}/>
-            <ModalTxt isOpen2={openModal2} setModalOpen2={setOpenModal2}/>
+            <ModalEmail isOpen={openModal} setModalOpen={setOpenModal} />
+            <ModalTxt isOpen2={openModal2} setModalOpen2={setOpenModal2} />
         </>
     )
 };

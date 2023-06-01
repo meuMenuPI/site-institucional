@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 import 'sweetalert2/dist/sweetalert2.css';
 import UploadFoto from '../UsuarioLogadoComponents/UploadFoto';
 
-function ModalEmail({ isOpen2, setModalOpen2}) {
+function ModalTxt({ isOpen2, setModalOpen2}) {
 
     function enviarEmail(e) {
         e.preventDefault();
@@ -73,4 +73,4 @@ function ModalEmail({ isOpen2, setModalOpen2}) {
 
 }
 
-export default ModalEmail;
+export default ModalTxt;
