@@ -13,9 +13,21 @@
 }
 
 .div_left_header_perfil {
-    height: 27%;
-    margin-top: 4.5%;
-    width: 50%;
+    width: 225px;
+    height: 207px;
+    left: 453px;
+    top: 284px;
+    background: #FFFFFF;
+    border: 1px dashed #4B4848;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropzone{
+   display: flex;
+   justify-content: center;
 }
 
 .img_perfil_pessoa {
@@ -46,7 +58,7 @@
     color: #FFFFFF;
 }
 
-.div_input_half_User{
+.div_input_half_User {
     height: 53px;
     width: 100%;
     display: flex;
@@ -60,4 +72,3 @@
     width: 84%;
     margin-left: 8%;
 }
-
