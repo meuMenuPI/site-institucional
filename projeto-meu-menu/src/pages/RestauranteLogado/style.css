@@ -22,7 +22,7 @@ body {
 }
 
 .headerLogo {
-    height: 15%;
+    height: 5%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -172,13 +172,26 @@ body {
     width: 90%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin-right: 10%;
+    justify-content: space-between;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
 #id_button_exit {
-    height: 29px;
-    width: 73px;
+    height: 40%;
+    width: 20%;
+    border-radius: 100px;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+    border-width: 1.5px;
+    color: #8D0000;
+    font-weight: bold;
+}
+
+#id_button_meu_restaurante {
+    height: 40%;
+    width: 60%;
     border-radius: 100px;
     cursor: pointer;
     border-color: black;
@@ -226,18 +239,20 @@ body {
 /* Track */
 ::-webkit-scrollbar-track {
     background: #600404;
-    border-radius: 10px;
+    
+    border-radius: 6px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: white;
-    border-radius: 10px;
+    border: #600404 4px solid;
+    border-radius: 7px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #ffffffc0;
 }
 
 #img_perfil_big {

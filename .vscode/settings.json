@@ -2,5 +2,11 @@
     "workbench.colorCustomizations": {
         "minimap.background": "#00000000",
         "scrollbar.shadow": "#00000000"
-    }
+    },
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/e5c39992-b523-4742-835d-b2517124f484/resourceGroups/meuMenu/providers/Microsoft.Web/sites/meu-menu",
+    "appService.deploySubpath": "projeto-meu-menu/build"
 }

@@ -63,6 +63,11 @@ function CadastroUsuarioP2() {
     } else {
       api.post("usuarios/cadastrar", infoUser)
       .then(() => {
+        Swal.fire(
+          '',
+          'Cadastro feito com sucesso!',
+          'success'
+      )
         navigate("/login")
       })
       .catch((erro) => {

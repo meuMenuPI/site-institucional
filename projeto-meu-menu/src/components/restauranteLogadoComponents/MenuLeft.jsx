@@ -7,12 +7,15 @@ import IconCircle from '../../assets/images/IconCircle.png'
 import IconTriangle from '../../assets/images/IconTriangle.png'
 import IconBox from '../../assets/images/IconBox.png'
 import ButtonExit from './ButtonExit';
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ModalEmail from './ModalEmail';
+import ModalTxt from './ModalTxt'
+import api from '../../api';
+import Swal from 'sweetalert2';
 
 function MenuLeft() {
 
-
+    const navigate = useNavigate()
 
     const location = useLocation();
     if (location.pathname === '/restaurante-perfil') {
@@ -36,6 +39,27 @@ function MenuLeft() {
           // enviar email
           const [openModal, setOpenModal] = useState(false)
 
+          //txt
+          const [openModal2, setOpenModal2] = useState(false)
+
+            // importar csv
+          function csv() {
+            api.get(`/restaurantes/download/${sessionStorage.ID_RESTAURANTE_EDICOES}`)
+                .then((res) => {
+                    Swal.fire(
+                        '',
+                        'Baixado com sucesso',
+                        'success'
+                      )
+                })
+                .catch((err) => {
+                    Swal.fire(
+                        '',
+                        'Erro ao baixar',
+                        'error'
+                      )
+                });
+        }
     return (
         <>
             <div className="container_menu_left">
@@ -44,21 +68,24 @@ function MenuLeft() {
                 </div>
                 <div className='sections'>
                     <HeaderSection text='Perfil' />
-                    <Section img={IconCircle} text="Perfil" height={22} caminho={"/restaurante-perfil"} style={style_section1} />
-                    <Section img={IconTriangle} text="Cardápio" height={22} caminho={"/restaurante-cardapio"} style={style_section2} />
+                    <Section img={IconCircle} text="Perfil" height={22} funcao={() => navigate("/restaurante-perfil")} style={style_section1} />
+                    <Section img={IconTriangle} text="Cardápio" height={22} funcao={() => navigate("/restaurante-cardapio")} style={style_section2} />
                     <Section img={IconCircle} text="Foto" height={22} caminho={"/restaurante-foto"} style={style_section3} />
                     <LineSection />
                     <HeaderSection text='Relatórios' />
                     <Section img={IconBox} text="DashBoard" caminho={"/dashboard"} height={10} style={style_section3} />
                     <LineSection />
                     <HeaderSection text='Filtros' />
-                    <Section img={IconBox} text="Enviar email" height={10} style={style_section1} funcao={() => setOpenModal(true)}/>
+                    <Section img={IconCircle} text="Enviar email" height={22} style={style_section1} funcao={() => setOpenModal(true)}/>
+                    <Section img={IconCircle} text="Enviar email" height={22} style={style_section1} funcao={() => setOpenModal2(true)}/>
+                    <Section img={IconBox} text="Importar csv de usuários" height={10} style={style_section1} funcao={() => csv()}/>       
                     <LineSection />
                     <ButtonExit />
 
                 </div>
             </div>
-            <ModalEmail isOpen={openModal} setModalOpen={setOpenModal} />
+            <ModalEmail isOpen={openModal} setModalOpen={setOpenModal}/>
+            <ModalTxt isOpen2={openModal2} setModalOpen2={setOpenModal2}/>
         </>
     )
 };

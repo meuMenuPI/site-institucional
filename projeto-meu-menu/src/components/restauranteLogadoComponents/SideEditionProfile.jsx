@@ -2,12 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import ImgProfileBig from '../../assets/images/ImgPerfilBig.png';
 import ImgProfileMini from '../../assets/images/ImgPerfilMini.png';
 import TextEditionProfile from './TextEditionProfile';
-import BoxInputs from './BoxInputs';
-import ButtonSave from './ButtonSave';
-import api from '../../api';
 import { useNavigate } from 'react-router-dom';
-import Input from './Input';
-import InputHalf from './InputHalf';
+import api from '../../api';
 import Swal from 'sweetalert2'
 
 const formTemplate = {
@@ -23,7 +19,7 @@ const formTemplate = {
 
 const formTemplate2 = {
     id: 1,
-    fk_restaurante: 16,
+    fk_restaurante: 1,
     fk_usuario: null,
     cep: "",
     numero: "",
@@ -31,6 +27,8 @@ const formTemplate2 = {
     uf: ""
 }
 
+console.log(sessionStorage.ID_USUARIO)
+console.log(sessionStorage.ID_RESTAURANTE_PAGINA)
 
 function SideEditionProfile() {
     const [data, setData] = useState(formTemplate)
@@ -48,7 +46,7 @@ function SideEditionProfile() {
         setData2((prev) => {
             const newData2 = { ...prev, [key]: value };
             const enderecoResInfo = {
-                fk_restaurante: 16,
+                fk_restaurante: sessionStorage.ID_RESTAURANTE_EDICOES,
                 fk_usuario: null,
                 cep: newData2.cep,
                 numero: newData2.numero,
@@ -97,8 +95,8 @@ function SideEditionProfile() {
         e.preventDefault();
 
         const restauranteInfo = {
-            id: 16,
-            usuario: 1,
+            id: sessionStorage.ID_RESTAURANTE_EDICOES,
+            usuario: sessionStorage.ID_USUARIO,
             nome: nomeRes,
             especialidade: especialidadeRes,
             telefone: telefoneRes,
@@ -117,6 +115,8 @@ function SideEditionProfile() {
             uf: 0
         }
 
+
+
         const atualizarRestaurante = () => {
             api.put(`restaurantes/${restauranteInfo.id}`, restauranteInfo)
                 .then((res) => {
@@ -127,12 +127,14 @@ function SideEditionProfile() {
                     api.put(`/restaurantes/atualizar/endereco/${enderecoResInfo.id}`, enderecoResInfo)
                         .then((res2) => {
                             Swal.fire(
+                                '',
                                 'Endereço atualizado!',
                                 'success'
                             )
                         })
                         .catch((err) => {
                             Swal.fire(
+                                '',
                                 'Não foi possível atualizar o endereço!',
                                 'error'
                             )
@@ -141,6 +143,7 @@ function SideEditionProfile() {
                 })
                 .catch((erro) => {
                     Swal.fire(
+                        '',
                         'Não foi possível atualizar o restaurante',
                         'error'
                     )
@@ -167,6 +170,9 @@ function SideEditionProfile() {
 
         console.log(restauranteInfo);
         console.log(enderecoResInfo);
+        console.log("Id do session")
+
+        console.log(sessionStorage.ID_RESTAURANTE_PAGINA)
     }
 
     return (
@@ -178,7 +184,7 @@ function SideEditionProfile() {
                     </div>
                     <div className="div_right_header_perfil">
                         <div className="div_perfil_mini">
-                            <li>Olá, Jorge Augusto</li>
+                            <li>{sessionStorage.NOME}</li>
                             <li>
                                 <img src={ImgProfileMini} id="img_perfil_mini" alt="img perfil" />
                             </li>
