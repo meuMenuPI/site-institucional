@@ -14,7 +14,7 @@ function HeaderProfile() {
                     </div>
                     <div className="div_right_header_perfil_cardapio">
                         <div className="div_perfil_mini">
-                            <li>Olá, Jorge Augusto</li>
+                            <li>{sessionStorage.NOME}</li>
                             <li><img src={ImgProfileMini} id="img_perfil_mini" alt="img perfil" /></li>
                         </div>
                     </div>
