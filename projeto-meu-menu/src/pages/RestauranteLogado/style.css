@@ -239,18 +239,20 @@ body {
 /* Track */
 ::-webkit-scrollbar-track {
     background: #600404;
-    border-radius: 10px;
+    
+    border-radius: 6px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: white;
-    border-radius: 10px;
+    border: #600404 4px solid;
+    border-radius: 7px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #ffffffc0;
 }
 
 #img_perfil_big {
