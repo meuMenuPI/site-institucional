@@ -70,7 +70,7 @@ function ItemCardapio(props) {
                     <option value="maior">Maior Preço</option>
                 </select>
             </div>
-            {(data.filtro === "menor" ? cardapioMenor : cardapioMaior).map((item) =>
+            {(data.filtro === "menor" ? cardapioMenor : cardapioMaior) && (data.filtro === "menor" ? cardapioMenor : cardapioMaior).map((item) =>
                 <div key={item.id} className='rp_itemCardapio'>
                     <div className='rp_alinharCardapio'>
                         <div className='rp_descricaoPrato'>
@@ -81,7 +81,7 @@ function ItemCardapio(props) {
                             R${item.preco}
                         </div>
                         <div className='rp_fotoPrato'>
-                            <img src={link + item.nomeFoto} alt="" className='rp_fotoPrato' />
+                            <img src={Design} alt="" className='rp_fotoPrato' />
                         </div>
                     </div>
                 </div>

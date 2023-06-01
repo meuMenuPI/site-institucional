@@ -10,6 +10,8 @@ import Swal from 'sweetalert2'
 
 function HeaderPagina(props) {
 
+    const link = "https://meumenuimagens.blob.core.windows.net/restaurante/";
+
     const navigate = useNavigate();
 
     const [seguindo, setSeguindo] = useState();
@@ -140,9 +142,10 @@ function HeaderPagina(props) {
     if (seguindo === true) {
         return (
             <div className='rp_header'>
+                
                 <div className='rp_containerInfoRestaurante'>
                     <div className='rp_divImagem'>
-                        <div className='rp_imgHeader' style={{ backgroundImage: `url(${props.imgFundo})` }} />
+                        <div className='rp_imgHeader' style={{ backgroundImage: `url(${link + "2023-05-31T17:38:33.078222400ImgPratoCardapio.png"})` }} />
                     </div>
                     <div className='rp_dadosRestaurante'>
                         <h3 className='rp_nomeH2'>{dados.nome}</h3>
@@ -163,7 +166,7 @@ function HeaderPagina(props) {
             <div className='rp_header'>
                 <div className='rp_containerInfoRestaurante'>
                     <div className='rp_divImagem'>
-                        <div className='rp_imgHeader' style={{ backgroundImage: `url(${props.imgFundo})` }} />
+                        <div className='rp_imgHeader' style={{ backgroundImage: `url(${link + "2023-05-31T17:38:33.078222400ImgPratoCardapio.png"})` }} />
                     </div>
                     <div className='rp_dadosRestaurante'>
                         <h3 className='rp_nomeH2'>{dados.nome}</h3>

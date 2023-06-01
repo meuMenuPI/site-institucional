@@ -11,6 +11,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import ModalEmail from './ModalEmail';
 import ModalTxt from './ModalTxt'
 import api from '../../api';
+import { BiArrowBack } from 'react-icons/bi';
 import Swal from 'sweetalert2';
 
 function MenuLeft() {
@@ -63,7 +64,9 @@ function MenuLeft() {
     return (
         <>
             <div className="container_menu_left1">
+            <BiArrowBack onClick={() => navigate("/usuario-perfil-busca")} className="align-self-start mt-5 " size="50px" fill="#ffffff" />
                 <div className='headerLogo1'>
+                
                     <img src={Logo} className='img_logo' />
                 </div>
                 <div className='sections'>
@@ -77,8 +80,8 @@ function MenuLeft() {
                     <LineSection />
                     <HeaderSection text='Filtros' />
                     <Section img={IconCircle} text="Enviar email" height={22} style={"first_section"} funcao={() => setOpenModal(true)} />
-                    <Section img={IconTriangle} text="Exportar cardápio" height={22} style={"first_section"} funcao={() => setOpenModal2(true)} />
-                    <Section img={IconBox} text="Importar csv de usuários" height={10} style={"first_section"} funcao={() => csv()} />
+                    <Section img={IconBox} text="Exportar csv de usuários" height={10} style={"first_section"} funcao={() => csv()} />
+                    <Section img={IconTriangle} text="Importar cardápio" height={22} style={"first_section"} funcao={() => setOpenModal2(true)} />
                     <LineSection />
                     <ButtonExit />
 

@@ -113,7 +113,6 @@ export default function Inicio() {
                     </div>
                 </div>
 
-                <p class="titulo-grafico">Engajamento</p>
 
                 <div class="grafico">
 

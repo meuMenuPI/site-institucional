@@ -169,12 +169,11 @@ const Restaurante = (props) => {
 
                     <div className='abc d-flex justify-content-center'>
 
-                        <div className='divMiniaturas d-flex justify-content-around'>
+                    <div className='divMiniaturas d-flex justify-content-around'>
                             {filtroLocal && filtroLocal.map((item) =>
-                                <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={item.nomeFoto} />
+                                <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={link +item.nomeFoto} />
                             )}
                         </div>
-
                     </div>
                 </div>
             </>

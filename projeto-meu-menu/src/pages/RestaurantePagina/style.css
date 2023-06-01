@@ -581,3 +581,8 @@ li {
     font-weight: bold;
     margin-top: 2%;
 }
+
+.align-self-start{
+    margin-left: 40px;
+    cursor: pointer;
+}
