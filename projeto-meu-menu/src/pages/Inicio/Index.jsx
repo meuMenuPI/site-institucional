@@ -53,7 +53,7 @@ export default function Index() {
       <Col lg={12} md={12} className="busca mt-4 d-flex flex-column align-items-center justify-content-center">
         <div className='imgTextura'>
           <div className='areaTextura d-flex flex-column align-items-center justify-content-around'>
-            <BarraBusca />
+            <BarraBusca className="iconeLupa" />
             <div className='areaMiniaturas d-flex flex-column align-items-center justify-content-around'>
 
               <Restaurante titulo="Restaurante bem avaliados" valor={1}/>

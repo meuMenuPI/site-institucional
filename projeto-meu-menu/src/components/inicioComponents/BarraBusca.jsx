@@ -8,26 +8,26 @@ const BarraBusca = (props) => {
 
     const [data, setData] = useState([]);
     const [busca, setBusca] = useState('');
-
+    
     const pesquisa = (e) => {
         e.preventDefault();
-        const { value } = e.target;
+        const {value} = e.target;
         setBusca(value);
 
-        if (!value) {
-            setData([])
-            return;
+        if(!value) {
+           setData([])
+           return;
         }
 
-        api.get("/restaurantes")
-            .then((respostaObtida) => {
+            api.get("/restaurantes")
+              .then((respostaObtida) => {
                 console.log(respostaObtida.data);
                 setData(respostaObtida.data)
-            })
-            .catch((erroObtido) => {
+              })
+              .catch((erroObtido) => {
                 console.log(erroObtido)
-            });
-
+              });
+  
     }
 
     return (
@@ -35,8 +35,7 @@ const BarraBusca = (props) => {
             <div className='containerBusca'>
                 <form>
                     <input id='busca' name='busca' className='barraBusca' placeholder='Busque o que deseja' onChange={pesquisa}/>
-                    <img src={IconeLupa2} className='iconeLupa2' alt=''/>
-
+                    <img src={IconeLupa2} className={props.className} alt=''/>
                 </form>
                 <ResultadoBusca data={data} busca={busca}></ResultadoBusca>
             </div>
