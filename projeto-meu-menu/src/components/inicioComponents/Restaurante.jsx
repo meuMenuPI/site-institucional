@@ -149,6 +149,7 @@ const Restaurante = (props) => {
                             {filtroAvaliado && filtroAvaliado.map((item) =>
                                 <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={link +item.nomeFoto} />
                             )}
+                            
 
                         </div>
 
