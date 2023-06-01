@@ -31,46 +31,34 @@ function BoxPrato(props) {
         // Outras ações relacionadas à edição do prato...
     };
 
-    /* useEffect(() => {
-        api
-            .delete(`/cardapios?id=${}`)
-            .then((respostaObtida) => {
-                setCardapio(respostaObtida.data);
-                console.log(respostaObtida.data);
-            })
-            .catch((erroObtido) => {
-                console.log(erroObtido);
-            });
-    }, []); */
-
 
     const deletar = (pratoId) => {
         api
             .delete(`/cardapios/${pratoId}`)
             .then((respostaObtida) => {
-                Swal.fire(
-                    '',
-                    'Prato deletado!',
-                    'success',
-                    {
-                        timer: 2000
-                    }
-                )
+                console.log("Passou no deletar cardapio");
+                Swal.fire({
+                    title: '',
+                    text: 'Prato removido',
+                    icon: 'success',
+
+                });
+                setCardapio(cardapio.filter((prato) => prato.id != pratoId))
+
                 /* setCardapio(respostaObtida.data); */
                 console.log(respostaObtida.data);
-
-                window.location.reload()
             })
             .catch((erroObtido) => {
                 console.log(erroObtido);
             });
+
         // Outras ações relacionadas à edição do prato...
     };
 
 
     return (
         <>
-            {cardapio.map((item) => (
+            {cardapio && cardapio.map((item) => (
                 <div
                     key={item.id}
                     className={`div_prato_box_cardapio ${pratoSelecionado === item.id ? 'prato-selecionado' : ''}`}
