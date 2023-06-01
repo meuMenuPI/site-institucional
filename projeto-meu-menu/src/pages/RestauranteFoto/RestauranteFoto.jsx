@@ -46,7 +46,7 @@ function RestauranteFoto() {
 
 
             try {
-                await api.post('/restaurantes/foto-restaurante/1', file, {
+                await api.post(`/restaurantes/foto-restaurante/${sessionStorage.ID_RESTAURANTE_EDICOES}`, file, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
