@@ -9,6 +9,8 @@ import Swal from 'sweetalert2'
 
 const Restaurante = (props) => {
 
+    const link = "https://meumenuimagens.blob.core.windows.net/restaurante/";
+
     const navigate = useNavigate();
 
     function alterarPagina(fk) {
@@ -87,6 +89,7 @@ const Restaurante = (props) => {
                             console.log(uf)
                             api.get(`/restaurantes/filtrar/uf?uf=${uf}`)
                                 .then((respostaObtida) => {
+                                    console.log(respostaObtida.data);
                                     setFiltroLocal(respostaObtida.data);
                                 })
                                 .catch((erroObtido) => {
@@ -144,7 +147,7 @@ const Restaurante = (props) => {
 
                         <div className='divMiniaturas d-flex justify-content-around'>
                             {filtroAvaliado && filtroAvaliado.map((item) =>
-                                <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={item.nomeFoto} />
+                                <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={link +item.nomeFoto} />
                             )}
 
                         </div>

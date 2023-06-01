@@ -27,8 +27,9 @@ function ModalReview({ isOpen, setModalOpen }) {
                     '',
                     'Cadastrado!',
                     'success'
-
                   )
+                
+                window.location.reload();
             })
             .catch((err) => {
                 Swal.fire(
@@ -36,6 +37,7 @@ function ModalReview({ isOpen, setModalOpen }) {
                     'Não foi possível cadastrar sua review!',
                     'error'
                   )
+                  window.location.reload();
             });
 
     }

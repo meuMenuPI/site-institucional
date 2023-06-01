@@ -10,7 +10,8 @@ const RestauranteMiniatura = (props) => {
 
     const estiloCard = {
         backgroundImage: `url(${props.capa})`,
-        backgroundSize: "cover no-repeat"
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat"
     }
     const estiloNome = {
         color: "white"
