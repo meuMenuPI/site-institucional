@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import BoxPrato from '../../components/resturanteCardapioComponents/BoxPrato';
 import api from '../../api';
 import Swal from 'sweetalert2'
+import Especialidade from '../../components/cadastroUsuario/especialidade';
 
 function RestauranteCardapioEdition() {
   const navigate = useNavigate();
@@ -26,8 +27,8 @@ function RestauranteCardapioEdition() {
     e.preventDefault();
 
     const cardapioInfo = {
-      id: 1,
-      fk_restaurante: 1,
+      id: sessionStorage.ID_PRATO,
+      fk_restaurante: sessionStorage.ID_RESTAURANTE_EDICOES,
       nome: nomeRes,
       preco: precoRes,
       estiloGastronomico: estiloRes,
@@ -67,7 +68,14 @@ function RestauranteCardapioEdition() {
           </div>
           <div className="div_preco_estilo_cardapio">
             <input type="text" id="id_input_half" placeholder="Preço" disabled={!habilitado} onChange={(e) => setPrecoRes(e.target.value)} />
-            <input type="text" id="id_input_half" placeholder="Estilo Gastronômico" disabled={!habilitado} onChange={(e) => setEstiloRes(e.target.value)} />
+            {/* <input type="text" id="id_input_half" placeholder="Estilo Gastronômico" disabled={!habilitado} onChange={(e) => setEstiloRes(e.target.value)} /> */}
+            <select className="select_especialidade" disabled={!habilitado} value={estiloRes} onChange={(e) => setEstiloRes(e.target.value)}>
+              <option>Especialidade</option>
+              <option value="BRASILEIRA">Brasileira</option>
+              <option value="MEXICANA">Mexicana</option>
+              <option value="JAPONESA">Japonesa</option>
+              <option value="CHINESA">Chinesa</option>
+            </select>
           </div>
           <div className="div_descricao_cardapio">
             <input
