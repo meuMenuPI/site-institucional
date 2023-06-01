@@ -2,12 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import ImgProfileBig from '../../assets/images/ImgPerfilBig.png';
 import ImgProfileMini from '../../assets/images/ImgPerfilMini.png';
 import TextEditionProfile from './TextEditionProfile';
-import BoxInputs from './BoxInputs';
-import ButtonSave from './ButtonSave';
-import api from '../../api';
 import { useNavigate } from 'react-router-dom';
-import Input from './Input';
-import InputHalf from './InputHalf';
+import api from '../../api';
 import Swal from 'sweetalert2'
 
 const formTemplate = {
@@ -23,7 +19,7 @@ const formTemplate = {
 
 const formTemplate2 = {
     id: 1,
-    fk_restaurante: 0,
+    fk_restaurante: 1,
     fk_usuario: null,
     cep: "",
     numero: "",
@@ -31,6 +27,8 @@ const formTemplate2 = {
     uf: ""
 }
 
+console.log(sessionStorage.ID_USUARIO)
+console.log(sessionStorage.ID_RESTAURANTE_PAGINA)
 
 function SideEditionProfile() {
     const [data, setData] = useState(formTemplate)
@@ -117,6 +115,8 @@ function SideEditionProfile() {
             uf: 0
         }
 
+
+
         const atualizarRestaurante = () => {
             api.put(`restaurantes/${restauranteInfo.id}`, restauranteInfo)
                 .then((res) => {
@@ -170,6 +170,9 @@ function SideEditionProfile() {
 
         console.log(restauranteInfo);
         console.log(enderecoResInfo);
+        console.log("Id do session")
+
+        console.log(sessionStorage.ID_RESTAURANTE_PAGINA)
     }
 
     return (

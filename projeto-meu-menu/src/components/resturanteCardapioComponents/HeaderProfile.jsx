@@ -3,14 +3,14 @@ import '../../pages/RestauranteLogado/style.css'
 import ImgProfileMini from '../../assets/images/ImgPerfilMini.png'
 
 function HeaderProfile() {
-  return (
+    return (
 
-    <>
-<div className="div_all_perfil_cardapio">
-<div className="div_image_header_perfil_cardapio">
+        <>
+            <div className="div_all_perfil_cardapio">
+                <div className="div_image_header_perfil_cardapio">
                     <div className="div_left_header_perfil_cardapio">
                         {/* <img src={ImgProfileBig} id="img_perfil_big" alt="Imagem do perfil" /> */}
-                        Editar Cardápio
+                        Editar Prato
                     </div>
                     <div className="div_right_header_perfil_cardapio">
                         <div className="div_perfil_mini">
@@ -19,9 +19,9 @@ function HeaderProfile() {
                         </div>
                     </div>
                 </div>
-                </div>
-    
-    </>
+            </div>
+
+        </>
 
     )
 }
