@@ -10,9 +10,9 @@ function ButtonExit(props) {
   const [valido, setValido] = useState();
 
   function botaoMeuRestaurante() {
+    sessionStorage.ID_RESTAURANTE_EDICOES = restaurante.id
     return (
       <>
-      {sessionStorage.ID_RESTAURANTE_EDICOES = restaurante.id}
         <button onClick={() => navigate("/restaurante-perfil")} id='id_button_meu_restaurante'>Meu Restaurante</button>
       </>
     );
@@ -36,7 +36,7 @@ function ButtonExit(props) {
     <>
 
       <div className='box_button_exit'>
-        {props.parametro ===1? (valido ? botaoMeuRestaurante() : '') : ''}
+        {props.parametro ? (valido ? botaoMeuRestaurante() : '') : ''}
         <button onClick={() => navigate("/")} id='id_button_exit'>Sair</button>
       </div>
 
