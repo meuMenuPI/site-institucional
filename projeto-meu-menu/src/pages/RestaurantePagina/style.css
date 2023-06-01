@@ -438,6 +438,12 @@ li {
     margin-top: 5%;
 }
 
+.modal_comentario_email1{
+    height: 45%;
+    width: 100%;
+    margin-top: 10%;
+}
+
 .modal_comentario p {
     margin-top: 10px;
     margin-bottom: 0px;
@@ -453,6 +459,19 @@ li {
     border: 1.5px solid #7c747d;
     text-align: flex-start;
     border-radius: 4px;
+}
+
+.input_comentario_review1 {
+    height: 90px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1.5px solid #7c747d;
+    text-align: flex-start;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .input_comentario_email {
