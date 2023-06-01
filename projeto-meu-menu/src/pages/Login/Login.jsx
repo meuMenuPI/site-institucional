@@ -27,6 +27,11 @@ function Login() {
       sessionStorage.EMAIL = dadosUsuario.data.email;
       sessionStorage.FOTO_PERFIL = dadosUsuario.data.fotoPerfil
       sessionStorage.ID_USUARIO = dadosUsuario.data.id
+      Swal.fire(
+        '',
+        'Logado!',
+        'success'
+      )
       navigate("/usuario-perfil");
       console.log(dadosUsuario.data)
     })

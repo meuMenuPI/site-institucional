@@ -46,7 +46,7 @@ function SideEditionProfile() {
         setData2((prev) => {
             const newData2 = { ...prev, [key]: value };
             const enderecoResInfo = {
-                fk_restaurante: 1,
+                fk_restaurante: sessionStorage.ID_RESTAURANTE_EDICOES,
                 fk_usuario: null,
                 cep: newData2.cep,
                 numero: newData2.numero,
@@ -95,7 +95,7 @@ function SideEditionProfile() {
         e.preventDefault();
 
         const restauranteInfo = {
-            id: 1,
+            id: sessionStorage.ID_RESTAURANTE_EDICOES,
             usuario: sessionStorage.ID_USUARIO,
             nome: nomeRes,
             especialidade: especialidadeRes,
@@ -143,6 +143,7 @@ function SideEditionProfile() {
                 })
                 .catch((erro) => {
                     Swal.fire(
+                        '',
                         'Não foi possível atualizar o restaurante',
                         'error'
                     )
@@ -183,7 +184,7 @@ function SideEditionProfile() {
                     </div>
                     <div className="div_right_header_perfil">
                         <div className="div_perfil_mini">
-                            <li>Olá, Jorge Augusto</li>
+                            <li>{sessionStorage.NOME}</li>
                             <li>
                                 <img src={ImgProfileMini} id="img_perfil_mini" alt="img perfil" />
                             </li>

@@ -14,7 +14,7 @@ function UsuarioPerfilBusca() {
             <div className="busca2 d-flex flex-column align-items-center justify-content-around">
             <div className='imgTextura2'>
             <div className='areaTextura2 d-flex flex-column align-items-center justify-content-between'>
-            <BarraBusca />
+            <BarraBusca className="iconeLupa2"/>
 
             <div className='areaMiniaturas2 d-flex flex-column align-items-center justify-content-between'>
 

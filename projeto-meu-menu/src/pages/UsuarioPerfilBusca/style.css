@@ -23,14 +23,14 @@ body {
 
 .areaMiniaturas2{
     width: 100%;
-    height: 100%;
+    height: auto;
     overflow-x: auto;
     padding-top: 20px
 }
 
-.iconeLupaPerfil {
+.iconeLupa2 {
     width: 22px;
     position: absolute;
-    top: 4%;
-    left: 413px; 
+    left: 570px; 
+    top: 28px;
 }

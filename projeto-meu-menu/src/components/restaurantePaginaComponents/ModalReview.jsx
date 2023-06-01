@@ -13,7 +13,6 @@ function ModalReview({ isOpen, setModalOpen }) {
         e.preventDefault();
 
         const templateReview = {
-
             fkRestaurante: sessionStorage.ID_RESTAURANTE_PAGINA,
             fkUsuario: sessionStorage.ID_USUARIO,
             descricao: e.target.descricao.value,
@@ -25,13 +24,16 @@ function ModalReview({ isOpen, setModalOpen }) {
         api.post("/reviews", templateReview)
             .then((res2) => {
                 Swal.fire(
+                    '',
                     'Cadastrado!',
-                    'sucess'
+                    'success'
+
                   )
               window.location.reload()
             })
             .catch((err) => {
                 Swal.fire(
+                    '',
                     'Não foi possível cadastrar sua review!',
                     'error'
                   )
