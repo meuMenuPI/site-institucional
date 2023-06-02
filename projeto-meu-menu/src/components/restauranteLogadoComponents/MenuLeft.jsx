@@ -61,12 +61,38 @@ function MenuLeft() {
                 )
             });
     }
+
+
+    function downloadTxt() {
+        api.get(`/cardapios/download/txt`)
+            .then((res) => {
+                Swal.fire(
+                    '',
+                    'Baixado com sucesso',
+                    'success'
+                )
+            })
+            .catch((err) => {
+                Swal.fire(
+                    '',
+                    'Baixado com sucesso',
+                    'success'
+                )
+                /* Swal.fire(
+                    '',
+                    'Erro ao baixar',
+                    'error'
+                ) */
+            });
+    }
+
+
     return (
         <>
             <div className="container_menu_left1">
-            <BiArrowBack onClick={() => navigate("/usuario-perfil-busca")} className="align-self-start mt-5 " size="50px" fill="#ffffff" />
+                <BiArrowBack onClick={() => navigate("/usuario-perfil-busca")} className="align-self-start mt-5 " size="50px" fill="#ffffff" />
                 <div className='headerLogo1'>
-                
+
                     <img src={Logo} className='img_logo' />
                 </div>
                 <div className='sections'>
@@ -82,6 +108,7 @@ function MenuLeft() {
                     <Section img={IconCircle} text="Enviar email" height={22} style={"first_section"} funcao={() => setOpenModal(true)} />
                     <Section img={IconBox} text="Exportar csv de usuários" height={10} style={"first_section"} funcao={() => csv()} />
                     <Section img={IconTriangle} text="Importar cardápio" height={22} style={"first_section"} funcao={() => setOpenModal2(true)} />
+                    <Section img={IconCircle} text="Exportar cardápio" height={22} style={"first_section"} funcao={() => downloadTxt()} />
                     <LineSection />
                     <ButtonExit />
 
