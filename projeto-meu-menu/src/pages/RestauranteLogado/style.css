@@ -45,7 +45,7 @@ body {
 
 .text_header_section {
     margin-top: 45px;
-        display: flex;
+    display: flex;
     align-items: center;
     height: 100%;
     width: 85%;
@@ -242,7 +242,7 @@ body {
 /* Track */
 ::-webkit-scrollbar-track {
     background: #600404;
-    
+
     border-radius: 6px;
 }
 
@@ -568,4 +568,16 @@ body {
     border-width: 1.5px;
     color: #8D0000;
     font-weight: bold;
+}
+
+#id_adicionar_txt {
+    /* height: 40%;
+    width: 60%;
+    border-radius: 100px;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+    border-width: 1.5px;
+    color: #8D0000;
+    font-weight: bold; */
 }
