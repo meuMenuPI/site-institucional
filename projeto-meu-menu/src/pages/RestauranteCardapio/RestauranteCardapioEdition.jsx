@@ -21,6 +21,7 @@ function RestauranteCardapioEdition() {
   const [precoRes, setPrecoRes] = useState();
   const [estiloRes, setEstiloRes] = useState();
   const [descricaoRes, setDescricaoRes] = useState();
+  const [fotoRes, setFotoRes] = useState()
 
 
   function atualizar(e) {
@@ -56,7 +57,37 @@ function RestauranteCardapioEdition() {
         navigate("/restaurante-cardapio");
       });
 
+
+
   }
+
+  const [selectedFile, setSelectedFile] = useState();
+
+  const [selectedImages, setSelectedImage] = useState()
+
+  const handleFileSelect = (file) => {
+    setSelectedFile(file);
+  };
+
+
+
+  const handleFileUpload = async (e) => {
+    e.preventDefault();
+    console.log("o ARQUIVO SELECIONADO É O: " + selectedFile);
+  
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append('imagem', selectedFile);
+  
+      try {
+        await api.post(`/cardapios/foto-prato/${sessionStorage.ID_PRATO}`, formData);
+        sessionStorage.FOTO_PRATO = selectedFile.name;
+        console.log('Arquivo enviado com sucesso!');
+      } catch (error) {
+        console.error('Erro ao enviar o arquivo:', error);
+      }
+    }
+  };
   return (
     <>
       <div className="all">
@@ -87,10 +118,10 @@ function RestauranteCardapioEdition() {
           </div>
         </div>
         <div className="box_pratos_editar_cardapio">
-          <BoxPrato onClick={handleHabilitarInputs} />
+          <BoxPrato arquivo={handleFileSelect} onClick={handleHabilitarInputs} />
         </div>
         <div className="div_button_editar_cardapipo">
-          <button type="text" id="id_btn_edition_cardapio" onClick={atualizar}>
+          <button type="text" id="id_btn_edition_cardapio" onClick={(e) => { atualizar(e); handleFileUpload(e); }}>
             Salvar
           </button>
         </div>

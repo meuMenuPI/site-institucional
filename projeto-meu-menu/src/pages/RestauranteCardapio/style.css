@@ -114,6 +114,9 @@ body {
 
 #img_prato_cardapio {
     height: 65px;
+    width: 70px;
+    background-size: cover;
+    
 }
 
 #img_adicionar_prato_cardapio {

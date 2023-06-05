@@ -16,7 +16,7 @@ function RestauranteFoto() {
 
     const getImageByIndex = (index) => {
         const selectedImage = selectedImages.find((file) => file.index === index);
-    return selectedImage ? selectedImage.image : null;
+        return selectedImage ? selectedImage.image : null;
     };
 
     
