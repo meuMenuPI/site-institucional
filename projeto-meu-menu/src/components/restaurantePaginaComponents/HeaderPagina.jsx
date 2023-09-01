@@ -50,7 +50,7 @@ function HeaderPagina(props) {
     useEffect(() => {
         api.get(`/usuarios/favoritar?fk_usuario=${sessionStorage.ID_USUARIO}&fk_restaurante=${sessionStorage.ID_RESTAURANTE_PAGINA}`)
             .then((respostaObtida) => {
-                if (respostaObtida === 1) {
+                if (respostaObtida.data > 0) {
                     setSeguindo(true);
                     console.log(seguindo)
                 }
@@ -62,8 +62,8 @@ function HeaderPagina(props) {
             .catch((erroObtido) => {
                 console.log(seguindo);
             });
-            // eslint-disable-next-line
-    }, []);
+            
+    }, [seguindo]);
 
     useEffect(() => {
         api.get(`/restaurantes/endereco/${sessionStorage.ID_RESTAURANTE_PAGINA}`)
@@ -82,13 +82,6 @@ function HeaderPagina(props) {
             })
             .catch((erroObtido) => {
 
-                Swal.fire(
-                    '',
-                    'Não foi possível pegar os dados do restauante!',
-                    'error'
-                )
-
-                navigate("/")
             });
     }, [dados, navigate]);
 
@@ -139,7 +132,6 @@ function HeaderPagina(props) {
         )
     }
 
-    if (seguindo === true) {
         return (
             <div className='rp_header'>
                 
@@ -151,36 +143,13 @@ function HeaderPagina(props) {
                         <h3 className='rp_nomeH2'>{dados.nome}</h3>
                         <div className='rp_divEstrelaSeguir'>
                             {dados.estrela === 0 ? "" : estrelaMichelan()}
-                            <button className='rp_botaoSeguir' onClick={desfavoritar}> Seguindo <BiCheckCircle></BiCheckCircle></button>
+                            {seguindo === true ? <button className='rp_botaoSeguir' onClick={desfavoritar}> Seguindo <BiCheckCircle></BiCheckCircle></button> : <button className='rp_botaoSeguir' onClick={favoritar}> Seguir</button>}
                         </div>
                         <span className='rp_endereco'>CEP: {dadosE.cep} - N° {dadosE.numero} - {dadosE.uf}</span>
                     </div>
                 </div>
             </div>
         )
-    }
-
-    if (seguindo === false) {
-        return (
-
-            <div className='rp_header'>
-                <div className='rp_containerInfoRestaurante'>
-                    <div className='rp_divImagem'>
-                        <div className='rp_imgHeader' style={{ backgroundImage: `url(${link + "2023-05-31T17:38:33.078222400ImgPratoCardapio.png"})` }} />
-                    </div>
-                    <div className='rp_dadosRestaurante'>
-                        <h3 className='rp_nomeH2'>{dados.nome}</h3>
-                        <div className='rp_divEstrelaSeguir'>
-                            {dados.estrela === 0 ? "" : estrelaMichelan()}
-                            <button className='rp_botaoSeguir' onClick={favoritar}>Seguir </button>
-                        </div>
-                        <span className='rp_endereco'>CEP: {dadosE.cep} - N° {dadosE.numero} - {dadosE.uf}</span>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
 }
 
 export default HeaderPagina;
