@@ -33,7 +33,7 @@ export default function Index() {
         <img className="imgPredio" src={Predio} alt="imagem fundo" />
         <div className='banner d-flex flex-column' >
           <div className='texto-banner'>
-            <h1>Comida de verdade da sua cidade, onde e quando você quiser.</h1>
+            <h1>Comida de verdade da sua cidade versao 1, onde e quando você quiser.</h1>
           </div>
           <div className='d-flex'>
             <BotaoIcone buttonText="Cadastre seu comercio" image={Casa}></BotaoIcone>
