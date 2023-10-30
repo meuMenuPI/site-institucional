@@ -104,11 +104,11 @@ function MenuLeft() {
                     <HeaderSection text='Relatórios' />
                     <Section img={IconBox} text="DashBoard" funcao={() => navigate("/dashboard")} height={10} style={'first_section_not_background'} />
                     <LineSection />
-                    <HeaderSection text='Filtros' />
+                    <HeaderSection text='Opções' />
                     <Section img={IconCircle} text="Enviar email" height={22} style={"first_section"} funcao={() => setOpenModal(true)} />
-                    <Section img={IconBox} text="Exportar csv de usuários" height={10} style={"first_section"} funcao={() => csv()} />
-                    <Section img={IconTriangle} text="Importar cardápio" height={22} style={"first_section"} funcao={() => setOpenModal2(true)} />
-                    <Section img={IconCircle} text="Exportar cardápio" height={22} style={"first_section"} funcao={() => downloadTxt()} />
+                    {/* <Section img={IconBox} text="Exportar csv de usuários" height={10} style={"first_section"} funcao={() => csv()} /> */}
+                    {/* <Section img={IconTriangle} text="Importar cardápio" height={22} style={"first_section"} funcao={() => setOpenModal2(true)} /> */}
+                    {/* <Section img={IconCircle} text="Exportar cardápio" height={22} style={"first_section"} funcao={() => downloadTxt()} /> */}
                     <LineSection />
                     <ButtonExit />
 

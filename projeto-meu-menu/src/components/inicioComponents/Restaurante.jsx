@@ -34,11 +34,6 @@ const Restaurante = (props) => {
         fontSize: "1.5rem"
     }
 
-    // SessionStorage
-    // Setando geolocalização
-
-
-
     const [filtroLocal, setFiltroLocal] = useState([]);
 
     useEffect(() => {
