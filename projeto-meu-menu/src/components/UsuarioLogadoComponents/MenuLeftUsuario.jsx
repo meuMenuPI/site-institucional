@@ -52,9 +52,9 @@ function MenuLeftUsuario(props) {
                     <Section img={IconCircle} text="Perfil" height={22}  style={style_section1} funcao={() => navigate("/usuario-perfil")}/>
                     <Section img={IconTriangle} text="Busca" height={22} style={style_section2} funcao={() => navigate("/usuario-perfil-busca")}/>
                     <LineSection />
-                    <HeaderSection text='Filtros' />
+                    {/* <HeaderSection text='Filtros' />
                     <Section img={IconBox} text="Benéficios" height={10} style={style_section3} />
-                    <LineSection />
+                    <LineSection /> */}
                     <ButtonExit parametro={1}/>
 
                 </div>
