@@ -19,12 +19,12 @@ const Restaurante = (props) => {
             sessionStorage.ID_RESTAURANTE_PAGINA = fk;
             navigate("/restaurante-pagina")
         }
-        else{
+        else {
             Swal.fire(
                 'Ops',
                 'Parece que você ainda não está logado, por favor faça login para acessar funcionalidade',
                 'error'
-              )
+            )
         }
 
 
@@ -36,78 +36,21 @@ const Restaurante = (props) => {
 
     // SessionStorage
     // Setando geolocalização
-    const { isLoaded } = useLoadScript({
-        googleMapsApiKey: 'AIzaSyB9qheN9UJ7wG0KzmteOllzhl4cTQCr8S4', // Substitua pela sua própria chave de API do Google Maps
-    });
+
 
 
     const [filtroLocal, setFiltroLocal] = useState([]);
 
     useEffect(() => {
-        var latitude
-        var longitude
-        var geoloc
-        var uf
-        if (isLoaded) {
-            const script = document.createElement('script');
-            script.async = true;
-            script.onload = () => {
-            };
-            document.body.appendChild(script);
-            const google = window.google;
-            function success(pos) {
-                console.log(pos.coords.latitude, pos.coords.longitude);
-                latitude = -23.5480426
-                longitude = -46.3714011
-                // initMap()
-            }
-
-            function error(err) {
-                console.log(err);
-            }
-
-            navigator.geolocation.getCurrentPosition(success, error, {
-                enableHighAccuracy: true
+        api.get(`/restaurantes/filtrar/uf?uf=sp`)
+            .then((respostaObtida) => {
+                console.log(respostaObtida.data);
+                setFiltroLocal(respostaObtida.data);
             })
-
-            // function initMap() {
-            //     const geocoder = new google.maps.Geocoder();
-            //     geocodeLatLng(geocoder);
-            // }
-
-            function geocodeLatLng(geocoder) {
-                const latlng = {
-                    lat: parseFloat(latitude),
-                    lng: parseFloat(longitude),
-                };
-                geocoder
-                    .geocode({ location: latlng })
-                    .then((response) => {
-                        if (response.results[0]) {
-                            geoloc = response.results[0]
-                            uf = "sp"
-                            console.log(uf)
-                            api.get(`/restaurantes/filtrar/uf?uf=${uf}`)
-                                .then((respostaObtida) => {
-                                    console.log(respostaObtida.data);
-                                    setFiltroLocal(respostaObtida.data);
-                                })
-                                .catch((erroObtido) => {
-                                    console.log(erroObtido);
-                                });
-                        } else {
-                            Swal.fire(
-                                '',
-                                'Nenhum resultado encontrado',
-                                'error'
-                              )
-                        }
-                    })
-                    .catch((e) => window.alert("Geocoder failed due to: " + e));
-            }
-
-        }
-    }, [isLoaded]);
+            .catch((erroObtido) => {
+                console.log(erroObtido);
+            });
+    })
     // Fim geolocalização
 
     const [filtroAvaliado, setFiltroAvaliado] = useState([]);
@@ -147,9 +90,9 @@ const Restaurante = (props) => {
 
                         <div className='divMiniaturas d-flex justify-content-around'>
                             {filtroAvaliado && filtroAvaliado.map((item) =>
-                                <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={link +item.nomeFoto} />
+                                <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={link + item.nomeFoto} />
                             )}
-                            
+
 
                         </div>
 
@@ -169,9 +112,9 @@ const Restaurante = (props) => {
 
                     <div className='abc d-flex justify-content-center'>
 
-                    <div className='divMiniaturas d-flex justify-content-around'>
+                        <div className='divMiniaturas d-flex justify-content-around'>
                             {filtroLocal && filtroLocal.map((item) =>
-                                <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={link +item.nomeFoto} />
+                                <RestauranteMiniatura key={item.id} onClick={() => alterarPagina(item.id)} nomeRestaurante={item.nome} capa={link + item.nomeFoto} />
                             )}
                         </div>
                     </div>
