@@ -57,9 +57,9 @@ const Restaurante = (props) => {
             const google = window.google;
             function success(pos) {
                 console.log(pos.coords.latitude, pos.coords.longitude);
-                latitude = pos.coords.latitude
-                longitude = pos.coords.longitude
-                initMap()
+                latitude = -23.5480426
+                longitude = -46.3714011
+                // initMap()
             }
 
             function error(err) {
@@ -70,10 +70,10 @@ const Restaurante = (props) => {
                 enableHighAccuracy: true
             })
 
-            function initMap() {
-                const geocoder = new google.maps.Geocoder();
-                geocodeLatLng(geocoder);
-            }
+            // function initMap() {
+            //     const geocoder = new google.maps.Geocoder();
+            //     geocodeLatLng(geocoder);
+            // }
 
             function geocodeLatLng(geocoder) {
                 const latlng = {
@@ -85,7 +85,7 @@ const Restaurante = (props) => {
                     .then((response) => {
                         if (response.results[0]) {
                             geoloc = response.results[0]
-                            uf = geoloc.address_components[4].short_name
+                            uf = "sp"
                             console.log(uf)
                             api.get(`/restaurantes/filtrar/uf?uf=${uf}`)
                                 .then((respostaObtida) => {
