@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Logo from '../../assets/images/logo.png'
+import '../../pages/RestauranteLogado/style.css'
 import Section from './Section'
 import LineSection from './LineSection';
 import HeaderSection from './HeaderSection';
@@ -90,12 +91,12 @@ function MenuLeft() {
     return (
         <>
             <div className="container_menu_left1">
-                <BiArrowBack onClick={() => navigate("/usuario-perfil-busca")} className="align-self-start mt-5 " size="50px" fill="#ffffff" />
+                <BiArrowBack onClick={() => navigate("/usuario-perfil-busca")} className="seta" size="35px" fill="#ffffff" />
                 <div className='headerLogo1'>
 
-                    <img src={Logo} className='img_logo' />
+                    <img src={Logo} className='img_logo1' />
                 </div>
-                <div className='sections'>
+                <div className='sections1'>
                     <HeaderSection text='Perfil' />
                     <Section img={IconCircle} text="Perfil" height={22} funcao={() => navigate("/restaurante-perfil")} style={style_section1} />
                     <Section img={IconTriangle} text="Cardápio" height={22} funcao={() => navigate("/restaurante-cardapio")} style={style_section2} />

@@ -487,13 +487,13 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 90px;
+    margin-top: 5%;
     align-items: center;
 }
 
 .img_logo1 {
     width: 60px;
-    margin-top: 35%;
+    margin-top: 15%;
 }
 
 .header_section1 {
@@ -516,6 +516,7 @@ body {
 }
 
 .sections1 {
+    margin-top: 22%;
     height: 70%;
     width: 100%;
     justify-content: center;
@@ -556,6 +557,11 @@ body {
     display: flex;
     align-items: center;
     color: white;
+}
+
+.seta {
+    margin-top: 5%;
+    margin-left: 5%;
 }
 
 #id_button_meu_restaurante1 {
